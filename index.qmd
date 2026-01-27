@@ -120,8 +120,9 @@ The materials for this workshop were based on the following sources:
 -   [Base R Cheat Sheet](https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf)
 -   [Google's R Style Guide](https://google.github.io/styleguide/Rguide.html)
 -   [Mastering Software Development in R](https://bookdown.org/rdpeng/RProgDA/)
--   [R for Data Science (2e)](https://r4ds.hadley.nz)
--   [R Graphics Cookbook, 2nd edition](https://r-graphics.org/index.html)
--   [R in Action, Second Edition](https://livebook.manning.com/book/r-in-action-second-edition/chapter-1)
+-   [Online Book: R for Data Science (2e)](https://r4ds.hadley.nz)
+-   [Online Book: R Graphics Cookbook, 2nd edition](https://r-graphics.org/index.html)
+-   [Online Book: R in Action, Second Edition](https://livebook.manning.com/book/r-in-action-second-edition/chapter-1)
+-   [Online Book: Hands-On Programming with R](https://rstudio-education.github.io/hopr/)
 
 *Workshop created as part of the McGill Initiative in Computational Medicine*

@@ -28,8 +28,14 @@ website:
     search: true
     collapse-level: 1
     contents:
-      - href: index.qmd
-        text: Welcome
+      - text: "Welcome🎉"
+        href: index.qmd
+      - text: "Getting Started: Installing R and RStudio"
+        href: Setup.qmd
+      - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒"
+        contents:
+          - text: "Syntax"
+            href: RBasics/Syntax.qmd
 
 
 format:
