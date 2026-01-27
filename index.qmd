@@ -5,3 +5,4 @@ subtitle: "QLS-MiCM Workshop"
 
 ## Welcome {#welcome}
 
+Intro to R
