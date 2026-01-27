@@ -1,0 +1,47 @@
+project: 
+  type: website
+  
+website: 
+  page-navigation: true
+  title: "Intro To R" 
+  site-url: "https://martinahyang.github.io/IntroToR_Winter2026/" 
+  repo-url: https://github.com/MartinaHYang/IntroToR_Winter2026
+  repo-actions: [edit, issue]
+  
+  page-footer:
+    left: "&copy; CC-By Martina, 2026. All rights reserved."
+    right: "This page is built with [Quarto](https://quarto.org/)."
+    
+  sidebar:
+    logo: "images/MiCM_logo.png"
+    pinned: true
+    align: center
+    tools: 
+      - icon: globe
+        href: https://www.mcgill.ca/micm/
+        text: "GLS-MiCM"
+      - icon: github
+        href: https://github.com/QLS-MiCM
+        text: "MiCM Github"     
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - href: index.qmd
+        text: Welcome
+
+
+format:
+  html:
+    theme:
+      light: [cosmo, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
+      dark: [cosmo, theme-dark.scss]
+    code-copy: true
+    code-overflow: wrap
+    toc: true
+
+
+filters:
+  - include-files.lua
+  - quarto
+
