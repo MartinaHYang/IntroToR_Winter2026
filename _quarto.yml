@@ -11,6 +11,7 @@ website:
   page-footer:
     left: "&copy; CC-By Martina, 2026. All rights reserved."
     right: "This page is built with [Quarto](https://quarto.org/)."
+    center: "Workshop created as part of the McGill Initiative in Computational Medicine."
     
   sidebar:
     logo: "images/MiCM_logo.png"
@@ -33,9 +34,7 @@ website:
 
 format:
   html:
-    theme:
-      light: [cosmo, theme.scss] # from https://github.com/sta210-s22/website/blob/main/_quarto.yml
-      dark: [cosmo, theme-dark.scss]
+    theme: cosmo
     code-copy: true
     code-overflow: wrap
     toc: true
