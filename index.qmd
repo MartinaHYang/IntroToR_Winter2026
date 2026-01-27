@@ -1,7 +1,0 @@
----
-title: "Intro to Pprogramming in R"
-subtitle: "QLS-MiCM Workshop"
----
-
-## Welcome {#welcome}
-
