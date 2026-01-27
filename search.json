@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Intro to Pprogramming in R",
+    "title": "Intro to Programming in R",
     "section": "",
-    "text": "Intro to R",
+    "text": "This workshop is beginner-level introduction to programming in R. The course is designed to be taught in one session of 4 hours and is focused on the application of R to the analysis of tabular data from medical datasets.",
     "crumbs": [
       "Welcome"
     ]
@@ -12,9 +12,49 @@
   {
     "objectID": "index.html#welcome",
     "href": "index.html#welcome",
-    "title": "Intro to Pprogramming in R",
+    "title": "Intro to Programming in R",
     "section": "",
-    "text": "Intro to R",
+    "text": "This workshop is beginner-level introduction to programming in R. The course is designed to be taught in one session of 4 hours and is focused on the application of R to the analysis of tabular data from medical datasets.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#prior-knowledge",
+    "href": "index.html#prior-knowledge",
+    "title": "Intro to Programming in R",
+    "section": "1. Prior knowledge",
+    "text": "1. Prior knowledge\n\nNo previous programming experience is required.\nPlease review the following topics if you’re not comfortable with them:\n\nbasic linear algebra (operations with vectors and metrics)\nmathematical operations (exponential, logarithms)\nbasic statistics (mean, variance, median, standard deviation)\nlogical statements (AND, OR, NOT)",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#software-requirements",
+    "href": "index.html#software-requirements",
+    "title": "Intro to Programming in R",
+    "section": "2. Software requirements",
+    "text": "2. Software requirements\n\nR &gt; 4.0\nRStudio\n\nOnce you have setup R and RStudio copy the code below to install the packages required for the workshop.\n\n# Installing necessary packages\n\ninstall.packages(c(\"data.table\", \"datasets\", \"devtools\", \"dplyr\", \"ggplot2\", \"plyr\", \"medicaldata\", \"gapminder\", \"RColorBrewer\", \"rmarkdown\", \"stringr\", \"tidyr\", \"tidyverse\", \"viridis\"))\n\n\nDon’t panic if you get stuck! You can find step-by-step instructions in Section 2.\nWhile it helps to be ready before class, we’ve set aside 15 minutes of the workshop to help anyone running into errors.",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#workshop-outline",
+    "href": "index.html#workshop-outline",
+    "title": "Intro to Programming in R",
+    "section": "3. Workshop Outline",
+    "text": "3. Workshop Outline\n\n3.1 R basics\nIn the first module of the workshop, the goals are to (1) familiarize with the language and the logic behind it; (2) Get started with R studio and create your first project; (3) Configure the working directory with a common standard structure; (4) Create your first .R file to write down the live code; (5) Compute arithmetic operations; (6) Use logical operators; (7) Get fluent in R’s console; (8) Learn how to ask for help within R; and (9) get comfortable with installing packages.\nModule content:\n\nSyntax\nArithmetic Operations\nCreating variables\nLogical operators\nSeeking help\nInstalling packages\nHands on: basics\n\n\n\n3.2 Data types: attributes and built-in functions\nIn this section participants will (1) understand the differences between classes, objects and data types in R; (2) create objects of different types, learn about their attributes and apply some built-in functions in R; (3) Subset and index objects; and (4) get comfortable with vectorized operations.\nModule content:\n\nVectors\nLists\nFactors\nData frames\nArrays\nCoercion\nHands-on: data types\n\n\n\n3.3 Basic data manipulation\nIn this module participants will (1) learn how to read/write data to/from files with different formats (.tsv, .csv); (2) become familiar with basic data-frame operations; (3) index and subset data frames using base R; (4) manipulate individual data frame columns; and (5) learn how to join columns and rows of different data frames using base R.\nModule content:\n\nReading/writing data\nExploring data frames\nHands-on: basic data manipulation\n\n\n\n3.4 Advanced data manipulation\nThe fourth module participants will (1) familiarize with the dplyr syntax; (2) create pipes with the operator %&gt;%; (3) perform operations on data frames using dplyr and tidyr functions; and (4) implement functions from external packages by reading their documentation in R\nModule content:\n\nHandling data frames with dplyr\nOther useful packages\nHands-on: advanced data manipulation\n\n\n\n3.5 Generating visual outputs\nThis section will show participants how to (1) Create basic plots using base R functions; (2) Understand how to connect data frames with ggplot2; (3) create basic graphs with ggplot2; (4) use factors to customize graphics in ggplot2; (5) use RMarkdown to generate customized reports.\nModule content:\n\nFigures with base R\nGraphics with ggplot2\n\n\n\n3.6 Real life application: COVID testing dataset\nThis hands-on activity will familiarize participants with a real-life use of R in the pharma industry environment and encourage them to apply the knowledge from previous modules to create an analysis pipeline.\n\n\n3.7 Software development concepts\nTo conclude the workshop, participants will (1) acquire good coding practices; (2) be familiar with code documentation standards; (3) know what to avoid when programming in R; (4) learn how to debug and troubleshoot their own code.\nModule content:\n\nGood coding practices\nStyle guide\nDebugging and troubleshooting",
+    "crumbs": [
+      "Welcome"
+    ]
+  },
+  {
+    "objectID": "index.html#references",
+    "href": "index.html#references",
+    "title": "Intro to Programming in R",
+    "section": "4. References",
+    "text": "4. References\nThe materials for this workshop were based on the following sources:\n\nBase R Cheat Sheet\nGoogle’s R Style Guide\nMastering Software Development in R\nR for Data Science (2e)\nR Graphics Cookbook, 2nd edition\nR in Action, Second Edition\n\nWorkshop created as part of the McGill Initiative in Computational Medicine",
     "crumbs": [
       "Welcome"
     ]
