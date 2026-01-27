@@ -6,7 +6,7 @@
     "section": "",
     "text": "This workshop is beginner-level introduction to programming in R. The course is designed to be taught in one session of 4 hours and is focused on the application of R to the analysis of tabular data from medical datasets.",
     "crumbs": [
-      "Welcome"
+      "Welcome🎉"
     ]
   },
   {
@@ -16,7 +16,7 @@
     "section": "",
     "text": "This workshop is beginner-level introduction to programming in R. The course is designed to be taught in one session of 4 hours and is focused on the application of R to the analysis of tabular data from medical datasets.",
     "crumbs": [
-      "Welcome"
+      "Welcome🎉"
     ]
   },
   {
@@ -26,7 +26,7 @@
     "section": "1. Prior knowledge",
     "text": "1. Prior knowledge\n\nNo previous programming experience is required.\nPlease review the following topics if you’re not comfortable with them:\n\nbasic linear algebra (operations with vectors and metrics)\nmathematical operations (exponential, logarithms)\nbasic statistics (mean, variance, median, standard deviation)\nlogical statements (AND, OR, NOT)",
     "crumbs": [
-      "Welcome"
+      "Welcome🎉"
     ]
   },
   {
@@ -36,7 +36,7 @@
     "section": "2. Software requirements",
     "text": "2. Software requirements\n\nR &gt; 4.0\nRStudio\n\nOnce you have setup R and RStudio copy the code below to install the packages required for the workshop.\n\n# Installing necessary packages\n\ninstall.packages(c(\"data.table\", \"datasets\", \"devtools\", \"dplyr\", \"ggplot2\", \"plyr\", \"medicaldata\", \"gapminder\", \"RColorBrewer\", \"rmarkdown\", \"stringr\", \"tidyr\", \"tidyverse\", \"viridis\"))\n\n\nDon’t panic if you get stuck! You can find step-by-step instructions in Section 2.\nWhile it helps to be ready before class, we’ve set aside 15 minutes of the workshop to help anyone running into errors.",
     "crumbs": [
-      "Welcome"
+      "Welcome🎉"
     ]
   },
   {
@@ -46,7 +46,7 @@
     "section": "3. Workshop Outline",
     "text": "3. Workshop Outline\n\n3.1 R basics\nIn the first module of the workshop, the goals are to (1) familiarize with the language and the logic behind it; (2) Get started with R studio and create your first project; (3) Configure the working directory with a common standard structure; (4) Create your first .R file to write down the live code; (5) Compute arithmetic operations; (6) Use logical operators; (7) Get fluent in R’s console; (8) Learn how to ask for help within R; and (9) get comfortable with installing packages.\nModule content:\n\nSyntax\nArithmetic Operations\nCreating variables\nLogical operators\nSeeking help\nInstalling packages\nHands on: basics\n\n\n\n3.2 Data types: attributes and built-in functions\nIn this section participants will (1) understand the differences between classes, objects and data types in R; (2) create objects of different types, learn about their attributes and apply some built-in functions in R; (3) Subset and index objects; and (4) get comfortable with vectorized operations.\nModule content:\n\nVectors\nLists\nFactors\nData frames\nArrays\nCoercion\nHands-on: data types\n\n\n\n3.3 Basic data manipulation\nIn this module participants will (1) learn how to read/write data to/from files with different formats (.tsv, .csv); (2) become familiar with basic data-frame operations; (3) index and subset data frames using base R; (4) manipulate individual data frame columns; and (5) learn how to join columns and rows of different data frames using base R.\nModule content:\n\nReading/writing data\nExploring data frames\nHands-on: basic data manipulation\n\n\n\n3.4 Advanced data manipulation\nThe fourth module participants will (1) familiarize with the dplyr syntax; (2) create pipes with the operator %&gt;%; (3) perform operations on data frames using dplyr and tidyr functions; and (4) implement functions from external packages by reading their documentation in R\nModule content:\n\nHandling data frames with dplyr\nOther useful packages\nHands-on: advanced data manipulation\n\n\n\n3.5 Generating visual outputs\nThis section will show participants how to (1) Create basic plots using base R functions; (2) Understand how to connect data frames with ggplot2; (3) create basic graphs with ggplot2; (4) use factors to customize graphics in ggplot2; (5) use RMarkdown to generate customized reports.\nModule content:\n\nFigures with base R\nGraphics with ggplot2\n\n\n\n3.6 Real life application: COVID testing dataset\nThis hands-on activity will familiarize participants with a real-life use of R in the pharma industry environment and encourage them to apply the knowledge from previous modules to create an analysis pipeline.\n\n\n3.7 Software development concepts\nTo conclude the workshop, participants will (1) acquire good coding practices; (2) be familiar with code documentation standards; (3) know what to avoid when programming in R; (4) learn how to debug and troubleshoot their own code.\nModule content:\n\nGood coding practices\nStyle guide\nDebugging and troubleshooting",
     "crumbs": [
-      "Welcome"
+      "Welcome🎉"
     ]
   },
   {
@@ -54,9 +54,39 @@
     "href": "index.html#references",
     "title": "Intro to Programming in R",
     "section": "4. References",
-    "text": "4. References\nThe materials for this workshop were based on the following sources:\n\nBase R Cheat Sheet\nGoogle’s R Style Guide\nMastering Software Development in R\nR for Data Science (2e)\nR Graphics Cookbook, 2nd edition\nR in Action, Second Edition\n\nWorkshop created as part of the McGill Initiative in Computational Medicine",
+    "text": "4. References\nThe materials for this workshop were based on the following sources:\n\nBase R Cheat Sheet\nGoogle’s R Style Guide\nMastering Software Development in R\nOnline Book: R for Data Science (2e)\nOnline Book: R Graphics Cookbook, 2nd edition\nOnline Book: R in Action, Second Edition\nOnline Book: Hands-On Programming with R\n\nWorkshop created as part of the McGill Initiative in Computational Medicine",
     "crumbs": [
-      "Welcome"
+      "Welcome🎉"
+    ]
+  },
+  {
+    "objectID": "Setup.html",
+    "href": "Setup.html",
+    "title": "Getting Started: Installing R and RStudio",
+    "section": "",
+    "text": "Note\n\n\n\nR and RStudio are two different programs that work together. R is the programming language and RStudio is a front end program that lets you write R code, view plots, etc.\nTo understand the difference, think of the relationship between a car’s engine and its dashboard:\n\nR is the Engine: It is the powerful machine under the hood. It does all the heavy lifting, makes the car move, and handles the energy. But on its own, an engine is just a block of metal on the floor—you can’t sit in it or steer it easily.\nRStudio is the Dashboard: It’s the steering wheel, the seats, the GPS, and the speedometer. It’s the beautiful interface that lets you interact with the engine so you can actually drive where you want to go.\n\nKey Takeaway: Each program must be downloaded separately. You need to install both programs on your computer, but you will only ever “open” RStudio to do your work.",
+    "crumbs": [
+      "Getting Started: Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Setup.html#install-r-and-rstudio-for-mac",
+    "href": "Setup.html#install-r-and-rstudio-for-mac",
+    "title": "Getting Started: Installing R and RStudio",
+    "section": "1. Install R and RStudio for Mac",
+    "text": "1. Install R and RStudio for Mac\n\n1.1 Install R\n\na) To install R, go to cran.r-project.org.\n\n\n\n\n\n\n\nb) Click Download R for (Mac) OS X.\n\n\n\n\n\n\n\nc) Check the Latest release: section for the appropriate version and follow the directions for download.\n\n\n\n\n\n\n\n\n\n\n\n\nTipFind out which macOS your Mac is using\n\n\n\nTo ensure you download the correct version of R, you need to check which processor your Mac uses:\n\nClick the Apple menu () in the top-left corner of your screen and select About This Mac.\nIn the window that appears, look for the Chip or Processor section:\n\nApple Silicon: If you see “Chip” followed by M1, M2, or M3, download the version for Apple silicon Macs.\nIntel: If you see “Processor” followed by Intel Core i5 or i7, download the version for Older Intel Macs.\n\n\nNote: The appearance of this window may vary depending on your macOS version, but the chip information will always be listed there.\n\n\n\n\n\n\n\n\nd) Once the file download is complete, click to open the installer in your Downloads folder. Click Continue and proceed through the installer.\n\n\n\n\n\n\n\ne) Once the R installer has finished, click Close.\n\n\n\n\n\n\n\n\n1.2 Install R Studio\n\na) Next, download RStudio. Go to https://posit.co/downloads/\n\n\nb) Click Download RStudio.\n\n\n\n\n\n\n\nc) Select the RStudio version compatible with your macOS.\nNote: If you are using macOS 13 (Ventura) or earlier, you may be redirected to an older version of RStudio that is optimized for your specific operating system.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipFind out which macOS version your Mac is using\n\n\n\nTo ensure you download the correct version of R, you need to check which processor your Mac uses:\n\nClick the Apple menu () in the top-left corner of your screen and select About This Mac.\nIn the window that appears, look for the macOS section:\n\nThe number following the macOS name is your version number.\nExample: If your screen shows macOS Tahoe 25.0 (as seen in the figure below), your version is 25.\nAction: In this case, you should choose the download option macOS 14+ (macOS 14 and higher).\n\n\n\n\n\n\n\n\n\n\nd) Once the file download is complete, click to open the installer. Drag RStudio into your applications folder.\n\n\n\n\n\n\n\ne) Once the installation is complete, R and RStudio will open.",
+    "crumbs": [
+      "Getting Started: Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Setup.html#install-r-and-rstudio-for-windows",
+    "href": "Setup.html#install-r-and-rstudio-for-windows",
+    "title": "Getting Started: Installing R and RStudio",
+    "section": "2. Install R and RStudio for Windows",
+    "text": "2. Install R and RStudio for Windows\n\n2.1 Install R\n\na) To install R, go to cran.r-project.org.\n\n\n\n\n\n\n\nb) Choose for Download R for Windows.\n\n\n\n\n\n\n\nc) Install R Click on install R for the first time.\n\n\n\n\n\n\n\nd) Click Download R for Windows. Open the downloaded file.\n\n\n\n\n\n\n\ne) Select the language you would like to use during the installation. Then click OK.\n\n\n\n\n\n\n\n\n\n\n\n\nTipLanguage Recommendation: Why we suggest English\n\n\n\nWhile RStudio supports multiple languages, I highly recommend setting your environment to English. Here is why:\n\nEasier Troubleshooting: Most R documentation, forums, and Stack Overflow solutions are in English. When you encounter an error message, it is much easier to “Google” the exact text to find a solution.\nEncoding Issues: If you use non-alphabetic languages (like Mandarin), you may run into “text recognition” or encoding errors. This can result in “nonsense” characters (mojibake) in your console or error messages, making them impossible to read.\nConsistency: Most R packages and functions are named using English verbs, so keeping your interface in the same language makes the logic flow more naturally.\n\nDon’t worry if you’ve already chosen another language. You can usually change these settings later in the RStudio Global Options. In the absolute worst-case scenario, you can simply reinstall R, but for now, feel free to proceed with whichever language you are most comfortable with!\n\n\n\nf) Click Next.\n\n\n\n\n\n\n\ng) Select where you would like R to be installed. It will default to your Program Files on your C Drive. Click Next.\n\n\n\n\n\n\n\nh) You can then choose which installation you would like.\n\n\n\n\n\n\n\ni) (Optional) If your computer is a 64-bit, you can choose the 64-bit User Installation. Then click Next.\n\n\n\n\n\n\n\n\n\n\n\n\nTipHow can I tell if my Windows device is running a 32-bit or a 64-bit version of Windows?\n\n\n\nMost modern computers run the 64-bit version. Note that Windows 11 is 64-bit only, so if you have Windows 11, you are already set!\nTo confirm your system type on Windows 10 or 11:\n\nSelect the Start button and go to Settings &gt; System &gt; About.\nLocate the Device specifications section.\nLook next to System type:\n\n64-bit operating system, x64-based processor: Choose the 64-bit download.\n32-bit operating system, x86-based processor: Choose the 32-bit download (rare for newer machines).\n\n\n\n\n\n\n\n\n\n\nj) Then specify if you want to customized your startup or just use the defaults. Then click Next.\n\n\n\n\n\n\n\nk) Then you can choose the folder that you want R to be saved within or the default if the R folder that was created. Once you have finished, click Next.\n\n\n\n\n\n\n\nl) You can then select additional shortcuts if you would like. Click Next.\n\n\n\n\n\n\n\nm) Click Finish.\n\n\n\n\n\n\n\n\n2.2 Install RStudio\n\na) Next, download RStudio. Go to https://posit.co/downloads/\n\n\n\n\n\n\n\nb) Click Download RStudio.\n\n\n\n\n\n\n\nc) Once the packet has downloaded, the Welcome to RStudio Setup Wizard will open. Click Next and go through the installation steps.\n\n\n\n\n\n\n\nd) After the Setup Wizard finishing the installation, RStudio will open.",
+    "crumbs": [
+      "Getting Started: Installing R and RStudio"
     ]
   }
 ]

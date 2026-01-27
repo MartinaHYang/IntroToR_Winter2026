@@ -6,12 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="[Lead Instructor] Martina Yang;">
-<meta name="author" content="[Facilitator] Maria Haddad.">
-<meta name="dcterms.date" content="2026-02-09">
-<meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
+<meta name="description" content="Materials adapted from TC Technology Knowledge Base.">
 
-<title>Intro to Programming in R – Intro To R</title>
+<title>Getting Started: Installing R and RStudio – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -24,41 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -68,7 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./Setup.html" rel="next">
+<link href="./RBasics/Syntax.html" rel="next">
+<link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -120,7 +83,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome🎉</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Setup.html">Getting Started: Installing R and RStudio</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -152,13 +115,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome🎉</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Setup.html" class="sidebar-item-text sidebar-link">
+  <a href="./Setup.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Getting Started: Installing R and RStudio</span></a>
   </div>
 </li>
@@ -189,55 +152,38 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome 🎉</a></li>
-  <li><a href="#prior-knowledge" id="toc-prior-knowledge" class="nav-link" data-scroll-target="#prior-knowledge">1. Prior knowledge</a></li>
-  <li><a href="#software-requirements" id="toc-software-requirements" class="nav-link" data-scroll-target="#software-requirements">2. Software requirements</a></li>
-  <li><a href="#workshop-outline" id="toc-workshop-outline" class="nav-link" data-scroll-target="#workshop-outline">3. Workshop Outline</a>
+  <li><a href="#install-r-and-rstudio-for-mac" id="toc-install-r-and-rstudio-for-mac" class="nav-link active" data-scroll-target="#install-r-and-rstudio-for-mac">1. <strong>Install R and RStudio for Mac</strong></a>
   <ul class="collapse">
-  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">3.1 R basics</a></li>
-  <li><a href="#data-types-attributes-and-built-in-functions" id="toc-data-types-attributes-and-built-in-functions" class="nav-link" data-scroll-target="#data-types-attributes-and-built-in-functions">3.2 Data types: attributes and built-in functions</a></li>
-  <li><a href="#basic-data-manipulation" id="toc-basic-data-manipulation" class="nav-link" data-scroll-target="#basic-data-manipulation">3.3 Basic data manipulation</a></li>
-  <li><a href="#advanced-data-manipulation" id="toc-advanced-data-manipulation" class="nav-link" data-scroll-target="#advanced-data-manipulation">3.4 Advanced data manipulation</a></li>
-  <li><a href="#generating-visual-outputs" id="toc-generating-visual-outputs" class="nav-link" data-scroll-target="#generating-visual-outputs">3.5 Generating visual outputs</a></li>
-  <li><a href="#real-life-application-covid-testing-dataset" id="toc-real-life-application-covid-testing-dataset" class="nav-link" data-scroll-target="#real-life-application-covid-testing-dataset">3.6 Real life application: COVID testing dataset</a></li>
-  <li><a href="#software-development-concepts" id="toc-software-development-concepts" class="nav-link" data-scroll-target="#software-development-concepts">3.7 Software development concepts</a></li>
+  <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r">1.1 Install R</a></li>
+  <li><a href="#install-r-studio" id="toc-install-r-studio" class="nav-link" data-scroll-target="#install-r-studio">1.2 Install R Studio</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">4. References</a></li>
+  <li><a href="#install-r-and-rstudio-for-windows" id="toc-install-r-and-rstudio-for-windows" class="nav-link" data-scroll-target="#install-r-and-rstudio-for-windows">2. <strong>Install R and RStudio for Windows</strong></a>
+  <ul class="collapse">
+  <li><a href="#install-r-1" id="toc-install-r-1" class="nav-link" data-scroll-target="#install-r-1">2.1 Install R</a></li>
+  <li><a href="#install-rstudio" id="toc-install-rstudio" class="nav-link" data-scroll-target="#install-rstudio">2.2 Install RStudio</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/Setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Intro to Programming in R</h1>
-<p class="subtitle lead">QLS-MiCM Workshop Winter 2026</p>
+<h1 class="title">Getting Started: Installing R and RStudio</h1>
+<p class="subtitle lead">Installation Tutorial</p>
 </div>
 
 <div>
   <div class="description">
-    Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.
+    Materials adapted from <a href="https://teacherscollege.screenstepslive.com/a/1135059-install-r-and-rstudio-for-mac">TC Technology Knowledge Base</a>.
   </div>
 </div>
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p><strong>[Lead Instructor]</strong> Martina Yang; </p>
-             <p><strong>[Facilitator]</strong> Maria Haddad. </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 9, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -247,129 +193,361 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="welcome" class="level2">
-<h2 class="anchored" data-anchor-id="welcome">Welcome 🎉</h2>
-<p>This workshop is beginner-level introduction to programming in R. The course is designed to be taught in one session of 4 hours and is focused on the application of R to the analysis of tabular data from medical datasets.</p>
-</section>
-<section id="prior-knowledge" class="level2">
-<h2 class="anchored" data-anchor-id="prior-knowledge">1. Prior knowledge</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>R and RStudio are two different programs that work together. R is the programming language and RStudio is a front end program that lets you write R code, view plots, etc.</p>
+<p>To understand the difference, think of the relationship between a car’s engine and its dashboard:</p>
 <ul>
-<li>No previous programming experience is required.</li>
-<li>Please review the following topics if you’re not comfortable with them:
-<ul>
-<li>basic linear algebra (operations with vectors and metrics)</li>
-<li>mathematical operations (exponential, logarithms)</li>
-<li>basic statistics (mean, variance, median, standard deviation)</li>
-<li>logical statements (AND, OR, NOT)</li>
-</ul></li>
+<li><p><strong>R is the Engine:</strong> It is the powerful machine under the hood. It does all the heavy lifting, makes the car move, and handles the energy. But on its own, an engine is just a block of metal on the floor—you can’t sit in it or steer it easily.</p></li>
+<li><p><strong>RStudio is the Dashboard:</strong> It’s the steering wheel, the seats, the GPS, and the speedometer. It’s the beautiful interface that lets you <em>interact</em> with the engine so you can actually drive where you want to go.</p></li>
 </ul>
-</section>
-<section id="software-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="software-requirements">2. Software requirements</h2>
-<ul>
-<li><a href="https://www.r-project.org">R &gt; 4.0</a></li>
-<li><a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a></li>
-</ul>
-<p>Once you have setup R and RStudio copy the code below to install the packages required for the workshop.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installing necessary packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"data.table"</span>, <span class="st">"datasets"</span>, <span class="st">"devtools"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggplot2"</span>, <span class="st">"plyr"</span>, <span class="st">"medicaldata"</span>, <span class="st">"gapminder"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"stringr"</span>, <span class="st">"tidyr"</span>, <span class="st">"tidyverse"</span>, <span class="st">"viridis"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p><strong>Key Takeaway:</strong> Each program must be downloaded separately. You need to install both programs on your computer, but you will only ever “open” RStudio to do your work.</p>
+</div>
+</div>
+<section id="install-r-and-rstudio-for-mac" class="level2">
+<h2 class="anchored" data-anchor-id="install-r-and-rstudio-for-mac">1. <strong>Install R and RStudio for Mac</strong></h2>
+<section id="install-r" class="level3">
+<h3 class="anchored" data-anchor-id="install-r">1.1 Install R</h3>
+<blockquote class="blockquote">
+<p><strong>a) To install R, go to <a href="https://cran.r-project.org">cran.r-project.org</a>.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
 <blockquote class="blockquote">
-<p>Don’t panic if you get stuck! You can find step-by-step instructions in Section 2.</p>
-<p>While it helps to be ready before class, we’ve set aside 15 minutes of the workshop to help anyone running into errors.</p>
+<p><strong>b) Click Download R for (Mac) OS X.</strong></p>
 </blockquote>
-</section>
-<section id="workshop-outline" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-outline">3. Workshop Outline</h2>
-<section id="r-basics" class="level3">
-<h3 class="anchored" data-anchor-id="r-basics">3.1 R basics</h3>
-<p>In the first module of the workshop, the goals are to (1) familiarize with the language and the logic behind it; (2) Get started with R studio and create your first project; (3) Configure the working directory with a common standard structure; (4) Create your first&nbsp;<code>.R</code>&nbsp;file to write down the live code; (5) Compute arithmetic operations; (6) Use logical operators; (7) Get fluent in R’s console; (8) Learn how to ask for help within R; and (9) get comfortable with installing packages.</p>
-<p><strong>Module content:</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>c) Check the Latest release: section for the appropriate version and follow the directions for download.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><strong>Find out which macOS your Mac is using</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To ensure you download the correct version of R, you need to check which processor your Mac uses:</p>
+<ol type="1">
+<li><p>Click the Apple menu () in the top-left corner of your screen and select About This Mac.</p></li>
+<li><p>In the window that appears, look for the Chip or Processor section:</p>
 <ul>
-<li>Syntax</li>
-<li>Arithmetic Operations</li>
-<li>Creating variables</li>
-<li>Logical operators</li>
-<li>Seeking help</li>
-<li>Installing packages</li>
-<li>Hands on: basics</li>
-</ul>
+<li><p><strong>Apple Silicon:</strong> If you see “Chip” followed by M1, M2, or M3, download the version for Apple silicon Macs.</p></li>
+<li><p><strong>Intel:</strong> If you see “Processor” followed by Intel Core i5 or i7, download the version for Older Intel Macs.</p></li>
+</ul></li>
+</ol>
+<p><strong>Note:</strong> The appearance of this window may vary depending on your macOS version, but the chip information will always be listed there.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="182"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>d) Once the file download is complete, click to open the installer in your Downloads folder. Click Continue and proceed through the installer.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>e) Once the R installer has finished, click Close.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_6.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </section>
-<section id="data-types-attributes-and-built-in-functions" class="level3">
-<h3 class="anchored" data-anchor-id="data-types-attributes-and-built-in-functions">3.2 Data types: attributes and built-in functions</h3>
-<p>In this section participants will (1) understand the differences between classes, objects and data types in R; (2) create objects of different types, learn about their attributes and apply some built-in functions in R; (3) Subset and index objects; and (4) get comfortable with vectorized operations.</p>
-<p><strong>Module content:</strong></p>
+<section id="install-r-studio" class="level3">
+<h3 class="anchored" data-anchor-id="install-r-studio">1.2 Install R Studio</h3>
+<blockquote class="blockquote">
+<p><strong>a) Next, download RStudio. Go to <a href="https://posit.co/downloads/" class="uri">https://posit.co/downloads/</a></strong></p>
+</blockquote>
+<blockquote class="blockquote">
+<p><strong>b) Click Download RStudio.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_7.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>c) Select the RStudio version compatible with your macOS.</strong></p>
+<p>Note: If you are using macOS 13 (Ventura) or earlier, you may be redirected to an older version of RStudio that is optimized for your specific operating system.</p>
+</blockquote>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><img src="images/R4mac_7_1.png" class="border img-fluid"></p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<p><img src="images/R4mac_7_2.png" class="border img-fluid"></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><strong>Find out which macOS version your Mac is using</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To ensure you download the correct version of R, you need to check which processor your Mac uses:</p>
+<ol type="1">
+<li><p>Click the Apple menu () in the top-left corner of your screen and select About This Mac.</p></li>
+<li><p>In the window that appears, look for the macOS section:</p>
 <ul>
-<li>Vectors</li>
-<li>Lists</li>
-<li>Factors</li>
-<li>Data frames</li>
-<li>Arrays</li>
-<li>Coercion</li>
-<li>Hands-on: data types</li>
-</ul>
+<li><p>The number following the macOS name is your version number.</p></li>
+<li><p>Example: If your screen shows macOS Tahoe 25.0 (as seen in the figure below), your version is 25.</p></li>
+<li><p>Action: In this case, you should choose the download option <code>macOS 14+ (macOS 14 and higher)</code>.</p></li>
+</ul></li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="182"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>d) Once the file download is complete, click to open the installer. Drag RStudio into your applications folder.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_8.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>e) Once the installation is complete, R and RStudio will open.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_9.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </section>
-<section id="basic-data-manipulation" class="level3">
-<h3 class="anchored" data-anchor-id="basic-data-manipulation">3.3 Basic data manipulation</h3>
-<p>In this module participants will (1) learn how to read/write data to/from files with different formats (.tsv, .csv); (2) become familiar with basic data-frame operations; (3) index and subset data frames using base R; (4) manipulate individual data frame columns; and (5) learn how to join columns and rows of different data frames using base R.</p>
-<p><strong>Module content:</strong></p>
+</section>
+<section id="install-r-and-rstudio-for-windows" class="level2">
+<h2 class="anchored" data-anchor-id="install-r-and-rstudio-for-windows">2. <strong>Install R and RStudio for Windows</strong></h2>
+<section id="install-r-1" class="level3">
+<h3 class="anchored" data-anchor-id="install-r-1">2.1 Install R</h3>
+<blockquote class="blockquote">
+<p><strong>a) To install R, go to <a href="https://cran.r-project.org">cran.r-project.org</a>.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4mac_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>b) Choose for Download R for Windows.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>c) Install R Click on install R for the first time.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>d) Click Download R for Windows. Open the downloaded file.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>e) Select the language you would like to use during the installation. Then click OK.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><strong>Language Recommendation: Why we suggest English</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While RStudio supports multiple languages, <strong>I highly recommend setting your environment to English.</strong> Here is why:</p>
 <ul>
-<li>Reading/writing data</li>
-<li>Exploring data frames</li>
-<li>Hands-on: basic data manipulation</li>
+<li><p><strong>Easier Troubleshooting:</strong> Most R documentation, forums, and Stack Overflow solutions are in English. When you encounter an error message, it is much easier to “Google” the exact text to find a solution.</p></li>
+<li><p><strong>Encoding Issues:</strong> If you use non-alphabetic languages (like Mandarin), you may run into “text recognition” or encoding errors. This can result in “nonsense” characters (mojibake) in your console or error messages, making them impossible to read.</p></li>
+<li><p><strong>Consistency:</strong> Most R packages and functions are named using English verbs, so keeping your interface in the same language makes the logic flow more naturally.</p></li>
 </ul>
-</section>
-<section id="advanced-data-manipulation" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-data-manipulation">3.4 Advanced data manipulation</h3>
-<p>The fourth module participants will (1) familiarize with the dplyr syntax; (2) create pipes with the operator <code>%&gt;%</code>; (3) perform operations on data frames using <code>dplyr</code> and <code>tidyr</code> functions; and (4) implement functions from external packages by reading their documentation in R</p>
-<p><strong>Module content:</strong></p>
+<p><strong>Don’t worry if you’ve already chosen another language.</strong> You can usually change these settings later in the RStudio Global Options. In the absolute worst-case scenario, you can simply reinstall R, but for now, feel free to proceed with whichever language you are most comfortable with!</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>f) Click Next.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_6.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>g) Select where you would like R to be installed. It will default to your Program Files on your C Drive. Click Next.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_7.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>h) You can then choose which installation you would like.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_8.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>i) (Optional) If your computer is a 64-bit, you can choose the 64-bit User Installation. Then click Next.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_9.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><strong>How can I tell if my Windows device is running a 32-bit or a 64-bit version of Windows?</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Most modern computers run the 64-bit version. Note that Windows 11 is 64-bit only, so if you have Windows 11, you are already set!</p>
+<p>To confirm your system type on Windows 10 or 11:</p>
 <ul>
-<li>Handling data frames with dplyr</li>
-<li>Other useful packages</li>
-<li>Hands-on: advanced data manipulation</li>
-</ul>
-</section>
-<section id="generating-visual-outputs" class="level3">
-<h3 class="anchored" data-anchor-id="generating-visual-outputs">3.5 Generating visual outputs</h3>
-<p>This section will show participants how to (1) Create basic plots using base R functions; (2) Understand how to connect data frames with ggplot2; (3) create basic graphs with ggplot2; (4) use factors to customize graphics in ggplot2; (5) use RMarkdown to generate customized reports.</p>
-<p><strong>Module content:</strong></p>
+<li><p>Select the Start button and go to Settings &gt; System &gt; About.</p></li>
+<li><p>Locate the Device specifications section.</p></li>
+<li><p>Look next to System type:</p>
 <ul>
-<li>Figures with base R</li>
-<li>Graphics with <code>ggplot2</code></li>
+<li><p>64-bit operating system, x64-based processor: Choose the 64-bit download.</p></li>
+<li><p>32-bit operating system, x86-based processor: Choose the 32-bit download (rare for newer machines).</p></li>
+</ul></li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_9_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p><strong>j) Then specify if you want to customized your startup or just use the defaults. Then click Next.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_10.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>k) Then you can choose the folder that you want R to be saved within or the default if the R folder that was created. Once you have finished, click Next.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_11.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>l) You can then select additional shortcuts if you would like. Click Next.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_12.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>m) Click Finish.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_13.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 </section>
-<section id="real-life-application-covid-testing-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="real-life-application-covid-testing-dataset">3.6 Real life application: COVID testing dataset</h3>
-<p>This hands-on activity will familiarize participants with a real-life use of R in the pharma industry environment and encourage them to apply the knowledge from previous modules to create an analysis pipeline.</p>
-</section>
-<section id="software-development-concepts" class="level3">
-<h3 class="anchored" data-anchor-id="software-development-concepts">3.7 Software development concepts</h3>
-<p>To conclude the workshop, participants will (1) acquire good coding practices; (2) be familiar with code documentation standards; (3) know what to avoid when programming in R; (4) learn how to debug and troubleshoot their own code.</p>
-<p><strong>Module content:</strong></p>
-<ul>
-<li>Good coding practices</li>
-<li>Style guide</li>
-<li>Debugging and troubleshooting</li>
-</ul>
-</section>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">4. References</h2>
-<p>The materials for this workshop were based on the following sources:</p>
-<ul>
-<li><a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">Base R Cheat Sheet</a></li>
-<li><a href="https://google.github.io/styleguide/Rguide.html">Google’s R Style Guide</a></li>
-<li><a href="https://bookdown.org/rdpeng/RProgDA/">Mastering Software Development in R</a></li>
-<li><a href="https://r4ds.hadley.nz">Online Book: R for Data Science (2e)</a></li>
-<li><a href="https://r-graphics.org/index.html">Online Book: R Graphics Cookbook, 2nd edition</a></li>
-<li><a href="https://livebook.manning.com/book/r-in-action-second-edition/chapter-1">Online Book: R in Action, Second Edition</a></li>
-<li><a href="https://rstudio-education.github.io/hopr/">Online Book: Hands-On Programming with R</a></li>
-</ul>
-<p><em>Workshop created as part of the McGill Initiative in Computational Medicine</em></p>
+<section id="install-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="install-rstudio">2.2 Install RStudio</h3>
+<blockquote class="blockquote">
+<p><strong>a) Next, download RStudio. Go to <a href="https://posit.co/downloads/" class="uri">https://posit.co/downloads/</a></strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_14.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>b) Click Download RStudio.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_15.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>c) Once the packet has downloaded, the Welcome to RStudio Setup Wizard will open. Click Next and go through the installation steps.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_16.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<blockquote class="blockquote">
+<p><strong>d) After the Setup Wizard finishing the installation, RStudio will open.</strong></p>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/R4wds_17.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -775,10 +953,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./index.html" class="pagination-link" aria-label="Welcome🎉">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome🎉</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./Setup.html" class="pagination-link" aria-label="Getting Started: Installing R and RStudio">
-        <span class="nav-page-text">Getting Started: Installing R and RStudio</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./RBasics/Syntax.html" class="pagination-link" aria-label="Syntax">
+        <span class="nav-page-text">Syntax</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -790,7 +971,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/Setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
