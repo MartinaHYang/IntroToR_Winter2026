@@ -216,3 +216,21 @@ To confirm your system type on Windows 10 or 11:
 > **d) After the Setup Wizard finishing the installation, RStudio will open.**
 
 ![](images/R4wds_17.png){fig-align="center"}
+
+## 3. Notes
+
+### 3.1 Language Recommendation: Why we suggest English
+
+::: callout-tip
+### **Language Recommendation: Why we suggest English**
+
+While RStudio supports multiple languages, **I highly recommend setting your environment to English.** Here is why:
+
+-   **Easier Troubleshooting:** Most R documentation, forums, and Stack Overflow solutions are in English. When you encounter an error message, it is much easier to "Google" the exact text to find a solution.
+
+-   **Encoding Issues:** If you use non-alphabetic languages (like Mandarin), you may run into "text recognition" or encoding errors. This can result in "nonsense" characters (mojibake) in your console or error messages, making them impossible to read.
+
+-   **Consistency:** Most R packages and functions are named using English verbs, so keeping your interface in the same language makes the logic flow more naturally.
+
+**Don't worry if you've already chosen another language.** You can usually change these settings later in the RStudio Global Options. In the absolute worst-case scenario, you can simply reinstall R, but for now, feel free to proceed with whichever language you are most comfortable with!
+:::

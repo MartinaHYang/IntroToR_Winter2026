@@ -1,0 +1,38 @@
+---
+title: "Get Acquainted with RStudio"
+subtitle: ""
+description: "Materials adapted from [TC Technology Knowledge Base](https://teacherscollege.screenstepslive.com/a/1135059-install-r-and-rstudio-for-mac)."
+---
+
+## Learning Objectives
+
+By the end of this page, you will understand:
+
+-   The limitations of spreadsheet software (e.g., Excel) for scientific research.
+
+-   The fundamental nature of R as an open-source statistical language.
+
+-   The distinction between R and RStudio (the "Engine" vs. the "Dashboard").
+
+-   How to choose between R and other languages like Python.
+
+## R vs. RStudio: The Engine and the Dashboard
+
+It is common to get these confused, but they are separate entities:
+
+-   **R (The Engine):** The programming language that does the actual math. It was developed at the University of Auckland.
+-   **RStudio (The Dashboard):** An **Integrated Development Environment (IDE)**. It is the software interface (developed by **Posit**) that makes writing R code much easier.
+
+------------------------------------------------------------------------
+
+## File Types: Scripts vs. Notebooks
+
+In this workshop, we will encounter different ways to save R code:
+
+| File Type | Extension | Primary Use |
+|:-----------------------|:-----------------------|:-----------------------|
+| **R Script** | `.R` | Pure code. Best for automation and long-term portability. |
+| **R Markdown** | `.Rmd` | A mix of text and code. Great for simple reports. |
+| **Quarto** | `.qmd` | The next generation of RMarkdown. Best for websites, books, and high-quality docs. |
+
+------------------------------------------------------------------------

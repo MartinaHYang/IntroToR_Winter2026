@@ -30,8 +30,12 @@ website:
     contents:
       - text: "Welcome🎉"
         href: index.qmd
-      - text: "Getting Started: Installing R and RStudio"
+      - text: "Why R for Data Science?"
+        href: WhyR.qmd
+      - text: "Installing R and RStudio"
         href: Setup.qmd
+      - text: "Get Acquainted with RStudio"
+        href: RStudio.qmd
       - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒"
         contents:
           - text: "Syntax"
