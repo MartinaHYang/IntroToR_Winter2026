@@ -201,6 +201,8 @@ If you want to dive deeper, here is a few free online books and materials:
 
 -   [**The Epidemiologist R Handbook**](https://epirhandbook.com/en/)
 
+-   [**R for Non-Programmers: A Guide for Social Scientists**](https://r4np.com/)
+
 -   [**Codecademy: Learn R Free Course**](https://www.codecademy.com/learn/learn-r)**:** Good for those who prefer an interactive, "in-browser" coding experience to practice syntax.
 
 -   [**McGill CDSI Workshops**](https://www.mcgill.ca/cdsi/training/workshops)**:** Our colleagues at the Computational and Data Systems Institute offer excellent deep-dives into specific data topics.
