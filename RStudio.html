@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Materials adapted from TC Technology Knowledge Base.">
 
-<title>Syntax – Intro To R</title>
+<title>Get Acquainted with RStudio – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,24 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../">
-<link href="../RStudio.html" rel="prev">
-<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="../site_libs/quarto-html/popper.min.js"></script>
-<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./RBasics/Syntax.html" rel="next">
+<link href="./Setup.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -81,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RBasics/Syntax.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒</a></li><li class="breadcrumb-item"><a href="../RBasics/Syntax.html">Syntax</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./RStudio.html">Get Acquainted with RStudio</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -95,9 +97,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="../index.html" class="sidebar-logo-link">
-      <img src="../images/MiCM_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="../images/MiCM_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="./index.html" class="sidebar-logo-link">
+      <img src="./images/MiCM_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="./images/MiCM_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://www.mcgill.ca/micm/" title="GLS-MiCM" class="quarto-navigation-tool px-1" aria-label="GLS-MiCM"><i class="bi bi-globe"></i></a>
@@ -113,40 +115,40 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../index.html" class="sidebar-item-text sidebar-link">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome🎉</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../WhyR.html" class="sidebar-item-text sidebar-link">
+  <a href="./WhyR.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Why R for Data Science?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../Setup.html" class="sidebar-item-text sidebar-link">
+  <a href="./Setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installing R and RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RStudio.html" class="sidebar-item-text sidebar-link">
+  <a href="./RStudio.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Get Acquainted with RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false">
  <span class="menu-text">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="false" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RBasics/Syntax.html" class="sidebar-item-text sidebar-link active">
+  <a href="./RBasics/Syntax.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syntax</span></a>
   </div>
 </li>
@@ -157,18 +159,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#r-vs.-rstudio-the-engine-and-the-dashboard" id="toc-r-vs.-rstudio-the-engine-and-the-dashboard" class="nav-link" data-scroll-target="#r-vs.-rstudio-the-engine-and-the-dashboard">R vs.&nbsp;RStudio: The Engine and the Dashboard</a></li>
+  <li><a href="#file-types-scripts-vs.-notebooks" id="toc-file-types-scripts-vs.-notebooks" class="nav-link" data-scroll-target="#file-types-scripts-vs.-notebooks">File Types: Scripts vs.&nbsp;Notebooks</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RStudio.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RBasics/Syntax.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒</a></li><li class="breadcrumb-item"><a href="../RBasics/Syntax.html">Syntax</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Syntax</h1>
-<p class="subtitle lead">Syntax</p>
+<h1 class="title">Get Acquainted with RStudio</h1>
 </div>
 
+<div>
+  <div class="description">
+    Materials adapted from <a href="https://teacherscollege.screenstepslive.com/a/1135059-install-r-and-rstudio-for-mac">TC Technology Knowledge Base</a>.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -183,8 +197,63 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="learning-objectives" class="level2">
+<h2 class="anchored" data-anchor-id="learning-objectives">Learning Objectives</h2>
+<p>By the end of this page, you will understand:</p>
+<ul>
+<li><p>The limitations of spreadsheet software (e.g., Excel) for scientific research.</p></li>
+<li><p>The fundamental nature of R as an open-source statistical language.</p></li>
+<li><p>The distinction between R and RStudio (the “Engine” vs.&nbsp;the “Dashboard”).</p></li>
+<li><p>How to choose between R and other languages like Python.</p></li>
+</ul>
+</section>
+<section id="r-vs.-rstudio-the-engine-and-the-dashboard" class="level2">
+<h2 class="anchored" data-anchor-id="r-vs.-rstudio-the-engine-and-the-dashboard">R vs.&nbsp;RStudio: The Engine and the Dashboard</h2>
+<p>It is common to get these confused, but they are separate entities:</p>
+<ul>
+<li><strong>R (The Engine):</strong> The programming language that does the actual math. It was developed at the University of Auckland.</li>
+<li><strong>RStudio (The Dashboard):</strong> An <strong>Integrated Development Environment (IDE)</strong>. It is the software interface (developed by <strong>Posit</strong>) that makes writing R code much easier.</li>
+</ul>
+<hr>
+</section>
+<section id="file-types-scripts-vs.-notebooks" class="level2">
+<h2 class="anchored" data-anchor-id="file-types-scripts-vs.-notebooks">File Types: Scripts vs.&nbsp;Notebooks</h2>
+<p>In this workshop, we will encounter different ways to save R code:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">File Type</th>
+<th style="text-align: left;">Extension</th>
+<th style="text-align: left;">Primary Use</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>R Script</strong></td>
+<td style="text-align: left;"><code>.R</code></td>
+<td style="text-align: left;">Pure code. Best for automation and long-term portability.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>R Markdown</strong></td>
+<td style="text-align: left;"><code>.Rmd</code></td>
+<td style="text-align: left;">A mix of text and code. Great for simple reports.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Quarto</strong></td>
+<td style="text-align: left;"><code>.qmd</code></td>
+<td style="text-align: left;">The next generation of RMarkdown. Best for websites, books, and high-quality docs.</td>
+</tr>
+</tbody>
+</table>
+<hr>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -589,11 +658,14 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../RStudio.html" class="pagination-link" aria-label="Get Acquainted with RStudio">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Get Acquainted with RStudio</span>
+      <a href="./Setup.html" class="pagination-link" aria-label="Installing R and RStudio">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Installing R and RStudio</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./RBasics/Syntax.html" class="pagination-link" aria-label="Syntax">
+        <span class="nav-page-text">Syntax</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
@@ -604,7 +676,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RBasics/Syntax.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RStudio.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

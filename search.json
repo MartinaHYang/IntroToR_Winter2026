@@ -1,5 +1,125 @@
 [
   {
+    "objectID": "RStudio.html",
+    "href": "RStudio.html",
+    "title": "Get Acquainted with RStudio",
+    "section": "",
+    "text": "By the end of this page, you will understand:\n\nThe limitations of spreadsheet software (e.g., Excel) for scientific research.\nThe fundamental nature of R as an open-source statistical language.\nThe distinction between R and RStudio (the “Engine” vs. the “Dashboard”).\nHow to choose between R and other languages like Python.",
+    "crumbs": [
+      "Get Acquainted with RStudio"
+    ]
+  },
+  {
+    "objectID": "RStudio.html#learning-objectives",
+    "href": "RStudio.html#learning-objectives",
+    "title": "Get Acquainted with RStudio",
+    "section": "",
+    "text": "By the end of this page, you will understand:\n\nThe limitations of spreadsheet software (e.g., Excel) for scientific research.\nThe fundamental nature of R as an open-source statistical language.\nThe distinction between R and RStudio (the “Engine” vs. the “Dashboard”).\nHow to choose between R and other languages like Python.",
+    "crumbs": [
+      "Get Acquainted with RStudio"
+    ]
+  },
+  {
+    "objectID": "RStudio.html#r-vs.-rstudio-the-engine-and-the-dashboard",
+    "href": "RStudio.html#r-vs.-rstudio-the-engine-and-the-dashboard",
+    "title": "Get Acquainted with RStudio",
+    "section": "R vs. RStudio: The Engine and the Dashboard",
+    "text": "R vs. RStudio: The Engine and the Dashboard\nIt is common to get these confused, but they are separate entities:\n\nR (The Engine): The programming language that does the actual math. It was developed at the University of Auckland.\nRStudio (The Dashboard): An Integrated Development Environment (IDE). It is the software interface (developed by Posit) that makes writing R code much easier.",
+    "crumbs": [
+      "Get Acquainted with RStudio"
+    ]
+  },
+  {
+    "objectID": "RStudio.html#file-types-scripts-vs.-notebooks",
+    "href": "RStudio.html#file-types-scripts-vs.-notebooks",
+    "title": "Get Acquainted with RStudio",
+    "section": "File Types: Scripts vs. Notebooks",
+    "text": "File Types: Scripts vs. Notebooks\nIn this workshop, we will encounter different ways to save R code:\n\n\n\n\n\n\n\n\nFile Type\nExtension\nPrimary Use\n\n\n\n\nR Script\n.R\nPure code. Best for automation and long-term portability.\n\n\nR Markdown\n.Rmd\nA mix of text and code. Great for simple reports.\n\n\nQuarto\n.qmd\nThe next generation of RMarkdown. Best for websites, books, and high-quality docs.",
+    "crumbs": [
+      "Get Acquainted with RStudio"
+    ]
+  },
+  {
+    "objectID": "WhyR.html",
+    "href": "WhyR.html",
+    "title": "Foundations of R: Why R for Data Science?",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nCritique the limitations of spreadsheet software (like Excel) in the context of professional scientific research and reproducibility.\nDefine the fundamental nature of R as an open-source, community-driven statistical language.\nIdentify key R applications in bioinformatics, data visualization, and automated reporting.\nEvaluate the strengths of R vs. Python to make informed decisions for your specific research or career path.\nNavigate a curated list of self-taught resources to continue your R journey beyond this workshop.",
+    "crumbs": [
+      "Why R for Data Science?"
+    ]
+  },
+  {
+    "objectID": "WhyR.html#learning-objectives",
+    "href": "WhyR.html#learning-objectives",
+    "title": "Foundations of R: Why R for Data Science?",
+    "section": "",
+    "text": "By the end of this module, you will be able to:\n\nCritique the limitations of spreadsheet software (like Excel) in the context of professional scientific research and reproducibility.\nDefine the fundamental nature of R as an open-source, community-driven statistical language.\nIdentify key R applications in bioinformatics, data visualization, and automated reporting.\nEvaluate the strengths of R vs. Python to make informed decisions for your specific research or career path.\nNavigate a curated list of self-taught resources to continue your R journey beyond this workshop.",
+    "crumbs": [
+      "Why R for Data Science?"
+    ]
+  },
+  {
+    "objectID": "WhyR.html#why-not-excel",
+    "href": "WhyR.html#why-not-excel",
+    "title": "Foundations of R: Why R for Data Science?",
+    "section": "1. Why Not Excel?",
+    "text": "1. Why Not Excel?\nExcel is a fantastic tool for initial data entry and simple calculations. However, for professional scientific research, it has significant limitations that can compromise your results.\n\nThe Limitations of Spreadsheets\n\nInflexible with Large Data: Large datasets (like genomic data) often cause Excel to lag or crash. Searching a 100MB spreadsheet can take minutes in Excel.\n\nIn R, the same search takes milliseconds. R is designed to handle millions of rows efficiently and uses optimized data compression to keep your workflow fast.\n\nAutomatic “Auto-Correct” Errors: Excel is famous for “helpfully” converting gene names like MARCH1 into dates (e.g., 01-March-2025). This has historically corrupted thousands of published papers.\n\nIn R, your data is treated as pure text by default. R won’t change your data unless you explicitly tell it to.\nNote: The only common “auto-change” in R is the word NA, which R reserves for “Not Available” (missing data)—we will discuss this later.\n\nPoor Reproducibility: In Excel, if you accidentally delete a cell or change a value, there is no “audit trail.” You might never notice the mistake.\n\nIn R, every change is documented in your code. You can add comments to explain why you made a change, allowing you (and your collaborators) to follow your logic months later.\n\nVersion Incompatibility: We have all experienced an Excel file that looks perfect on a Mac but appears broken or “skewed” when opened on Windows or in different software like Numbers or WPS.\n\nR is a pure programming language, meaning your code will run exactly the same way regardless of the operating system.\n\nThe “Copy-Paste” Risk: Many students store data in Excel but copy-paste it into software like GraphPad Prism or SPSS for analysis. This manual step is a major source of human error. It’s easy to lose track of which version of the data you copied.\n\nIn R, you import your data directly via code. This creates a clear, permanent link between your raw data and your final results.\n\n\n\n\n\n\n\n\nNoteMy Personal Recommendation\n\n\n\nExcel remains the most user-friendly interface for manual data entry and “beautifying” simple tables for quick viewing.\nI personally recommend a hybrid workflow:\n\nUse Excel (specifically saving as .csv files rather than .xlsx, just my personal preference) for initial data storage.\nUse R for all subsequent data cleaning, statistical analysis, and publication-quality visualization.",
+    "crumbs": [
+      "Why R for Data Science?"
+    ]
+  },
+  {
+    "objectID": "WhyR.html#what-is-r",
+    "href": "WhyR.html#what-is-r",
+    "title": "Foundations of R: Why R for Data Science?",
+    "section": "2. What is R?",
+    "text": "2. What is R?\nR is more than just a tool; it is a Statistical Programming Language designed by scientists, for scientists. It is an integrated suite for data manipulation, calculation, and graphical display.\n\nThe “Free” in Free Software\nIn the world of coding, we often say R is “Free as in Speech, not just free as in beer.” This means it isn’t just about the cost ($0); it is about the freedom to use and share it.\nThis philosophy gives you four fundamental freedoms:\n\nUnlimited Use: You can run the program for any purpose (academic, commercial, or personal) without expensive licenses.\nFull Transparency: You can study how every single calculation is performed. There is no “black box” logic hidden from the scientist.\nCollaborative Sharing: You can freely share your scripts and tools with colleagues anywhere in the world.\nContinuous Improvement: Anyone can fix a bug or add a new feature, which is why R has such a massive library of scientific packages.\n\n\n\nKey R Facts\n\nInterpreted: You type code, and R runs it immediately—no complex “compiling” needed.\n\nIf you make a mistake, you can correct it in your next sentence. You type a line of code in the console, hit Enter, and R gives you the answer immediately.\nC++/JAVA (Compiled) is like a Book Publisher. Imagine you are writing a novel in English that needs to be translated into French. You have to write the entire book first. You send the whole manuscript to a publisher (the “Compiler”). They translate the whole thing at once into a new, separate book. You can only “read” the results once the entire translation process is finished. If there is a typo on page 1, you might not find out until the whole book is printed. This is Compiling: It makes the final program run very fast, but it makes the writing process much slower for the person doing it.\n\nObject-Oriented: Everything in R (data, plots, models) is an “object” that you can save and reuse.\n\nImagine these objects as labeled boxes on your desk. Each “box” (object) has its own name, a specific type of content (its class), and a specific size. You can save these boxes individually or pack them all up together to use later.\n\nCase Sensitive: my_data and My_Data are seen as two different things.\n\nTips: Some R users prefer using all lowercase and underscores (e.g., blood_pressure) to avoid simple typing errors.\n\n1-Based Indexing: Unlike Python (which starts at 0), R starts counting at 1. This is much more intuitive for most researchers!\n\nJust like in Excel, your rows start at 1, 2, 3… and your columns start at A, B, C (1, 2, 3…).\nIn contrast, languages like Python start counting at 0, which can be confusing if you aren’t a software engineer!\n\nNo Spaces in Variable Names: R cannot “read” a space inside a name because it thinks the space means the command has ended.\n\nThe Rule: If you try to name a dataset Patient Data, R will look for an object called Patient and then get confused by the word Data.\nThe Solution: Most researchers use underscores (patient_data) or CamelCase (PatientData) to connect words.\n\nAllows User-Defined Functions: Beyond the built-in tools, R allows you to build your own “custom machines” to perform repetitive tasks.\n\nHow it works: If you find yourself doing the same three steps to clean your data every single morning, you can write a Function that bundles those steps into one single command. It’s like creating your own custom button in a software program that does exactly what you need.\n\nWorks with Environments: Think of an “Environment” as your Active Workspace or your digital desk.\n\nThe Concept: When you import a file or create a variable, it lives in your “Global Environment.” In RStudio, you can actually see this list in the top-right pane.\nAnalogy: If your “Objects” are the labeled boxes, the “Environment” is the room where those boxes are stored. R can handle multiple “rooms” at once, which helps keep your variables from getting mixed up when you’re running complex analyses or using different packages.",
+    "crumbs": [
+      "Why R for Data Science?"
+    ]
+  },
+  {
+    "objectID": "WhyR.html#what-can-r-do",
+    "href": "WhyR.html#what-can-r-do",
+    "title": "Foundations of R: Why R for Data Science?",
+    "section": "3. What Can R Do?",
+    "text": "3. What Can R Do?\nR is a “Swiss Army Knife” for researchers.\nIt excels at:\n\nData Cleaning: Tidying messy “real-world” data into a usable format.\n\nBig Data Handling: Have you ever tried to open a BioBank dataset with thousands of patients, hundreds of clinical variables, and tens of thousands of gene expression data points?\nSpeed: While these 100MB+ (or even multi-GB) files can crash Excel, R is designed to process them efficiently. What takes minutes of “loading” in a spreadsheet takes only seconds in R.\n\nStatistics & Machine Learning: From simple T-tests to complex predictive modeling, R provides a rigorous environment for:\n\nClassical statistical testing.\n\nPerform the standard t-tests, ANOVA, and Chi-square tests you need to show your PI those all-important p-values and significant differences.\n\nLinear and non-linear modeling.\nMachine learning algorithms for predicting disease outcomes or drug responses.\nBayesian & Advanced Statistics: R is the “home” of modern statistics. If you want to use Bayesian models or other “fancy” statistical methods to handle uncertainty in your research, R has the most robust tools available.\n\nBioinformatics: Thousands of specialized tools (via Bioconductor) for DNA/RNA/Protein analysis.\n\nGenomics: DNA and RNA sequencing analysis (e.g., DESeq2).\nProteomics: Analyzing protein expression and interaction.\nSingle-Cell Analysis: Processing complex cellular data (e.g., Seurat).\n\nVisualization: Creating publication-quality plots that are far more beautiful than Excel’s defaults.\n\nOne of R’s greatest strengths is ggplot2. You can create figures that are not only “GraphPad Prism level” but often far superior in terms of customization and complexity.\nRepeatability: Once you design a beautiful plot, you can apply that same style to 100 different datasets with one click.\nProfessionalism: Most high-impact journals (Nature, Science, Cell) feature plots created directly in R.\nHere are a few of my visualization examples made entirely in R.\n\nCommunication: R isn’t just for math; it’s for sharing your work. You can build:\n\nInteractive Web Apps: Using R Shiny.\n\nExample: Bayesian Diagnostic Test Accuracy Meta-Analysis\nExample: shinyDeepDR: Deep Learning Prediction of Cancer Drug Response.\n\nReproducible Documents: Writing your entire Master’s thesis or Research Day posters or eBooks using Quarto (like this website!).",
+    "crumbs": [
+      "Why R for Data Science?"
+    ]
+  },
+  {
+    "objectID": "WhyR.html#r-vs.-python-how-to-choose",
+    "href": "WhyR.html#r-vs.-python-how-to-choose",
+    "title": "Foundations of R: Why R for Data Science?",
+    "section": "4. R vs. Python: How to Choose?",
+    "text": "4. R vs. Python: How to Choose?\nThis is the most common question for beginners. Both are excellent, but they serve different strengths.\n\n\n\n\n\n\n\n\nFeature\nR\nPython\n\n\n\n\nOrigins\nCreated by Statisticians\nCreated by Software Engineers\n\n\nBest For\nData Analysis & Visualization\nMachine Learning & Production\n\n\nBioinformatics\nDeep roots in genomics/math\nStrong in imaging and deep learning\n\n\nCareer Path\nAcademia, Medicine, Economics\nTech Industry, AI, Web Dev\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nOur Advice:\nIf your primary goal is to analyze your own research data and publish papers, start with R.\nIf you eventually want to move into pure software engineering or heavy AI, you can study Python later.\nThe logic you learn in R will make Python much easier to learn!",
+    "crumbs": [
+      "Why R for Data Science?"
+    ]
+  },
+  {
+    "objectID": "WhyR.html#recommended-learning-materials",
+    "href": "WhyR.html#recommended-learning-materials",
+    "title": "Foundations of R: Why R for Data Science?",
+    "section": "5. Recommended Learning Materials",
+    "text": "5. Recommended Learning Materials\nIf you want to dive deeper, here is a few free online books and materials:\n\nR for Data Science (2e)\nR Graphics Cookbook, 2nd edition\nR in Action, Second Edition\nHands-On Programming with R\nThe Epidemiologist R Handbook\nCodecademy: Learn R Free Course: Good for those who prefer an interactive, “in-browser” coding experience to practice syntax.\nMcGill CDSI Workshops: Our colleagues at the Computational and Data Systems Institute offer excellent deep-dives into specific data topics.\nMcGill QLS-MiCM Workshops: Keep an eye on future MiCM workshops for specialized bioinformatics and high-performance computing training.",
+    "crumbs": [
+      "Why R for Data Science?"
+    ]
+  },
+  {
+    "objectID": "WhyR.html#visualization-gallery",
+    "href": "WhyR.html#visualization-gallery",
+    "title": "Foundations of R: Why R for Data Science?",
+    "section": "Appendix: R Visualization Gallery",
+    "text": "Appendix: R Visualization Gallery\nBelow are a few examples of my visualizations created entirely in R using ggplot2 and specialized bioinformatics packages.\n\n\n\n\n\n\nFigure 1: Boxplot with Individual Data Points\n\n\n\n\n\n\n\n\n\nFigure 2: A Time-Course Line Plot with an Area Under the Curve (AUC) Boxplot.\n\n\n\n\n\n\n\n\n\nFigure 3: Correlation Plot with Statistical Results\n\n\n\n\n\n\n\n\n\nFigure 4: Heatmap\n\n\n\n\n\n\n\n\n\nFigure 5: Forest Plot",
+    "crumbs": [
+      "Why R for Data Science?"
+    ]
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Intro to Programming in R",
@@ -66,7 +186,7 @@
     "section": "",
     "text": "Note\n\n\n\nR and RStudio are two different programs that work together. R is the programming language and RStudio is a front end program that lets you write R code, view plots, etc.\nTo understand the difference, think of the relationship between a car’s engine and its dashboard:\n\nR is the Engine: It is the powerful machine under the hood. It does all the heavy lifting, makes the car move, and handles the energy. But on its own, an engine is just a block of metal on the floor—you can’t sit in it or steer it easily.\nRStudio is the Dashboard: It’s the steering wheel, the seats, the GPS, and the speedometer. It’s the beautiful interface that lets you interact with the engine so you can actually drive where you want to go.\n\nKey Takeaway: Each program must be downloaded separately. You need to install both programs on your computer, but you will only ever “open” RStudio to do your work.",
     "crumbs": [
-      "Getting Started: Installing R and RStudio"
+      "Installing R and RStudio"
     ]
   },
   {
@@ -76,7 +196,7 @@
     "section": "1. Install R and RStudio for Mac",
     "text": "1. Install R and RStudio for Mac\n\n1.1 Install R\n\na) To install R, go to cran.r-project.org.\n\n\n\n\n\n\n\nb) Click Download R for (Mac) OS X.\n\n\n\n\n\n\n\nc) Check the Latest release: section for the appropriate version and follow the directions for download.\n\n\n\n\n\n\n\n\n\n\n\n\nTipFind out which macOS your Mac is using\n\n\n\nTo ensure you download the correct version of R, you need to check which processor your Mac uses:\n\nClick the Apple menu () in the top-left corner of your screen and select About This Mac.\nIn the window that appears, look for the Chip or Processor section:\n\nApple Silicon: If you see “Chip” followed by M1, M2, or M3, download the version for Apple silicon Macs.\nIntel: If you see “Processor” followed by Intel Core i5 or i7, download the version for Older Intel Macs.\n\n\nNote: The appearance of this window may vary depending on your macOS version, but the chip information will always be listed there.\n\n\n\n\n\n\n\n\nd) Once the file download is complete, click to open the installer in your Downloads folder. Click Continue and proceed through the installer.\n\n\n\n\n\n\n\ne) Once the R installer has finished, click Close.\n\n\n\n\n\n\n\n\n1.2 Install R Studio\n\na) Next, download RStudio. Go to https://posit.co/downloads/\n\n\nb) Click Download RStudio.\n\n\n\n\n\n\n\nc) Select the RStudio version compatible with your macOS.\nNote: If you are using macOS 13 (Ventura) or earlier, you may be redirected to an older version of RStudio that is optimized for your specific operating system.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nTipFind out which macOS version your Mac is using\n\n\n\nTo ensure you download the correct version of R, you need to check which processor your Mac uses:\n\nClick the Apple menu () in the top-left corner of your screen and select About This Mac.\nIn the window that appears, look for the macOS section:\n\nThe number following the macOS name is your version number.\nExample: If your screen shows macOS Tahoe 25.0 (as seen in the figure below), your version is 25.\nAction: In this case, you should choose the download option macOS 14+ (macOS 14 and higher).\n\n\n\n\n\n\n\n\n\n\nd) Once the file download is complete, click to open the installer. Drag RStudio into your applications folder.\n\n\n\n\n\n\n\ne) Once the installation is complete, R and RStudio will open.",
     "crumbs": [
-      "Getting Started: Installing R and RStudio"
+      "Installing R and RStudio"
     ]
   },
   {
@@ -86,7 +206,17 @@
     "section": "2. Install R and RStudio for Windows",
     "text": "2. Install R and RStudio for Windows\n\n2.1 Install R\n\na) To install R, go to cran.r-project.org.\n\n\n\n\n\n\n\nb) Choose for Download R for Windows.\n\n\n\n\n\n\n\nc) Install R Click on install R for the first time.\n\n\n\n\n\n\n\nd) Click Download R for Windows. Open the downloaded file.\n\n\n\n\n\n\n\ne) Select the language you would like to use during the installation. Then click OK.\n\n\n\n\n\n\n\n\n\n\n\n\nTipLanguage Recommendation: Why we suggest English\n\n\n\nWhile RStudio supports multiple languages, I highly recommend setting your environment to English. Here is why:\n\nEasier Troubleshooting: Most R documentation, forums, and Stack Overflow solutions are in English. When you encounter an error message, it is much easier to “Google” the exact text to find a solution.\nEncoding Issues: If you use non-alphabetic languages (like Mandarin), you may run into “text recognition” or encoding errors. This can result in “nonsense” characters (mojibake) in your console or error messages, making them impossible to read.\nConsistency: Most R packages and functions are named using English verbs, so keeping your interface in the same language makes the logic flow more naturally.\n\nDon’t worry if you’ve already chosen another language. You can usually change these settings later in the RStudio Global Options. In the absolute worst-case scenario, you can simply reinstall R, but for now, feel free to proceed with whichever language you are most comfortable with!\n\n\n\nf) Click Next.\n\n\n\n\n\n\n\ng) Select where you would like R to be installed. It will default to your Program Files on your C Drive. Click Next.\n\n\n\n\n\n\n\nh) You can then choose which installation you would like.\n\n\n\n\n\n\n\ni) (Optional) If your computer is a 64-bit, you can choose the 64-bit User Installation. Then click Next.\n\n\n\n\n\n\n\n\n\n\n\n\nTipHow can I tell if my Windows device is running a 32-bit or a 64-bit version of Windows?\n\n\n\nMost modern computers run the 64-bit version. Note that Windows 11 is 64-bit only, so if you have Windows 11, you are already set!\nTo confirm your system type on Windows 10 or 11:\n\nSelect the Start button and go to Settings &gt; System &gt; About.\nLocate the Device specifications section.\nLook next to System type:\n\n64-bit operating system, x64-based processor: Choose the 64-bit download.\n32-bit operating system, x86-based processor: Choose the 32-bit download (rare for newer machines).\n\n\n\n\n\n\n\n\n\n\nj) Then specify if you want to customized your startup or just use the defaults. Then click Next.\n\n\n\n\n\n\n\nk) Then you can choose the folder that you want R to be saved within or the default if the R folder that was created. Once you have finished, click Next.\n\n\n\n\n\n\n\nl) You can then select additional shortcuts if you would like. Click Next.\n\n\n\n\n\n\n\nm) Click Finish.\n\n\n\n\n\n\n\n\n2.2 Install RStudio\n\na) Next, download RStudio. Go to https://posit.co/downloads/\n\n\n\n\n\n\n\nb) Click Download RStudio.\n\n\n\n\n\n\n\nc) Once the packet has downloaded, the Welcome to RStudio Setup Wizard will open. Click Next and go through the installation steps.\n\n\n\n\n\n\n\nd) After the Setup Wizard finishing the installation, RStudio will open.",
     "crumbs": [
-      "Getting Started: Installing R and RStudio"
+      "Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "Setup.html#notes",
+    "href": "Setup.html#notes",
+    "title": "Getting Started: Installing R and RStudio",
+    "section": "3. Notes",
+    "text": "3. Notes\n\n3.1 Language Recommendation: Why we suggest English\n\n\n\n\n\n\nTipLanguage Recommendation: Why we suggest English\n\n\n\nWhile RStudio supports multiple languages, I highly recommend setting your environment to English. Here is why:\n\nEasier Troubleshooting: Most R documentation, forums, and Stack Overflow solutions are in English. When you encounter an error message, it is much easier to “Google” the exact text to find a solution.\nEncoding Issues: If you use non-alphabetic languages (like Mandarin), you may run into “text recognition” or encoding errors. This can result in “nonsense” characters (mojibake) in your console or error messages, making them impossible to read.\nConsistency: Most R packages and functions are named using English verbs, so keeping your interface in the same language makes the logic flow more naturally.\n\nDon’t worry if you’ve already chosen another language. You can usually change these settings later in the RStudio Global Options. In the absolute worst-case scenario, you can simply reinstall R, but for now, feel free to proceed with whichever language you are most comfortable with!",
+    "crumbs": [
+      "Installing R and RStudio"
     ]
   }
 ]

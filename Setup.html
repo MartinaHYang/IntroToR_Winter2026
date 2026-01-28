@@ -30,8 +30,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./RBasics/Syntax.html" rel="next">
-<link href="./index.html" rel="prev">
+<link href="./RStudio.html" rel="next">
+<link href="./WhyR.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -83,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Setup.html">Getting Started: Installing R and RStudio</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Setup.html">Installing R and RStudio</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -121,8 +121,20 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./WhyR.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Why R for Data Science?</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./Setup.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Getting Started: Installing R and RStudio</span></a>
+ <span class="menu-text">Installing R and RStudio</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./RStudio.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Get Acquainted with RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item sidebar-item-section">
@@ -161,6 +173,10 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#install-r-1" id="toc-install-r-1" class="nav-link" data-scroll-target="#install-r-1">2.1 Install R</a></li>
   <li><a href="#install-rstudio" id="toc-install-rstudio" class="nav-link" data-scroll-target="#install-rstudio">2.2 Install RStudio</a></li>
+  </ul></li>
+  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">3. Notes</a>
+  <ul class="collapse">
+  <li><a href="#language-recommendation-why-we-suggest-english-1" id="toc-language-recommendation-why-we-suggest-english-1" class="nav-link" data-scroll-target="#language-recommendation-why-we-suggest-english-1">3.1 Language Recommendation: Why we suggest English</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/Setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -544,6 +560,31 @@ Note
 <figure class="figure">
 <p><img src="images/R4wds_17.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
 </figure>
+</div>
+</section>
+</section>
+<section id="notes" class="level2">
+<h2 class="anchored" data-anchor-id="notes">3. Notes</h2>
+<section id="language-recommendation-why-we-suggest-english-1" class="level3">
+<h3 class="anchored" data-anchor-id="language-recommendation-why-we-suggest-english-1">3.1 Language Recommendation: Why we suggest English</h3>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span><strong>Language Recommendation: Why we suggest English</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While RStudio supports multiple languages, <strong>I highly recommend setting your environment to English.</strong> Here is why:</p>
+<ul>
+<li><p><strong>Easier Troubleshooting:</strong> Most R documentation, forums, and Stack Overflow solutions are in English. When you encounter an error message, it is much easier to “Google” the exact text to find a solution.</p></li>
+<li><p><strong>Encoding Issues:</strong> If you use non-alphabetic languages (like Mandarin), you may run into “text recognition” or encoding errors. This can result in “nonsense” characters (mojibake) in your console or error messages, making them impossible to read.</p></li>
+<li><p><strong>Consistency:</strong> Most R packages and functions are named using English verbs, so keeping your interface in the same language makes the logic flow more naturally.</p></li>
+</ul>
+<p><strong>Don’t worry if you’ve already chosen another language.</strong> You can usually change these settings later in the RStudio Global Options. In the absolute worst-case scenario, you can simply reinstall R, but for now, feel free to proceed with whichever language you are most comfortable with!</p>
+</div>
 </div>
 
 
@@ -953,13 +994,13 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./index.html" class="pagination-link" aria-label="Welcome🎉">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Welcome🎉</span>
+      <a href="./WhyR.html" class="pagination-link" aria-label="Why R for Data Science?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Why R for Data Science?</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./RBasics/Syntax.html" class="pagination-link" aria-label="Syntax">
-        <span class="nav-page-text">Syntax</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./RStudio.html" class="pagination-link" aria-label="Get Acquainted with RStudio">
+        <span class="nav-page-text">Get Acquainted with RStudio</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
