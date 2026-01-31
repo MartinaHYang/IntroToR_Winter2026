@@ -131,7 +131,7 @@
     "href": "MaterialsInstructions.html#how-the-workshop-is-structured",
     "title": "How to Use These Materials",
     "section": "How the Workshop is Structured",
-    "text": "How the Workshop is Structured\nWe follow a “Walk-through and Practice” model:\n1. **Interactive Review:** We will first go through the online materials together to establish the core concepts. \n\n2. **Hands-on Session:** We will then transition to RStudio on your individual computers to practice coding in real-time.\nThe code on this website serves as a reference guide, but the real learning happens when you type and troubleshoot on your own machine.",
+    "text": "How the Workshop is Structured\nWe follow a “Walk-through and Practice” model:\n\nInteractive Review: We will first go through the online materials together to establish the core concepts.\nHands-on Session: We will then transition to RStudio on your individual computers to practice coding in real-time.\n\nThe code on this website serves as a reference guide, but the real learning happens when you type and troubleshoot on your own machine.",
     "crumbs": [
       "How to Use This Materials"
     ]
@@ -141,7 +141,7 @@
     "href": "MaterialsInstructions.html#why-a-website-instead-of-slides",
     "title": "How to Use These Materials",
     "section": "Why a Website Instead of Slides?",
-    "text": "Why a Website Instead of Slides?\nTraditional slides can often be a barrier to learning code for a few reasons:\n- **The \"Setup\" Lag:** In many workshops, significant time is lost waiting for everyone to reach the same setup step, causing faster students to lose momentum. \n\n- **Information Density:** Long, dense slides can be distracting. It is easy to lose your place, and once you fall behind, it is difficult to catch up. \n\n- **Self-Paced Learning:** As someone who values clear, manageable steps, I designed this format to be **beginner-friendly**. You can stop, re-read, and continue at any time.\nThis website is intended to be a living resource—something you can study at your own pace during the workshop and return to for review later in your research.",
+    "text": "Why a Website Instead of Slides?\nTraditional slides can often be a barrier to learning code for a few reasons:\n\nThe “Setup” Lag: In many workshops, significant time is lost waiting for everyone to reach the same setup step, causing faster students to lose momentum.\nInformation Density: Long, dense slides can be distracting. It is easy to lose your place, and once you fall behind, it is difficult to catch up.\nSelf-Paced Learning: As someone who values clear, manageable steps, I designed this format to be beginner-friendly. You can stop, re-read, and continue at any time.\n\nThis website is intended to be a living resource—something you can study at your own pace during the workshop and return to for review later in your research.",
     "crumbs": [
       "How to Use This Materials"
     ]
