@@ -6,9 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="description" content="Materials adapted from TC Technology Knowledge Base.">
 
-<title>Getting Started: Installing R and RStudio – Intro To R</title>
+<title>How to Use These Materials – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +29,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./RStudio.html" rel="next">
-<link href="./WhyR.html" rel="prev">
+<link href="./RBasics/Overview.html" rel="next">
+<link href="./RStudio.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -83,7 +82,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./Setup.html">Installing R and RStudio</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./MaterialsInstructions.html">How to Use This Materials</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -127,7 +126,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./Setup.html" class="sidebar-item-text sidebar-link active">
+  <a href="./Setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installing R and RStudio</span></a>
   </div>
 </li>
@@ -139,7 +138,7 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./MaterialsInstructions.html" class="sidebar-item-text sidebar-link">
+  <a href="./MaterialsInstructions.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">How to Use This Materials</span></a>
   </div>
 </li>
@@ -200,37 +199,26 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#install-r-and-rstudio-for-mac" id="toc-install-r-and-rstudio-for-mac" class="nav-link active" data-scroll-target="#install-r-and-rstudio-for-mac">1. <strong>Install R and RStudio for Mac</strong></a>
+  <li><a href="#how-code-is-demonstrated" id="toc-how-code-is-demonstrated" class="nav-link active" data-scroll-target="#how-code-is-demonstrated">How Code is Demonstrated</a>
   <ul class="collapse">
-  <li><a href="#install-r" id="toc-install-r" class="nav-link" data-scroll-target="#install-r">1.1 Install R</a></li>
-  <li><a href="#install-r-studio" id="toc-install-r-studio" class="nav-link" data-scroll-target="#install-r-studio">1.2 Install R Studio</a></li>
+  <li><a href="#the-code-block" id="toc-the-code-block" class="nav-link" data-scroll-target="#the-code-block"><strong>The Code Block</strong></a></li>
+  <li><a href="#the-output" id="toc-the-output" class="nav-link" data-scroll-target="#the-output"><strong>The Output</strong></a></li>
   </ul></li>
-  <li><a href="#install-r-and-rstudio-for-windows" id="toc-install-r-and-rstudio-for-windows" class="nav-link" data-scroll-target="#install-r-and-rstudio-for-windows">2. <strong>Install R and RStudio for Windows</strong></a>
-  <ul class="collapse">
-  <li><a href="#install-r-1" id="toc-install-r-1" class="nav-link" data-scroll-target="#install-r-1">2.1 Install R</a></li>
-  <li><a href="#install-rstudio" id="toc-install-rstudio" class="nav-link" data-scroll-target="#install-rstudio">2.2 Install RStudio</a></li>
-  </ul></li>
-  <li><a href="#notes" id="toc-notes" class="nav-link" data-scroll-target="#notes">3. Notes</a>
-  <ul class="collapse">
-  <li><a href="#language-recommendation-why-we-suggest-english-1" id="toc-language-recommendation-why-we-suggest-english-1" class="nav-link" data-scroll-target="#language-recommendation-why-we-suggest-english-1">3.1 Language Recommendation: Why we suggest English</a></li>
-  </ul></li>
+  <li><a href="#how-the-workshop-is-structured" id="toc-how-the-workshop-is-structured" class="nav-link" data-scroll-target="#how-the-workshop-is-structured">How the Workshop is Structured</a></li>
+  <li><a href="#why-a-website-instead-of-slides" id="toc-why-a-website-instead-of-slides" class="nav-link" data-scroll-target="#why-a-website-instead-of-slides">Why a Website Instead of Slides?</a></li>
+  <li><a href="#behind-the-scenes-how-this-site-was-built" id="toc-behind-the-scenes-how-this-site-was-built" class="nav-link" data-scroll-target="#behind-the-scenes-how-this-site-was-built">Behind the Scenes: How this Site was Built</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/Setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/MaterialsInstructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Getting Started: Installing R and RStudio</h1>
-<p class="subtitle lead">Installation Tutorial</p>
+<h1 class="title">How to Use These Materials</h1>
+<p class="subtitle lead">A Guide to Navigating the Workshop</p>
 </div>
 
-<div>
-  <div class="description">
-    Materials adapted from <a href="https://teacherscollege.screenstepslive.com/a/1135059-install-r-and-rstudio-for-mac">TC Technology Knowledge Base</a>.
-  </div>
-</div>
 
 
 <div class="quarto-title-meta">
@@ -245,386 +233,53 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<hr>
+<section id="how-code-is-demonstrated" class="level2">
+<h2 class="anchored" data-anchor-id="how-code-is-demonstrated">How Code is Demonstrated</h2>
+<p>Throughout these materials, we use live-rendered code blocks to demonstrate R’s functionality. This means the results you see on the website were generated by the code right above them.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/MaterialsInstructions.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>R and RStudio are two different programs that work together. R is the programming language and RStudio is a front end program that lets you write R code, view plots, etc.</p>
-<p>To understand the difference, think of the relationship between a car’s engine and its dashboard:</p>
+<section id="the-code-block" class="level3">
+<h3 class="anchored" data-anchor-id="the-code-block"><strong>The Code Block</strong></h3>
+<p>You will see code blocks with a <strong>copy button</strong> in the top-right corner.</p>
 <ul>
-<li><p><strong>R is the Engine:</strong> It is the powerful machine under the hood. It does all the heavy lifting, makes the car move, and handles the energy. But on its own, an engine is just a block of metal on the floor—you can’t sit in it or steer it easily.</p></li>
-<li><p><strong>RStudio is the Dashboard:</strong> It’s the steering wheel, the seats, the GPS, and the speedometer. It’s the beautiful interface that lets you <em>interact</em> with the engine so you can actually drive where you want to go.</p></li>
+<li><strong>To try it yourself:</strong> Click copy and paste the code into your RStudio Source Editor or Console.</li>
+<li><strong>To run it:</strong> Use the shortcuts <code>Cmd + Return</code> (Mac) or <code>Ctrl + Enter</code> (Windows).</li>
+<li><em>If you need a refresher on running code, refer to <a href="./RStudio.html#executing-code">Get Acquainted with R and RStudio Section - 3.2.4: Executing Code</a>.</em></li>
 </ul>
-<p><strong>Key Takeaway:</strong> Each program must be downloaded separately. You need to install both programs on your computer, but you will only ever “open” RStudio to do your work.</p>
-</div>
-</div>
-<section id="install-r-and-rstudio-for-mac" class="level2">
-<h2 class="anchored" data-anchor-id="install-r-and-rstudio-for-mac">1. <strong>Install R and RStudio for Mac</strong></h2>
-<section id="install-r" class="level3">
-<h3 class="anchored" data-anchor-id="install-r">1.1 Install R</h3>
-<blockquote class="blockquote">
-<p><strong>a) To install R, go to <a href="https://cran.r-project.org">cran.r-project.org</a>.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>b) Click Download R for (Mac) OS X.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>c) Check the Latest release: section for the appropriate version and follow the directions for download.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span><strong>Find out which macOS your Mac is using</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To ensure you download the correct version of R, you need to check which processor your Mac uses:</p>
-<ol type="1">
-<li><p>Click the Apple menu () in the top-left corner of your screen and select About This Mac.</p></li>
-<li><p>In the window that appears, look for the Chip or Processor section:</p>
-<ul>
-<li><p><strong>Apple Silicon:</strong> If you see “Chip” followed by M1, M2, or M3, download the version for Apple silicon Macs.</p></li>
-<li><p><strong>Intel:</strong> If you see “Processor” followed by Intel Core i5 or i7, download the version for Older Intel Macs.</p></li>
-</ul></li>
-</ol>
-<p><strong>Note:</strong> The appearance of this window may vary depending on your macOS version, but the chip information will always be listed there.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="182"></p>
-</figure>
-</div>
-</div>
-</div>
-<blockquote class="blockquote">
-<p><strong>d) Once the file download is complete, click to open the installer in your Downloads folder. Click Continue and proceed through the installer.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>e) Once the R installer has finished, click Close.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_6.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
 </section>
-<section id="install-r-studio" class="level3">
-<h3 class="anchored" data-anchor-id="install-r-studio">1.2 Install R Studio</h3>
-<blockquote class="blockquote">
-<p><strong>a) Next, download RStudio. Go to <a href="https://posit.co/downloads/" class="uri">https://posit.co/downloads/</a></strong></p>
-</blockquote>
-<blockquote class="blockquote">
-<p><strong>b) Click Download RStudio.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_7.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>c) Select the RStudio version compatible with your macOS.</strong></p>
-<p>Note: If you are using macOS 13 (Ventura) or earlier, you may be redirected to an older version of RStudio that is optimized for your specific operating system.</p>
-</blockquote>
-<div class="columns">
-<div class="column" style="width:45%;">
-<p><img src="images/R4mac_7_1.png" class="border img-fluid"></p>
-</div><div class="column" style="width:10%;">
+<section id="the-output" class="level3">
+<h3 class="anchored" data-anchor-id="the-output"><strong>The Output</strong></h3>
+<p>Immediately following the code block, you will see the results. These lines represent the exact output you will see in your RStudio Console on your own computer.</p>
+</section>
+</section>
+<section id="how-the-workshop-is-structured" class="level2">
+<h2 class="anchored" data-anchor-id="how-the-workshop-is-structured">How the Workshop is Structured</h2>
+<p>We follow a <strong>“Walk-through and Practice”</strong> model:</p>
+<pre><code>1. **Interactive Review:** We will first go through the online materials together to establish the core concepts. 
 
-</div><div class="column" style="width:45%;">
-<p><img src="images/R4mac_7_2.png" class="border img-fluid"></p>
-</div>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span><strong>Find out which macOS version your Mac is using</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>To ensure you download the correct version of R, you need to check which processor your Mac uses:</p>
-<ol type="1">
-<li><p>Click the Apple menu () in the top-left corner of your screen and select About This Mac.</p></li>
-<li><p>In the window that appears, look for the macOS section:</p>
-<ul>
-<li><p>The number following the macOS name is your version number.</p></li>
-<li><p>Example: If your screen shows macOS Tahoe 25.0 (as seen in the figure below), your version is 25.</p></li>
-<li><p>Action: In this case, you should choose the download option <code>macOS 14+ (macOS 14 and higher)</code>.</p></li>
-</ul></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="182"></p>
-</figure>
-</div>
-</div>
-</div>
-<blockquote class="blockquote">
-<p><strong>d) Once the file download is complete, click to open the installer. Drag RStudio into your applications folder.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_8.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>e) Once the installation is complete, R and RStudio will open.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_9.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
+2. **Hands-on Session:** We will then transition to RStudio on your individual computers to practice coding in real-time.</code></pre>
+<p>The code on this website serves as a reference guide, but the real learning happens when you type and troubleshoot on your own machine.</p>
 </section>
+<section id="why-a-website-instead-of-slides" class="level2">
+<h2 class="anchored" data-anchor-id="why-a-website-instead-of-slides">Why a Website Instead of Slides?</h2>
+<p>Traditional slides can often be a barrier to learning code for a few reasons:</p>
+<pre><code>- **The "Setup" Lag:** In many workshops, significant time is lost waiting for everyone to reach the same setup step, causing faster students to lose momentum. 
+
+- **Information Density:** Long, dense slides can be distracting. It is easy to lose your place, and once you fall behind, it is difficult to catch up. 
+
+- **Self-Paced Learning:** As someone who values clear, manageable steps, I designed this format to be **beginner-friendly**. You can stop, re-read, and continue at any time.</code></pre>
+<p>This website is intended to be a living resource—something you can study at your own pace during the workshop and return to for review later in your research.</p>
 </section>
-<section id="install-r-and-rstudio-for-windows" class="level2">
-<h2 class="anchored" data-anchor-id="install-r-and-rstudio-for-windows">2. <strong>Install R and RStudio for Windows</strong></h2>
-<section id="install-r-1" class="level3">
-<h3 class="anchored" data-anchor-id="install-r-1">2.1 Install R</h3>
-<blockquote class="blockquote">
-<p><strong>a) To install R, go to <a href="https://cran.r-project.org">cran.r-project.org</a>.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4mac_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>b) Choose for Download R for Windows.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>c) Install R Click on install R for the first time.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_3.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>d) Click Download R for Windows. Open the downloaded file.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>e) Select the language you would like to use during the installation. Then click OK.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_5.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span><strong>Language Recommendation: Why we suggest English</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>While RStudio supports multiple languages, <strong>I highly recommend setting your environment to English.</strong> Here is why:</p>
-<ul>
-<li><p><strong>Easier Troubleshooting:</strong> Most R documentation, forums, and Stack Overflow solutions are in English. When you encounter an error message, it is much easier to “Google” the exact text to find a solution.</p></li>
-<li><p><strong>Encoding Issues:</strong> If you use non-alphabetic languages (like Mandarin), you may run into “text recognition” or encoding errors. This can result in “nonsense” characters (mojibake) in your console or error messages, making them impossible to read.</p></li>
-<li><p><strong>Consistency:</strong> Most R packages and functions are named using English verbs, so keeping your interface in the same language makes the logic flow more naturally.</p></li>
-</ul>
-<p><strong>Don’t worry if you’ve already chosen another language.</strong> You can usually change these settings later in the RStudio Global Options. In the absolute worst-case scenario, you can simply reinstall R, but for now, feel free to proceed with whichever language you are most comfortable with!</p>
-</div>
-</div>
-<blockquote class="blockquote">
-<p><strong>f) Click Next.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_6.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>g) Select where you would like R to be installed. It will default to your Program Files on your C Drive. Click Next.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_7.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>h) You can then choose which installation you would like.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_8.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>i) (Optional) If your computer is a 64-bit, you can choose the 64-bit User Installation. Then click Next.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_9.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span><strong>How can I tell if my Windows device is running a 32-bit or a 64-bit version of Windows?</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Most modern computers run the 64-bit version. Note that Windows 11 is 64-bit only, so if you have Windows 11, you are already set!</p>
-<p>To confirm your system type on Windows 10 or 11:</p>
-<ul>
-<li><p>Select the Start button and go to Settings &gt; System &gt; About.</p></li>
-<li><p>Locate the Device specifications section.</p></li>
-<li><p>Look next to System type:</p>
-<ul>
-<li><p>64-bit operating system, x64-based processor: Choose the 64-bit download.</p></li>
-<li><p>32-bit operating system, x86-based processor: Choose the 32-bit download (rare for newer machines).</p></li>
-</ul></li>
-</ul>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_9_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-<blockquote class="blockquote">
-<p><strong>j) Then specify if you want to customized your startup or just use the defaults. Then click Next.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_10.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>k) Then you can choose the folder that you want R to be saved within or the default if the R folder that was created. Once you have finished, click Next.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_11.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>l) You can then select additional shortcuts if you would like. Click Next.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_12.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>m) Click Finish.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_13.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-<section id="install-rstudio" class="level3">
-<h3 class="anchored" data-anchor-id="install-rstudio">2.2 Install RStudio</h3>
-<blockquote class="blockquote">
-<p><strong>a) Next, download RStudio. Go to <a href="https://posit.co/downloads/" class="uri">https://posit.co/downloads/</a></strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_14.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>b) Click Download RStudio.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_15.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>c) Once the packet has downloaded, the Welcome to RStudio Setup Wizard will open. Click Next and go through the installation steps.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_16.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<blockquote class="blockquote">
-<p><strong>d) After the Setup Wizard finishing the installation, RStudio will open.</strong></p>
-</blockquote>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/R4wds_17.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-</section>
-</section>
-<section id="notes" class="level2">
-<h2 class="anchored" data-anchor-id="notes">3. Notes</h2>
-<section id="language-recommendation-why-we-suggest-english-1" class="level3">
-<h3 class="anchored" data-anchor-id="language-recommendation-why-we-suggest-english-1">3.1 Language Recommendation: Why we suggest English</h3>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span><strong>Language Recommendation: Why we suggest English</strong>
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>While RStudio supports multiple languages, <strong>I highly recommend setting your environment to English.</strong> Here is why:</p>
-<ul>
-<li><p><strong>Easier Troubleshooting:</strong> Most R documentation, forums, and Stack Overflow solutions are in English. When you encounter an error message, it is much easier to “Google” the exact text to find a solution.</p></li>
-<li><p><strong>Encoding Issues:</strong> If you use non-alphabetic languages (like Mandarin), you may run into “text recognition” or encoding errors. This can result in “nonsense” characters (mojibake) in your console or error messages, making them impossible to read.</p></li>
-<li><p><strong>Consistency:</strong> Most R packages and functions are named using English verbs, so keeping your interface in the same language makes the logic flow more naturally.</p></li>
-</ul>
-<p><strong>Don’t worry if you’ve already chosen another language.</strong> You can usually change these settings later in the RStudio Global Options. In the absolute worst-case scenario, you can simply reinstall R, but for now, feel free to proceed with whichever language you are most comfortable with!</p>
-</div>
-</div>
+<section id="behind-the-scenes-how-this-site-was-built" class="level2">
+<h2 class="anchored" data-anchor-id="behind-the-scenes-how-this-site-was-built">Behind the Scenes: How this Site was Built</h2>
+<p>This site is built using <strong>Quarto</strong> and <strong>Markdown</strong>, hosted via <strong>GitHub Pages</strong>.</p>
+<p>Markdown is a lightweight text-editing language that is excellent for combining professional page layouts with live code. Much like LaTeX, it is a powerful tool for academic writing, and learning it will help you in your own research documentation!</p>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -1030,13 +685,13 @@ Note
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./WhyR.html" class="pagination-link" aria-label="Why R for Data Science?">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Why R for Data Science?</span>
+      <a href="./RStudio.html" class="pagination-link" aria-label="Get Acquainted with R and RStudio">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Get Acquainted with R and RStudio</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./RStudio.html" class="pagination-link" aria-label="Get Acquainted with R and RStudio">
-        <span class="nav-page-text">Get Acquainted with R and RStudio</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./RBasics/Overview.html" class="pagination-link" aria-label="Overview">
+        <span class="nav-page-text">Overview</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -1048,7 +703,7 @@ Note
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/Setup.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/MaterialsInstructions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

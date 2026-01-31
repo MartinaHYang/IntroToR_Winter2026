@@ -1,23 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/Syntax.html</loc>
-    <lastmod>2026-01-28T04:49:30.418Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/Operators.html</loc>
+    <lastmod>2026-01-31T22:48:49.086Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RStudio.html</loc>
-    <lastmod>2026-01-28T04:49:30.418Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/AtomicClasses.html</loc>
+    <lastmod>2026-01-31T22:48:49.085Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WhyR.html</loc>
-    <lastmod>2026-01-28T04:49:30.418Z</lastmod>
-  </url>
-  <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/index.html</loc>
-    <lastmod>2026-01-28T04:49:30.449Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/Objects.html</loc>
+    <lastmod>2026-01-31T22:48:49.086Z</lastmod>
   </url>
   <url>
     <loc>https://martinahyang.github.io/IntroToR_Winter2026/Setup.html</loc>
-    <lastmod>2026-01-28T04:49:30.418Z</lastmod>
+    <lastmod>2026-01-31T22:48:49.086Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/MaterialsInstructions.html</loc>
+    <lastmod>2026-01-31T22:48:49.085Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WhyR.html</loc>
+    <lastmod>2026-01-31T22:48:49.086Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/index.html</loc>
+    <lastmod>2026-01-31T22:48:49.117Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RStudio.html</loc>
+    <lastmod>2026-01-31T22:48:49.086Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/Overview.html</loc>
+    <lastmod>2026-01-31T22:48:49.086Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/LogicalOp.html</loc>
+    <lastmod>2026-01-31T22:48:49.085Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/Syntax.html</loc>
+    <lastmod>2026-01-31T22:48:49.086Z</lastmod>
   </url>
 </urlset>
