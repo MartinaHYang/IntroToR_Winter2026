@@ -1,0 +1,15 @@
+---
+title: "Overview: Data types and Data Structures"
+subtitle: ""
+description: "Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie."
+---
+
+## Learning Objectives
+
+By the end of this module, you will be able to:
+
+-   **Distinguish** between objects, classes, and data types.
+-   **Create and manipulate** the four primary atomic data types in R.
+-   **Identify** the differences between vectors, lists, and data frames.
+-   **Access specific data** using 1-based indexing and subsetting.
+-   **Apply vectorized operations** to perform calculations on entire datasets at once.

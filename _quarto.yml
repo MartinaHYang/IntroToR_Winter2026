@@ -34,12 +34,24 @@ website:
         href: WhyR.qmd
       - text: "Installing R and RStudio"
         href: Setup.qmd
-      - text: "Get Acquainted with RStudio"
+      - text: "Get Acquainted with R and RStudio"
         href: RStudio.qmd
-      - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒"
+      - text: "How to Use This Materials"
+        href: MaterialsInstructions.qmd
+      - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures"
         contents:
-          - text: "Syntax"
+          - text: "Overview"
+            href: RBasics/Overview.qmd
+          - text: "Atomic Classes (Data Types)"
+            href: RBasics/AtomicClasses.qmd
+          - text: "Arithmetic operators"
+            href: RBasics/Operators.qmd
+          - text: "Syntax operators"
             href: RBasics/Syntax.qmd
+          - text: "Logical operators"
+            href: RBasics/LogicalOp.qmd
+          - text: "Objects (Data Structures)"
+            href: RBasics/Objects.qmd  
 
 
 format:
