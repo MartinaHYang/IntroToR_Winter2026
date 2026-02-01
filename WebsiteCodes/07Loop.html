@@ -8,7 +8,7 @@
 
 <meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
 
-<title>Title – Intro To R</title>
+<title>For &amp; While Loops – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -312,15 +347,32 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#for-loop" id="toc-for-loop" class="nav-link active" data-scroll-target="#for-loop">1. For Loop</a></li>
+  <li><a href="#while-loop" id="toc-while-loop" class="nav-link" data-scroll-target="#while-loop">2. While Loop</a></li>
+  <li><a href="#comparison-of-iteration-methods" id="toc-comparison-of-iteration-methods" class="nav-link" data-scroll-target="#comparison-of-iteration-methods">3. Comparison of Iteration Methods</a></li>
+  <li><a href="#the-apply-family-lapply-and-sapply" id="toc-the-apply-family-lapply-and-sapply" class="nav-link" data-scroll-target="#the-apply-family-lapply-and-sapply">4. The “Apply” Family (<code>lapply</code> and <code>sapply</code>)</a>
+  <ul class="collapse">
+  <li><a href="#lapply" id="toc-lapply" class="nav-link" data-scroll-target="#lapply">4.1 <code>lapply</code></a></li>
+  <li><a href="#sapply" id="toc-sapply" class="nav-link" data-scroll-target="#sapply">4.2 <code>sapply</code></a></li>
+  </ul></li>
+  <li><a href="#complicated-case-sapply-with-a-custom-function" id="toc-complicated-case-sapply-with-a-custom-function" class="nav-link" data-scroll-target="#complicated-case-sapply-with-a-custom-function">5. Complicated Case: <code>sapply</code> with a Custom Function</a>
+  <ul class="collapse">
+  <li><a href="#the-scenario" id="toc-the-scenario" class="nav-link" data-scroll-target="#the-scenario"><strong>The Scenario:</strong></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/07Loop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview2.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/07Loop.html">𝟳 For Loop/While Loop</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Title</h1>
+<h1 class="title">For &amp; While Loops</h1>
 </div>
 
 <div>
@@ -343,8 +395,259 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
+<section id="for-loop" class="level2">
+<h2 class="anchored" data-anchor-id="for-loop">1. For Loop</h2>
+<p>A <strong>For Loop</strong> is used when you know exactly how many times you want to repeat a task. You are “iterating” over a sequence (like a vector or a list).</p>
+<p><strong>The Logic (Pseudo-code):</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of a <code>for</code> loop like an <strong>assembly line</strong>. You have a box of items (a vector or list), and you pick them up one by one, do something to them, and set them aside until the box is empty.</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<pre><code>for (EACH_ITEM in UR_COLLECTION) {
+    # 1. Take the current ITEM
+    # 2. Perform the ACTION (e.g., calculate its square root)
+    # 3. Move to the next ITEM automatically
+}
+
+# STOP: The loop ends automatically when the COLLECTION is empty</code></pre>
+</blockquote>
+<p><strong>Example: Counting</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate through the numbers 1 to 10</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>) {</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(i)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1
+[1] 2
+[1] 3
+[1] 4
+[1] 5
+[1] 6
+[1] 7
+[1] 8
+[1] 9
+[1] 10</code></pre>
+</div>
+</div>
+<p><strong>Example: Processing Strings</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate through a character vector</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">'a'</span>, <span class="st">'ab'</span>, <span class="st">'cab'</span>, <span class="st">'taxi'</span>)</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (word <span class="cf">in</span> x) {</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(word)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "a"
+[1] "ab"
+[1] "cab"
+[1] "taxi"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The <code>i</code> or <code>word</code> in the code above is just a placeholder (an “iterator”). You can name it anything you want, but using descriptive names like <code>gene</code> or <code>sample</code> makes your code much easier to read!</p>
+</div>
+</div>
+</section>
+<section id="while-loop" class="level2">
+<h2 class="anchored" data-anchor-id="while-loop">2. While Loop</h2>
+<p>A <strong>While Loop</strong> is more flexible but also more “dangerous.” It repeats a task as long as a certain condition remains <strong>TRUE</strong>.</p>
+<p>You use this when you don’t know exactly how many iterations you need, <strong>but you know when you want to stop.</strong></p>
+<p><strong>The Logic (Pseudo-code):</strong></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Think of a <code>while</code> loop like a <strong>security guard</strong> at a gate. The guard checks the condition <em>before</em> letting the code inside. If the condition is still true, the code runs, and then it goes back to the guard to check again.</p>
+</div>
+</div>
+<blockquote class="blockquote">
+<pre><code>WHILE (condition is TRUE) {
+    1. Perform the ACTION (e.g., print a value or do math)
+    2. UPDATE the variables involved in the condition 
+       (If you don't update them, the loop runs forever!)
+}
+# STOP: The loop ends automatically when the condition becomes FALSE</code></pre>
+</blockquote>
+<p><strong>Example:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="co"># While x is greater than 0, keep running</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="cf">while</span> (x <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(x)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Crucial: you must change x, or the loop will run forever!</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> x <span class="sc">-</span> <span class="dv">1</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 5
+[1] 4
+[1] 3
+[1] 2
+[1] 1</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Caution</span><strong>A Cautionary Note on While Loops</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If your condition in a <code>while</code> loop never becomes <code>FALSE</code> (for example, if you forgot to write <code>x &lt;- x - 1</code>), you create an <strong>Infinite Loop</strong>.</p>
+<p>This will cause R to hang or crash. If this happens, look for the <strong>red “Stop” icon</strong> in the top-right of your RStudio Console to break the loop!</p>
+</div>
+</div>
+</section>
+<section id="comparison-of-iteration-methods" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-of-iteration-methods">3. Comparison of Iteration Methods</h2>
+<p>In R, we often prefer <strong>Vectorized</strong> functions (the “Apply” family) over <code>for</code> loops because they are usually faster and require less code.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Method</strong></td>
+<td><strong>Best Use Case</strong></td>
+<td><strong>Output Type</strong></td>
+</tr>
+<tr class="even">
+<td><strong><code>for</code> loop</strong></td>
+<td>Complex logic with many steps.</td>
+<td>Whatever you define.</td>
+</tr>
+<tr class="odd">
+<td><strong><code>while</code> loop</strong></td>
+<td>Simulations or tasks with unknown end-points.</td>
+<td>Whatever you define.</td>
+</tr>
+<tr class="even">
+<td><strong><code>lapply</code></strong></td>
+<td>Applying a function to every element of a list/vector.</td>
+<td><strong>List</strong></td>
+</tr>
+<tr class="odd">
+<td><strong><code>sapply</code></strong></td>
+<td>Same as <code>lapply</code>, but tries to “simplify” the result.</td>
+<td><strong>Vector</strong> or <strong>Matrix</strong></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="the-apply-family-lapply-and-sapply" class="level2">
+<h2 class="anchored" data-anchor-id="the-apply-family-lapply-and-sapply">4. The “Apply” Family (<code>lapply</code> and <code>sapply</code>)</h2>
+<p>In modern R, <code>lapply</code> (List Apply) and <code>sapply</code> (Simple Apply) are the gold standard for iteration. They are cleaner and less prone to “off-by-one” errors than standard loops.</p>
+<section id="lapply" class="level3">
+<h3 class="anchored" data-anchor-id="lapply">4.1 <code>lapply</code></h3>
+<p>Always returns a <strong>list</strong>. This is great for bioinformatics because it can store complex results (like model outputs) for each gene.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BRCA1"</span>, <span class="st">"TP53"</span>, <span class="st">"EGFR"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert every gene name to lowercase</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>results_list <span class="ot">&lt;-</span> <span class="fu">lapply</span>(genes, tolower)</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>results_list</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[[1]]
+[1] "brca1"
+
+[[2]]
+[1] "tp53"
+
+[[3]]
+[1] "egfr"</code></pre>
+</div>
+</div>
+</section>
+<section id="sapply" class="level3">
+<h3 class="anchored" data-anchor-id="sapply">4.2 <code>sapply</code></h3>
+<p>Does the same thing as <code>lapply</code>, but it tries to “simplify” the result into a vector if possible.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert every gene name to lowercase and return a vector</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>results_vector <span class="ot">&lt;-</span> <span class="fu">sapply</span>(genes, tolower)</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>results_vector</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  BRCA1    TP53    EGFR 
+"brca1"  "tp53"  "egfr" </code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="complicated-case-sapply-with-a-custom-function" class="level2">
+<h2 class="anchored" data-anchor-id="complicated-case-sapply-with-a-custom-function">5. Complicated Case: <code>sapply</code> with a Custom Function</h2>
+<p>In bioinformatics, we often need to do more than just simple math. We might want to “Score” a list of genes based on several criteria at once.</p>
+<p>In this case, we will write a <strong>Custom Function</strong> and then use <code>sapply</code> to “fly” that function over a vector of gene expression values.</p>
+<section id="the-scenario" class="level3">
+<h3 class="anchored" data-anchor-id="the-scenario"><strong>The Scenario:</strong></h3>
+<p>We have a vector of Gene Expression values. We want to label them:</p>
+<ul>
+<li><p><strong>“High”</strong> if the value is &gt;100.</p></li>
+<li><p><strong>“Low”</strong> if the value is &lt;10.</p></li>
+<li><p><strong>“Medium”</strong> for everything else.</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Create our data (Sample Gene Expression)</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>expression_values <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">5</span>, <span class="dv">45</span>, <span class="dv">200</span>, <span class="dv">8</span>, <span class="dv">55</span>)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(expression_values) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Gene_A"</span>, <span class="st">"Gene_B"</span>, <span class="st">"Gene_C"</span>, <span class="st">"Gene_D"</span>, <span class="st">"Gene_E"</span>, <span class="st">"Gene_F"</span>)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Write a Custom Function to handle the logic</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># This function takes ONE number and returns ONE label</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>classify_gene <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">100</span>) {</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">"High"</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">"Low"</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">return</span>(<span class="st">"Medium"</span>)</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Use sapply to apply this function to every value in our vector</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="co"># sapply handles the "looping" for us!</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>gene_status <span class="ot">&lt;-</span> <span class="fu">sapply</span>(expression_values, classify_gene)</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="co"># 4. Look at the result</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>gene_status</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Gene_A   Gene_B   Gene_C   Gene_D   Gene_E   Gene_F 
+  "High"    "Low" "Medium"   "High"    "Low" "Medium" </code></pre>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -767,7 +1070,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/07Loop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/07Loop.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

@@ -143,6 +143,28 @@
     ]
   },
   {
+    "objectID": "WebsiteCodes/06ConditionalStat.html#the-logic-of-decision-making",
+    "href": "WebsiteCodes/06ConditionalStat.html#the-logic-of-decision-making",
+    "title": "Conditional Statements",
+    "section": "1. The Logic of Decision Making",
+    "text": "1. The Logic of Decision Making\nIn programming, Conditional Statements allow your code to branch. Instead of running every line of code from top to bottom, R will only run specific sections if a condition is met.\n\n1.1 Binary Conditions (if … else)\nThis is used for simple “Yes/No” or “Either/Or” logic.\nThe Structure (Pseudo-code):\n\nif (condition) {\n  # Perform this task if condition is TRUE\n} else {\n  # Perform this task if condition is FALSE\n}\n\nExample:\n\nx &lt;- 5\n\nif (x &gt; 5) {\n  # If the number is greater than 5, get its square\n  x^2\n} else {\n  # If not, multiply it by 2\n  x * 2\n}\n\n[1] 10\n\n\n\n\n\n\n\n\nNote\n\n\n\nBecause the condition x &gt; 5 evaluated to FALSE (since 5 is equal to 5, not strictly greater than 5), R skipped the first block and jumped straight to the else block.\n\n\n\n\n1.2 Multi-branch Conditions (else if)\nWhen your logic is more complex than a simple binary choice, you can chain conditions together. You can have as many else if blocks as you need.\nThe Structure (Pseudo-code):\n\nif (condition_1) {\n  # Perform Task A\n} else if (condition_2) {\n  # Perform Task B\n} else if (condition_3) {\n  # Perform Task C\n} else {\n  # Perform Task D if NONE of the above were TRUE\n}\n\n\nx &lt;- 7\n\nif (x &gt; 5 && x &lt; 10) {\n  # If x is between 5 AND 10\n  x^2\n} else if (x &lt; 0 || x &gt; 10) {\n  # If x is negative OR greater than 10\n  -x\n} else {\n  # For everything else (like 0, 1, 2, 3, 4, 5)\n  x * 2\n}\n\n[1] 49",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions",
+      "𝟲 Conditional Statements"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/06ConditionalStat.html#pro-tips-for-conditionals",
+    "href": "WebsiteCodes/06ConditionalStat.html#pro-tips-for-conditionals",
+    "title": "Conditional Statements",
+    "section": "2. Pro-Tips for Conditionals",
+    "text": "2. Pro-Tips for Conditionals\n\n2.1 & vs && (and | vs ||)\nYou might have noticed the use of double symbols (&& and ||) in the example above. In R, there is a small but important difference:\n\nSingle (&, |): These are Vectorized. Use these when comparing entire columns of data (e.g., filtering a Data Frame).\nDouble (&&, ||): These are Short-circuiting. They only look at the first element of a vector. They are faster and preferred inside if statements where you are only checking one value at a time.\n\n\n\n2.2 The “Missing” Else\nThe else block is optional. If you don’t provide one and the if condition is FALSE, R will simply skip the block and move to the next line of code.\n\n\n2.3 Indentation Matters for Humans!\nWhile R is “space-insensitive” (it doesn’t care if your code is a messy pile of text), humans are not. We use indentation to show the hierarchy of logic.\nIt is standard practice to indent the code inside the curly braces { }. This makes it immediately obvious which code belongs to which condition.\n\n\n\n\n\n\nTip\n\n\n\nThe RStudio Secret\nDon’t worry about manually hitting the spacebar! RStudio is designed to help you.\n\nAuto-indent: When you type a { and hit Enter, RStudio automatically adds the correct gap.\nThe “Re-format” Trick: If your code looks messy, you don’t even need to copy-paste. Simply highlight the code and press Ctrl + Shift + A (Windows) or Cmd + Shift + A (Mac). RStudio will instantly clean up the spacing and indentation for you.\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe styler Package\nIn professional programming, we often use a package called styler.\nIt acts like a “grammar checker” for your code, ensuring it follows the tidyverse style guide used by data scientists at NASA, Google, and beyond.\n\n\n\n\n2.4 Best Practices for Conditional Logic\n\nThe MECE Principle\nWhen designing your logic, try to follow the MECE principle: Mutually Exclusive, Collectively Exhaustive.\n\nMutually Exclusive: Your conditions shouldn’t overlap. A number shouldn’t be able to trigger both the if and the else if block at the same time.\nCollectively Exhaustive: You have considered all possibilities. This is why a final else block is so important—it acts as a “safety net” for any data you didn’t expect.\n\n\n\nThe Power of Comments\nIn bioinformatics, your “Conditions” are often based on scientific thresholds (e.g., p-value &lt;0.05 or Log2FoldChange &gt;2).\nAlways write a comment explaining why you chose that threshold. Future you will thank you when you’re writing the “Methods” section of your paper!",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions",
+      "𝟲 Conditional Statements"
+    ]
+  },
+  {
     "objectID": "WebsiteCodes/Overview.html",
     "href": "WebsiteCodes/Overview.html",
     "title": "Overview: Data types and Data Structures",
@@ -288,6 +310,28 @@
     "text": "4. References\nThe materials for this workshop were based on the following sources:\n\nBase R Cheat Sheet\nGoogle’s R Style Guide\nMastering Software Development in R\nOnline Book: R for Data Science (2e)\nOnline Book: R Graphics Cookbook, 2nd edition\nOnline Book: R in Action, Second Edition\nOnline Book: Hands-On Programming with R\n\nWorkshop created as part of the McGill Initiative in Computational Medicine",
     "crumbs": [
       "Welcome🎉"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/08NewFunctions.html#installing-new-packages",
+    "href": "WebsiteCodes/08NewFunctions.html#installing-new-packages",
+    "title": "Functions",
+    "section": "1. Installing New Packages",
+    "text": "1. Installing New Packages\nThink of R as a smartphone. It comes with “factory settings” (Base R), but to do specific things like high-quality plotting or RNA-seq analysis, you need to download “Apps” (Packages).\n\n1.1 CRAN (The “App Store”)\nCRAN is the official repository for R. It is highly regulated and stable.\n\ninstall.packages(c(\"dplyr\", \"ggplot2\", \"gapminder\", \"medicaldata\"))\n\n\n\n\n\n\n\nNote\n\n\n\n\ndplyr: The “Swiss Army Knife” for data cleaning and table manipulation.\nggplot2: The gold standard for creating publication-quality figures (Nature/Science style).\ngapminder: A famous dataset about global life expectancy and GDP.\nmedicaldata: A collection of real-world clinical trial datasets.\n\n\n\n\n\n1.2 BioConductor (The Bioinformatics Specialized Store)\nBioConductor is specifically for biological data (Genomics, Proteomics, etc.). It has its own release cycle and installation manager.\n\n# 1. Install the Manager first\nif (!require(\"BiocManager\", quietly = TRUE))\n    install.packages(\"BiocManager\")\n\n# 2. Use the Manager to install tools like DESeq2\nBiocManager::install(\"DESeq2\")\n\n\n\n\n\n\n\nNote\n\n\n\nDESeq2: The standard tool for analyzing Differential Gene Expression from RNA-seq data.\n\n\n\n\n\n\n\n\nNoteWhat does that if sentence mean?\n\n\n\nThis is a “Smart Installation” script. It checks if you already have the package before trying to download it again.\n\nrequire(\"BiocManager\"): This tries to load the package. If it succeeds, it returns TRUE. If the package is missing, it returns FALSE.\nThe ! (NOT) symbol: This flips the result.\n\nIf you HAVE the package (TRUE), it becomes FALSE → The if block is skipped.\nIf you LACK the package (FALSE), it becomes TRUE → The install.packages line runs.\n\nResult: It ensures your code doesn’t waste 10 minutes re-installing a package you already have every time you run the script.\n\n\n\n\n\n1.3 GitHub (The Developer’s Lab)\nIf a package is very new or in development, it might only be on GitHub. You need the devtools or remotes package to “clone” it.\n\n# devtools is not a default part of R; you must install it first\nif (!require(\"devtools\", quietly = TRUE))\n    install.packages(\"devtools\")\n\ndevtools::install_github(\"YuLab-SMU/ggmsa\")\n\n\n\n\n\n\n\nNote\n\n\n\nggmsa: A specialized tool for visualizing Multiple Sequence Alignments (MSAs) using ggplot2 logic.\n\n\n\n\n1.4 Choosing Your Source\n\nCRAN: Use for general data science (cleaning data, standard plots).\nBioConductor: Use for any “omics” data. This is where you find tools for Bulk/Single-cell RNA-seq.\nGitHub: Use only if the package isn’t available elsewhere or if you need the absolute latest (but potentially “buggy”) version.\n\n\n\n1.5 Finding the Right Tool\n\nBioconductor Views: A great place to browse by topic (e.g., “Epigenetics”).\nRDocumentation.org: Search for any function name to see which package it belongs to.\nGoogle/Stack Overflow: Usually, if you search “How to do X in R,” the top result will suggest a package.\n\n\n\n1.6 Important Notes on Installation\nWhen installing, R might ask: “Do you want to update other packages?”\n\nRecommendation: Usually, choose “None” or “No” if you are in a hurry, as updating everything can take a long time and occasionally break other code.\nThe “Library” Step: Remember, install.packages() puts the app on your phone, but library() is what actually opens the app so you can use it.\n\n\n\n1.7 The “Double Colon” Trick\nNormally, we use library(package) to load all the tools from a package. However, you can access a specific function directly using the package::function() syntax.\n\nWhy use this?\n\nPreventing Naming Conflicts: Both the stats package (built into R) and the dplyr package have a function called filter(). If you load both, R will “mask” the older one. Using dplyr::filter() ensures R knows exactly which “filter” tool you want to use.\nClarity for Collaborators: When someone else reads your code, they might not know which package lfcShrink() belongs to. Writing DESeq2::lfcShrink() makes your code self-documenting.\nOne-Time Use: If you only need a package once in your entire script (like BiocManager::install()), it is cleaner to use the double colon than to load the entire library into your computer’s memory.\n\n\n# Example 1: Installing without loading the manager\nBiocManager::install(\"DESeq2\")\n\n# Example 2: Being explicit about which 'filter' to use\n# This is very common in bioinformatics pipelines!\nclean_data &lt;- dplyr::filter(my_results, pvalue &lt; 0.05)\n\nThis is very common in bioinformatics scripts because it prevents “naming conflicts” (when two different packages have a function with the same name).\n\n\n\n1.8 Checking Package Versions\nIn bioinformatics, package versions change rapidly. A result you get with DESeq2 version 1.38 might be slightly different in version 1.42.\nTo ensure your research is reproducible, you should always check which version you are using before writing your paper.\n\n# Check the version of a specific package\npackageVersion(\"base\")\n\n# Or check everything currently loaded in your session\nsessionInfo()\n\n\n\n\n\n\n\nNote\n\n\n\nNote: The sessionInfo() command is a “best practice” to run at the end of every analysis. It records your R version, your operating system, and every package version used.",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions",
+      "𝟴 Create New Functions"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/08NewFunctions.html#customize-your-own-functions",
+    "href": "WebsiteCodes/08NewFunctions.html#customize-your-own-functions",
+    "title": "Functions",
+    "section": "2. Customize Your Own Functions",
+    "text": "2. Customize Your Own Functions\n\n\n\n\n\nWriting functions is the best way to keep your code DRY (Don’t Repeat Yourself). If you find yourself copy-pasting code three times, it’s time to write a function.\n\nThe Anatomy of a Function\nA function has three parts:\n\nInput (Arguments): What the function needs to work (e.g., a vector of numbers).\nBody: The actual code/math being performed.\nOutput (Return): What the function gives back to you.\n\n\n# Example: Creating a manual version of the 'mean' function\nnew_mean &lt;- function(values) {\n  # The 'Body'\n  result &lt;- sum(values) / length(values)\n  \n  # The 'Return' (Output)\n  return(result)\n}\n\n# Test it out\nx &lt;- 1:5\nnew_mean(x)\n\n[1] 3\n\n\n\n\n\n\n\n\nNotePro-Tip: When to use return()\n\n\n\nIn R, the function will automatically return the very last line of code executed inside the braces. However, using the explicit return() function is a “Best Practice” because it makes it much clearer to other researchers exactly what your function is providing.",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions",
+      "𝟴 Create New Functions"
     ]
   },
   {
@@ -540,6 +584,61 @@
     "text": "3. Notes\n\n3.1 Language Recommendation: Why we suggest English\n\n\n\n\n\n\nTipLanguage Recommendation: Why we suggest English\n\n\n\nWhile RStudio supports multiple languages, I highly recommend setting your environment to English. Here is why:\n\nEasier Troubleshooting: Most R documentation, forums, and Stack Overflow solutions are in English. When you encounter an error message, it is much easier to “Google” the exact text to find a solution.\nEncoding Issues: If you use non-alphabetic languages (like Mandarin), you may run into “text recognition” or encoding errors. This can result in “nonsense” characters (mojibake) in your console or error messages, making them impossible to read.\nConsistency: Most R packages and functions are named using English verbs, so keeping your interface in the same language makes the logic flow more naturally.\n\nDon’t worry if you’ve already chosen another language. You can usually change these settings later in the RStudio Global Options. In the absolute worst-case scenario, you can simply reinstall R, but for now, feel free to proceed with whichever language you are most comfortable with!",
     "crumbs": [
       "Installing R and RStudio"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/07Loop.html#for-loop",
+    "href": "WebsiteCodes/07Loop.html#for-loop",
+    "title": "For & While Loops",
+    "section": "1. For Loop",
+    "text": "1. For Loop\nA For Loop is used when you know exactly how many times you want to repeat a task. You are “iterating” over a sequence (like a vector or a list).\nThe Logic (Pseudo-code):\n\n\n\n\n\n\nNote\n\n\n\nThink of a for loop like an assembly line. You have a box of items (a vector or list), and you pick them up one by one, do something to them, and set them aside until the box is empty.\n\n\n\nfor (EACH_ITEM in UR_COLLECTION) {\n    # 1. Take the current ITEM\n    # 2. Perform the ACTION (e.g., calculate its square root)\n    # 3. Move to the next ITEM automatically\n}\n\n# STOP: The loop ends automatically when the COLLECTION is empty\n\nExample: Counting\n\n# Iterate through the numbers 1 to 10\nfor (i in 1:10) {\n  print(i)\n}\n\n[1] 1\n[1] 2\n[1] 3\n[1] 4\n[1] 5\n[1] 6\n[1] 7\n[1] 8\n[1] 9\n[1] 10\n\n\nExample: Processing Strings\n\n# Iterate through a character vector\nx &lt;- c('a', 'ab', 'cab', 'taxi')\n\nfor (word in x) {\n  print(word)\n}\n\n[1] \"a\"\n[1] \"ab\"\n[1] \"cab\"\n[1] \"taxi\"\n\n\n\n\n\n\n\n\nTip\n\n\n\nThe i or word in the code above is just a placeholder (an “iterator”). You can name it anything you want, but using descriptive names like gene or sample makes your code much easier to read!",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions",
+      "𝟳 For Loop/While Loop"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/07Loop.html#while-loop",
+    "href": "WebsiteCodes/07Loop.html#while-loop",
+    "title": "For & While Loops",
+    "section": "2. While Loop",
+    "text": "2. While Loop\nA While Loop is more flexible but also more “dangerous.” It repeats a task as long as a certain condition remains TRUE.\nYou use this when you don’t know exactly how many iterations you need, but you know when you want to stop.\nThe Logic (Pseudo-code):\n\n\n\n\n\n\nNote\n\n\n\nThink of a while loop like a security guard at a gate. The guard checks the condition before letting the code inside. If the condition is still true, the code runs, and then it goes back to the guard to check again.\n\n\n\nWHILE (condition is TRUE) {\n    1. Perform the ACTION (e.g., print a value or do math)\n    2. UPDATE the variables involved in the condition \n       (If you don't update them, the loop runs forever!)\n}\n# STOP: The loop ends automatically when the condition becomes FALSE\n\nExample:\n\nx &lt;- 5\n\n# While x is greater than 0, keep running\nwhile (x &gt; 0) {\n  print(x)\n  # Crucial: you must change x, or the loop will run forever!\n  x &lt;- x - 1\n}\n\n[1] 5\n[1] 4\n[1] 3\n[1] 2\n[1] 1\n\n\n\n\n\n\n\n\nCautionA Cautionary Note on While Loops\n\n\n\nIf your condition in a while loop never becomes FALSE (for example, if you forgot to write x &lt;- x - 1), you create an Infinite Loop.\nThis will cause R to hang or crash. If this happens, look for the red “Stop” icon in the top-right of your RStudio Console to break the loop!",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions",
+      "𝟳 For Loop/While Loop"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/07Loop.html#comparison-of-iteration-methods",
+    "href": "WebsiteCodes/07Loop.html#comparison-of-iteration-methods",
+    "title": "For & While Loops",
+    "section": "3. Comparison of Iteration Methods",
+    "text": "3. Comparison of Iteration Methods\nIn R, we often prefer Vectorized functions (the “Apply” family) over for loops because they are usually faster and require less code.\n\n\n\n\n\n\n\n\nMethod\nBest Use Case\nOutput Type\n\n\nfor loop\nComplex logic with many steps.\nWhatever you define.\n\n\nwhile loop\nSimulations or tasks with unknown end-points.\nWhatever you define.\n\n\nlapply\nApplying a function to every element of a list/vector.\nList\n\n\nsapply\nSame as lapply, but tries to “simplify” the result.\nVector or Matrix",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions",
+      "𝟳 For Loop/While Loop"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/07Loop.html#the-apply-family-lapply-and-sapply",
+    "href": "WebsiteCodes/07Loop.html#the-apply-family-lapply-and-sapply",
+    "title": "For & While Loops",
+    "section": "4. The “Apply” Family (lapply and sapply)",
+    "text": "4. The “Apply” Family (lapply and sapply)\nIn modern R, lapply (List Apply) and sapply (Simple Apply) are the gold standard for iteration. They are cleaner and less prone to “off-by-one” errors than standard loops.\n\n4.1 lapply\nAlways returns a list. This is great for bioinformatics because it can store complex results (like model outputs) for each gene.\n\ngenes &lt;- c(\"BRCA1\", \"TP53\", \"EGFR\")\n\n# Convert every gene name to lowercase\nresults_list &lt;- lapply(genes, tolower)\nresults_list\n\n[[1]]\n[1] \"brca1\"\n\n[[2]]\n[1] \"tp53\"\n\n[[3]]\n[1] \"egfr\"\n\n\n\n\n4.2 sapply\nDoes the same thing as lapply, but it tries to “simplify” the result into a vector if possible.\n\n# Convert every gene name to lowercase and return a vector\nresults_vector &lt;- sapply(genes, tolower)\nresults_vector\n\n  BRCA1    TP53    EGFR \n\"brca1\"  \"tp53\"  \"egfr\"",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions",
+      "𝟳 For Loop/While Loop"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/07Loop.html#complicated-case-sapply-with-a-custom-function",
+    "href": "WebsiteCodes/07Loop.html#complicated-case-sapply-with-a-custom-function",
+    "title": "For & While Loops",
+    "section": "5. Complicated Case: sapply with a Custom Function",
+    "text": "5. Complicated Case: sapply with a Custom Function\nIn bioinformatics, we often need to do more than just simple math. We might want to “Score” a list of genes based on several criteria at once.\nIn this case, we will write a Custom Function and then use sapply to “fly” that function over a vector of gene expression values.\n\nThe Scenario:\nWe have a vector of Gene Expression values. We want to label them:\n\n“High” if the value is &gt;100.\n“Low” if the value is &lt;10.\n“Medium” for everything else.\n\n\n# 1. Create our data (Sample Gene Expression)\nexpression_values &lt;- c(150, 5, 45, 200, 8, 55)\nnames(expression_values) &lt;- c(\"Gene_A\", \"Gene_B\", \"Gene_C\", \"Gene_D\", \"Gene_E\", \"Gene_F\")\n\n# 2. Write a Custom Function to handle the logic\n# This function takes ONE number and returns ONE label\nclassify_gene &lt;- function(x) {\n  if (x &gt; 100) {\n    return(\"High\")\n  } else if (x &lt; 10) {\n    return(\"Low\")\n  } else {\n    return(\"Medium\")\n  }\n}\n\n# 3. Use sapply to apply this function to every value in our vector\n# sapply handles the \"looping\" for us!\ngene_status &lt;- sapply(expression_values, classify_gene)\n\n# 4. Look at the result\ngene_status\n\n  Gene_A   Gene_B   Gene_C   Gene_D   Gene_E   Gene_F \n  \"High\"    \"Low\" \"Medium\"   \"High\"    \"Low\" \"Medium\"",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions",
+      "𝟳 For Loop/While Loop"
     ]
   },
   {

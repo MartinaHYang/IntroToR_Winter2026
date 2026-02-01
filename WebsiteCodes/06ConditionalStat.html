@@ -8,7 +8,7 @@
 
 <meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
 
-<title>Title – Intro To R</title>
+<title>Conditional Statements – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -312,15 +347,32 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-logic-of-decision-making" id="toc-the-logic-of-decision-making" class="nav-link active" data-scroll-target="#the-logic-of-decision-making">1. The Logic of Decision Making</a>
+  <ul class="collapse">
+  <li><a href="#binary-conditions-if-else" id="toc-binary-conditions-if-else" class="nav-link" data-scroll-target="#binary-conditions-if-else">1.1 Binary Conditions (<code>if</code> … <code>else</code>)</a></li>
+  <li><a href="#multi-branch-conditions-else-if" id="toc-multi-branch-conditions-else-if" class="nav-link" data-scroll-target="#multi-branch-conditions-else-if">1.2 Multi-branch Conditions (<code>else if</code>)</a></li>
+  </ul></li>
+  <li><a href="#pro-tips-for-conditionals" id="toc-pro-tips-for-conditionals" class="nav-link" data-scroll-target="#pro-tips-for-conditionals">2. Pro-Tips for Conditionals</a>
+  <ul class="collapse">
+  <li><a href="#vs-and-vs" id="toc-vs-and-vs" class="nav-link" data-scroll-target="#vs-and-vs">2.1 <code>&amp;</code> vs <code>&amp;&amp;</code> (and <code>|</code> vs <code>||</code>)</a></li>
+  <li><a href="#the-missing-else" id="toc-the-missing-else" class="nav-link" data-scroll-target="#the-missing-else">2.2 The “Missing” Else</a></li>
+  <li><a href="#indentation-matters-for-humans" id="toc-indentation-matters-for-humans" class="nav-link" data-scroll-target="#indentation-matters-for-humans">2.3 Indentation Matters for Humans!</a></li>
+  <li><a href="#best-practices-for-conditional-logic" id="toc-best-practices-for-conditional-logic" class="nav-link" data-scroll-target="#best-practices-for-conditional-logic">2.4 <strong>Best Practices for Conditional Logic</strong></a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/06ConditionalStat.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview2.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/06ConditionalStat.html">𝟲 Conditional Statements</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Title</h1>
+<h1 class="title">Conditional Statements</h1>
 </div>
 
 <div>
@@ -343,8 +395,154 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
+<section id="the-logic-of-decision-making" class="level2">
+<h2 class="anchored" data-anchor-id="the-logic-of-decision-making">1. The Logic of Decision Making</h2>
+<p>In programming, <strong>Conditional Statements</strong> allow your code to branch. Instead of running every line of code from top to bottom, R will only run specific sections <strong>if</strong> a condition is met.</p>
+<section id="binary-conditions-if-else" class="level3">
+<h3 class="anchored" data-anchor-id="binary-conditions-if-else">1.1 Binary Conditions (<code>if</code> … <code>else</code>)</h3>
+<p>This is used for simple “Yes/No” or “Either/Or” logic.</p>
+<p><strong>The Structure (Pseudo-code):</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition) {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Perform this task if condition is TRUE</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Perform this task if condition is FALSE</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Example:</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">5</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span>) {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If the number is greater than 5, get its square</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If not, multiply it by 2</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Because the condition <code>x &gt; 5</code> evaluated to <strong><code>FALSE</code></strong> (since 5 is equal to 5, not strictly greater than 5), R skipped the first block and jumped straight to the <code>else</code> block.</p>
+</div>
+</div>
+</section>
+<section id="multi-branch-conditions-else-if" class="level3">
+<h3 class="anchored" data-anchor-id="multi-branch-conditions-else-if">1.2 Multi-branch Conditions (<code>else if</code>)</h3>
+<p>When your logic is more complex than a simple binary choice, you can chain conditions together. You can have as many <code>else if</code> blocks as you need.</p>
+<p><strong>The Structure (Pseudo-code):</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (condition_1) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Perform Task A</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (condition_2) {</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Perform Task B</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (condition_3) {</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Perform Task C</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Perform Task D if NONE of the above were TRUE</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">7</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (x <span class="sc">&gt;</span> <span class="dv">5</span> <span class="sc">&amp;&amp;</span> x <span class="sc">&lt;</span> <span class="dv">10</span>) {</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If x is between 5 AND 10</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>  x<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> <span class="cf">if</span> (x <span class="sc">&lt;</span> <span class="dv">0</span> <span class="sc">||</span> x <span class="sc">&gt;</span> <span class="dv">10</span>) {</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># If x is negative OR greater than 10</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="sc">-</span>x</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="co"># For everything else (like 0, 1, 2, 3, 4, 5)</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  x <span class="sc">*</span> <span class="dv">2</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 49</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="pro-tips-for-conditionals" class="level2">
+<h2 class="anchored" data-anchor-id="pro-tips-for-conditionals">2. Pro-Tips for Conditionals</h2>
+<section id="vs-and-vs" class="level3">
+<h3 class="anchored" data-anchor-id="vs-and-vs">2.1 <code>&amp;</code> vs <code>&amp;&amp;</code> (and <code>|</code> vs <code>||</code>)</h3>
+<p>You might have noticed the use of double symbols (<code>&amp;&amp;</code> and <code>||</code>) in the example above. In R, there is a small but important difference:</p>
+<ul>
+<li><p><strong>Single (<code>&amp;</code>, <code>|</code>):</strong> These are <strong>Vectorized</strong>. Use these when comparing entire columns of data (e.g., filtering a Data Frame).</p></li>
+<li><p><strong>Double (<code>&amp;&amp;</code>, <code>||</code>):</strong> These are <strong>Short-circuiting</strong>. They only look at the <strong>first element</strong> of a vector. They are faster and preferred inside <code>if</code> statements where you are only checking one value at a time.</p></li>
+</ul>
+</section>
+<section id="the-missing-else" class="level3">
+<h3 class="anchored" data-anchor-id="the-missing-else">2.2 The “Missing” Else</h3>
+<p>The <code>else</code> block is optional. If you don’t provide one and the <code>if</code> condition is <code>FALSE</code>, R will simply skip the block and move to the next line of code.</p>
+</section>
+<section id="indentation-matters-for-humans" class="level3">
+<h3 class="anchored" data-anchor-id="indentation-matters-for-humans">2.3 Indentation Matters for Humans!</h3>
+<p>While R is “space-insensitive” (it doesn’t care if your code is a messy pile of text), humans are not. We use <strong>indentation</strong> to show the hierarchy of logic.</p>
+<p>It is standard practice to indent the code inside the curly braces <code>{ }</code>. This makes it immediately obvious which code belongs to which condition.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The RStudio Secret</strong></p>
+<p>Don’t worry about manually hitting the spacebar! RStudio is designed to help you.</p>
+<ul>
+<li><p><strong>Auto-indent:</strong> When you type a <code>{</code> and hit Enter, RStudio automatically adds the correct gap.</p></li>
+<li><p><strong>The “Re-format” Trick:</strong> If your code looks messy, you don’t even need to copy-paste. Simply highlight the code and press <strong><code>Ctrl + Shift + A</code></strong> (Windows) or <strong><code>Cmd + Shift + A</code></strong> (Mac). RStudio will instantly clean up the spacing and indentation for you.</p></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The <code>styler</code> Package</strong></p>
+<p>In professional programming, we often use a package called <strong><code>styler</code></strong>.</p>
+<p>It acts like a “grammar checker” for your code, ensuring it follows the tidyverse style guide used by data scientists at NASA, Google, and beyond.</p>
+</div>
+</div>
+</section>
+<section id="best-practices-for-conditional-logic" class="level3">
+<h3 class="anchored" data-anchor-id="best-practices-for-conditional-logic">2.4 <strong>Best Practices for Conditional Logic</strong></h3>
+<section id="the-mece-principle" class="level4">
+<h4 class="anchored" data-anchor-id="the-mece-principle"><strong>The MECE Principle</strong></h4>
+<p>When designing your logic, try to follow the <strong>MECE</strong> principle: <strong>Mutually Exclusive, Collectively Exhaustive.</strong></p>
+<ul>
+<li><p><strong>Mutually Exclusive:</strong> Your conditions shouldn’t overlap. A number shouldn’t be able to trigger both the <code>if</code> and the <code>else if</code> block at the same time.</p></li>
+<li><p><strong>Collectively Exhaustive:</strong> You have considered <strong>all</strong> possibilities. This is why a final <code>else</code> block is so important—it acts as a “safety net” for any data you didn’t expect.</p></li>
+</ul>
+</section>
+<section id="the-power-of-comments" class="level4">
+<h4 class="anchored" data-anchor-id="the-power-of-comments"><strong>The Power of Comments</strong></h4>
+<p>In bioinformatics, your “Conditions” are often based on scientific thresholds (e.g., p-value &lt;0.05 or Log2FoldChange &gt;2).</p>
+<p><strong>Always</strong> write a comment explaining <em>why</em> you chose that threshold. Future you will thank you when you’re writing the “Methods” section of your paper!</p>
 
 
+</section>
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -767,7 +965,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/06ConditionalStat.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/06ConditionalStat.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
