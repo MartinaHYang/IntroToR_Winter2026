@@ -1,6 +1,7 @@
 ---
 title: "Objects (Data Structures)"
 subtitle: ""
+description: "Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie."
 ---
 
 ------------------------------------------------------------------------
@@ -42,7 +43,13 @@ R provides several built-in structures, each designed for a specific purpose. Un
 
 ## 2. Vector
 
-**Key points:** \* The fundamental building block of R. \* Can only contain objects of the **same class** (e.g., all numeric or all character). \* Even a single number in R is actually a vector of length 1.
+**Key points:**
+
+-   The fundamental building block of R.
+
+-   Can only contain objects of the **same class** (e.g., all numeric or all character).
+
+-   Even a single number in R is actually a vector of length 1.
 
 ![](../images/Vectors.png)
 
@@ -136,11 +143,11 @@ x
 ::: callout-note
 Notes:
 
-You can read the `:` symbol as **"from... to..."**
+You can read the `:` symbol as **"from... to..."**
 
--   `1:10` means "from 1 to 10."
+-   `1:10` means "from 1 to 10."
 
--   `50:100` means "from 50 to 100."
+-   `50:100` means "from 50 to 100."
 :::
 
 ### 2.3 Logical Vectors
@@ -204,29 +211,29 @@ In R, coercion is the process of forced conversion from one data type to another
 
 R is automatically changing the Numeric vector (1:5) into a Character vector so it can be "pasted" together with the Character vector ("Patient").
 
-1.  The Rule of Vectors
+1.  **The Rule of Vectors**
 
 As we learned earlier, a vector must contain objects of the same class. You cannot have a single vector that is half-numbers and half-text.
 
-2.  What happens in paste()?
+2.  **What happens in paste()?**
 
 When you run `paste("Patient", 1:5, sep = "_")`:
 
-"Patient" is a Character vector.
+-   "Patient" is a Character vector.
 
-1:5 is an Integer/Numeric vector (1, 2, 3...).
+-   1:5 is an Integer/Numeric vector (1, 2, 3...).
 
-Since you can't join "text" and "numbers" into a single result without them being the same type, R implicitly (automatically) converts the numbers into text strings ("1", "2", "3").
+-   Since you can't join "text" and "numbers" into a single result without them being the same type, R implicitly (automatically) converts the numbers into text strings ("1", "2", "3").
 
-Why is this important?
+3.  **Why is this important?**
 
-In R, there is a "Hierarchy of Types." If you mix different types in a vector, R will always coerce them to the "least restrictive" type to ensure no data is lost, following this order:
+-   In R, there is a "Hierarchy of Types." If you mix different types in a vector, R will always coerce them to the "least restrictive" type to ensure no data is lost, following this order:
 
-Logical → Integer → Numeric → Character
+    -   Logical → Integer → Numeric → Character
 
-Example of unexpected coercion:
+-   Example of unexpected coercion:
 
-If you accidentally include a single piece of text in your column of gene expression numbers, R will turn the entire column into text.
+-   If you accidentally include a single piece of text in your column of gene expression numbers, R will turn the entire column into text.
 
 ```{r}
 # Mixing numbers and one "missing" string
@@ -236,7 +243,7 @@ data <- c(1.2, 3.5, "missing", 4.8)
 class(data)
 ```
 
-Because of coercion, you can no longer calculate the mean() or sum() of that data because R now sees them all as "character" rather than "numbers." This is a very common reason why R scripts fail during data cleaning!
+-   Because of coercion, you can no longer calculate the mean() or sum() of that data because R now sees them all as "character" rather than "numbers." This is a very common reason why R scripts fail during data cleaning!
 
 ```{r}
 #| error: true
@@ -260,6 +267,91 @@ x
 x <- logical(length = 4)
 names(x) <- c("F1", "F2", "F3", "F4")
 x
+```
+
+### 2.6 Vector indexing
+
+In R, indices are **1-based**, meaning the first item is at position `1`. For these examples, we will use a vector of 15 random numbers.
+
+```{r}
+# We set a seed so everyone in the workshop gets the same 15 numbers
+set.seed(228)
+
+# Create 15 unique random numbers between 1 and 100
+x <- sample(x = 1:100, size = 15, replace = FALSE)
+x
+```
+
+::: callout-tip
+### **Reproducible Randomness: `set.seed()`**
+
+The `sample()` function generates random numbers. Ordinarily, every time you run it, you get a different result. However, in scientific research, we need our results to be **reproducible**.
+
+The `set.seed()` function provides a "secret key" (the seed) to the random number generator. As long as two people use the same seed, they will get the exact same "random" numbers every time. The seed can be any number you like—important date, your favorite number, or even a random string of digits.
+
+Fun facts: the number **42** is one of the most popular seeds in the world, appearing in roughly 4% of all public code. This is a nod to Douglas Adams' *The Hitchhiker's Guide to the Galaxy*, where 42 is the "Answer to the Ultimate Question of Life, the Universe, and Everything."
+:::
+
+#### **2.6.1 Using Position (Numeric Indexing)**
+
+You can grab a single item or a range of items using square brackets `[]`.
+
+```{r}
+#| collapse: true
+x[1]   # Get the first element
+x[13]  # Get the thirteenth element
+
+# Get the first 12 numbers using a sequence
+x[1:12] 
+
+# Get specific positions using a vector of indices
+x[c(1, 5, 9)]
+```
+
+#### **2.6.2 Using Names**
+
+If your vector has names assigned to its elements, you can use those names (as strings) to pull data. This is much safer than numeric indexing because the name stays with the data even if the order changes.
+
+```{r}
+# Assign letters a-o as names to our 15 numbers
+names(x) <- letters[1:length(x)]
+
+# Access specific elements by name
+x[c("a", "c", "d")]
+```
+
+#### **2.6.3 Using Logical Filters (The "Question" Method)**
+
+This is the most powerful way to index. Instead of giving a position, you give R a **Logical Vector** (`TRUE`/`FALSE`). R will only return the items that are `TRUE`.
+
+```{r}
+#| collapse: true
+# Which numbers are greater than 50?
+x[x > 50] 
+
+# Only return numbers that are less than or equal to 30
+x[x <= 30]
+
+# Only return even numbers (using the Modulus operator %%)
+x[x %% 2 == 0]
+```
+
+#### **2.6.4 Skipping Elements**
+
+Sometimes you want everything **except** a few specific items. In R, you do this by using a **negative sign `-`** or the **Not Equal `!=`** operator.
+
+**Using Negative Indices:**
+
+```{r}
+# Return the vector EXCEPT the 1st and 5th elements
+x[c(-1, -5)]
+```
+
+**Using Names:**
+
+```{r}
+# Return everything EXCEPT the element named "a"
+x[names(x) != "a"]
 ```
 
 ## 3. Factors
@@ -308,7 +400,9 @@ str(samples_factor)
 
 -   The output of most statistical tests (like t.test) is a list.
 
-**Creating a List:**
+![](../images/Lists.png){fig-align="center" width="200"}
+
+**Creating a List:** with different data types
 
 ```{r}
 my_list <- list(
@@ -319,14 +413,20 @@ my_list <- list(
 )
 
 my_list
+
+names(my_list)
 ```
 
-**Accessing List Elements:** Use the **double bracket** `[[ ]]` or the **dollar sign** `$`.
+### 4.1 Indexing and subsetting
+
+**Accessing List Elements:**
+
+Use the **double bracket** `[[ ]]` or the **dollar sign** `$` for named lists.
 
 ```{r}
-my_list$project_name
-
 my_list[["group_ids"]]
+
+my_list$project_name
 ```
 
 ## 5. Matrix
@@ -338,6 +438,8 @@ my_list[["group_ids"]]
 -   Must contain One Data Type (usually all Numeric).
 
 -   Used heavily in bioinformatics for Gene Expression Tables (Genes × Samples).
+
+![](../images/Matrices.png){fig-align="center" width="200"}
 
 **Creating a Matrix:**
 
@@ -354,6 +456,94 @@ m <- matrix(1:9, nrow = 3, ncol = 3)
 colnames(m) <- c("Sample1", "Sample2", "Sample3")
 rownames(m) <- c("GeneA", "GeneB", "GeneC")
 m
+```
+
+### **5.1 Confirming Matrix Structure and Size**
+
+When working with matrices—such as a gene expression matrix—it is essential to verify that the dimensions (rows and columns) match your expectations.
+
+In the example below, we create a matrix with 10 elements.
+
+```{r}
+# Create a matrix with 10 numbers, arranged in 5 rows and 2 columns
+m <- matrix(1:10, nrow = 5, ncol = 2)
+
+m
+```
+
+#### **Checking the Object Type**
+
+These functions tell you **what** the object is.
+
+::: callout-note
+-   **`class()`**: Returns the abstract type of the object (e.g., `"matrix"`, `"array"`).
+
+-   **`typeof()`**: Returns the internal "storage" mode of the data (e.g., `"integer"`, `"double"`).
+:::
+
+```{R}
+# Create a matrix with 10 numbers, arranged in 5 rows and 2 columns
+m <- matrix(1:10, nrow = 5, ncol = 2)
+
+class(m)
+typeof(m)
+```
+
+::: callout-note
+#### **Why does `class()` show both "matrix" and "array"?**
+
+In R, a matrix is technically just a **special case of an array**.
+
+Think of it like this:
+
+-   An **Array** is the "Grandparent" (it can have 1, 2, 3, or 100 dimensions).
+
+-   A **Matrix** is the "Parent" (it is an array that is strictly **2-dimensional**).
+
+When you ask for the `class`, R is telling you: *"This object is a matrix, which means it also inherits all the properties of an array."*
+:::
+
+::: callout-note
+#### **Why is `typeof(m)` "integer" instead of "numeric"?**
+
+This is because of the **Colon Operator (`:`)** you used to create the data.
+
+In R, the `:` operator specifically creates **Integers** (whole numbers) because they take up less memory than "Doubles" (numbers with decimals).
+
+-   **Integer:** Whole numbers (`1L, 2L, 3L`).
+
+-   **Numeric (Double):** Numbers that *can* have decimals (`1.0, 2.5, 3.14`).
+
+Because your matrix `m` was built using `1:10`, R stored them as integers to be efficient.
+:::
+
+#### **Inspecting Dimensions and Size**
+
+These functions tell you **how big** the object is.
+
+::: callout-note
+-   **`dim()`**: Returns both the number of rows and columns as a vector.
+
+-   **`nrow()`**: Returns only the number of rows (e.g., the number of Genes).
+
+-   **`ncol()`**: Returns only the number of columns (e.g., the number of Samples).
+:::
+
+```{R}
+m <- matrix(1:10, nrow = 5, ncol = 2)
+
+dim(m)
+nrow(m)
+ncol(m)
+```
+
+#### **The "Everything" Function: `str()`**
+
+The `str()` (structure) function is perhaps the most useful tool for a researcher. It provides a compact summary of the class, the dimensions, the data type, and a preview of the first few values all in one line.
+
+```{r}
+m <- matrix(1:10, nrow = 5, ncol = 2)
+str(m)
 ```
 
 ## 6. Array
@@ -380,7 +570,37 @@ a
 
 -   Can mix data types (e.g., Column 1 is Numeric, Column 2 is Character).
 
+    -   Columns in data frames are vectors
+
+    -   A data frame is essentially a list of vectors
+
 -   Think of it like an Excel Spreadsheet.
+
+![](../images/DataFrames.png){fig-align="center" width="200"}
+
+::: callout-note
+### **The Three Rules of Data Frame Anatomy**
+
+#### **1. The Column Rule (The Vector)**
+
+Every column in a data frame is a **Vector**.
+
+This means that within a single column (like `Age` or `Gene_Expression`), every single entry must be the same data type. You cannot have a number in row 1 and a word in row 2 of the same column.
+
+#### **2. The Row Rule (The List)**
+
+The data frame itself is a **List** where each element of the list is one of those columns.
+
+Because a list can hold different types of objects, your first list element (Column 1) can be "Numeric" and your second list element (Column 2) can be "Character."
+
+#### **3. The Alignment Rule (The "Rectangle")**
+
+This is the only way a Data Frame differs from a standard List:
+
+-   In a **List**, you can have one vector of length 10 and another vector of length 500.
+
+-   In a **Data Frame**, R forces a "Rectangular" constraint. **Every column (vector) must have the exact same length.**
+:::
 
 **Creating a Data Frame:**
 
@@ -391,6 +611,97 @@ df <- data.frame(
   Treatment = c("Placebo", "Drug", "Placebo")
 )
 df
+```
+
+### **7.1 Confirming Data Frame Structure and Size**
+
+```{r}
+df <- data.frame(
+  ID = c("P001", "P002", "P003"),
+  Age = c(25, 34, 28),
+  Treatment = c("Placebo", "Drug", "Placebo")
+)
+
+class(df)
+typeof(df)
+str(df)
+head(df)
+```
+
+### 7.2 Re-naming columns
+
+You can rename a specific column by targeting its **index** (its position number).
+
+```{r}
+# Let's rename the 3nd column to "Group"
+df <- data.frame(
+  ID = c("P001", "P002", "P003"),
+  Age = c(25, 34, 28),
+  Treatment = c("Placebo", "Drug", "Placebo")
+)
+
+colnames(df)[3] <- "Group"
+
+# Check the change
+head(df)
+```
+
+### 7.3 Indexing and sub-setting
+
+There are three main ways to pull data out of a data frame. Think of this as giving R an "address" to find your data.
+
+#### **Method A: The Dollar Sign (`$`)**
+
+The most common way to grab a single column by its name. This returns a **vector**.
+
+```{r}
+df$ID
+```
+
+#### **Method B: Single Brackets with Name (`[ ]`)**
+
+This returns a **data frame** containing only that column.
+
+```{r}
+df["Age"]
+```
+
+#### **Method C: Coordinate Indexing (`[row, col]`)**
+
+This is the most precise method. You provide the **Row number**, then a comma, then the **Column number**.
+
+-   **`df[1, ]`**: The 1st Row (all columns).
+
+-   **`df[, 1]`**: The 1st Column (all rows).
+
+-   **`df[3, 2]`**: The specific value at Row 3, Column 2.
+
+```{r}
+df[,3]
+```
+
+### 7.4 Coercion
+
+**Coercion** is the act of forcing an object to change from one structure or type to another. We use the `as.` family of functions to do this.
+
+#### **List to Data Frame**
+
+This is a very common workflow: you collect various results in a list and then "solidify" them into a rectangular data frame for plotting or saving.
+
+```{r}
+#| collapse: true
+# 1. Create a list with two vectors of equal length
+l <- list(numbers = 1:10, lowercase = letters[1:10])
+
+# 2. Check type
+typeof(l)
+
+# 3. Coerce the list into a data frame
+df <- as.data.frame(l)
+
+# 4. Observe the change
+typeof(df)
+head(df)
 ```
 
 ## 8. NULL (The Empty Object)
@@ -484,4 +795,58 @@ x * 2
 
 # Add x and y (element by element)
 x + y
+```
+
+## 11. Summary of Indexing and subsetting
+
+Navigating data in R depends on whether your object is **1-Dimensional** (linear) or **2-Dimensional** (rectangular). Indexing is the most frequent source of errors for beginners, so here is the master cheat sheet for finding your data.
+
+### 11.1 The Universal Indexing Rules
+
+Before looking at specific structures, remember these three core rules of R:
+
+1.  **1-Based Indexing:** The first item is always `[1]`, not `[0]`.
+2.  **Square Brackets `[]`:** These are the "envelopes" used to hold your address.
+3.  **Negative Indices:** Using a minus sign (e.g., `[-1]`) means "Give me everything **except** this position."
+
+### 11.2 Indexing by Data Structure
+
+| Structure | Dimension | Primary Method | Example | Result |
+|:--------------|:--------------|:--------------|:--------------|:--------------|
+| **Vector** | 1D | `[ x ]` | `v[1:3]` | Returns the first 3 elements. |
+| **Factor** | 1D | `[ x ]` | `f[1]` | Returns the first element + its levels. |
+| **List** | 1D | `[[ x ]]` or `$` | `l[[1]]` | Returns the **content** of the first "drawer." |
+| **Matrix** | 2D | `[row, col]` | `m[1, 2]` | Value at Row 1, Column 2. |
+| **Data Frame** | 2D | `$` or `[row, col]` | `df$age` | Returns the entire "age" column as a vector. |
+
+### 11.3 Specific Methods & Nuances
+
+#### **The 2D Coordinate System (`[row, col]`)**
+
+Used for **Matrices** and **Data Frames**. The **comma** is the most important part!
+
+-   `df[1, 5]`: Specific cell (Row 1, Col 5).
+-   `df[1, ]`: **Entire Row** (Leave the column space empty).
+-   `df[, 5]`: **Entire Column** (Leave the row space empty).
+
+#### **List vs. Data Frame Access**
+
+Because a Data Frame is technically a "list of vectors," it is the most flexible structure for indexing.
+
+```{r}
+#| eval: false
+df <- data.frame(
+  ID = c("P001", "P002", "P003"),
+  Age = c(25, 34, 28),
+  Treatment = c("Placebo", "Drug", "Placebo")
+)
+
+# By Name ($) — Fast and readable
+df$Treatment
+
+# By Position — Useful when you don't know the names but know the order
+df[, 1]
+
+# By Logical Mask — Returns all rows where the Age is over 50
+df[df$Age > 50, ]
 ```
