@@ -42,15 +42,15 @@ website:
         contents:
           - text: "Overview"
             href: RBasics/Overview.qmd
-          - text: "Atomic Classes (Data Types)"
+          - text: "𝟭 Atomic Classes (Data Types)"
             href: RBasics/AtomicClasses.qmd
-          - text: "Arithmetic operators"
+          - text: "𝟮 Arithmetic operators"
             href: RBasics/ArithmeticOp.qmd
-          - text: "Syntax operators"
+          - text: "𝟯 Syntax operators"
             href: RBasics/SyntaxOp.qmd
-          - text: "Logical operators"
+          - text: "𝟰 Logical operators"
             href: RBasics/LogicalOp.qmd
-          - text: "Objects (Data Structures)"
+          - text: "𝟱 Objects (Data Structures)"
             href: RBasics/Objects.qmd  
 
 
