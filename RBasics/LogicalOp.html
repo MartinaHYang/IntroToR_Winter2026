@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
 
-<title>Syntax – Intro To R</title>
+<title>Logical operators – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,7 +66,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
 <link href="../RBasics/Objects.html" rel="next">
-<link href="../RBasics/Syntax.html" rel="prev">
+<link href="../RBasics/SyntaxOp.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -165,13 +201,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RBasics/Operators.html" class="sidebar-item-text sidebar-link">
+  <a href="../RBasics/ArithmeticOp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Arithmetic operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RBasics/Syntax.html" class="sidebar-item-text sidebar-link">
+  <a href="../RBasics/SyntaxOp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syntax operators</span></a>
   </div>
 </li>
@@ -194,18 +230,39 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#comparison-operators" id="toc-comparison-operators" class="nav-link active" data-scroll-target="#comparison-operators">1. Comparison operators</a>
+  <ul class="collapse">
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1.1 <code>==</code></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">1.2 <code>!=</code></a></li>
+  </ul></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators">2. Logical operators</a>
+  <ul class="collapse">
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2.1 <code>&amp;</code></a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2.2 <code>|</code></a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2.3 <code>!</code></a></li>
+  <li><a href="#the-membership-operator-in" id="toc-the-membership-operator-in" class="nav-link" data-scroll-target="#the-membership-operator-in">2.4 The Membership Operator (%in%)</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RBasics/LogicalOp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RBasics/Overview.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures</a></li><li class="breadcrumb-item"><a href="../RBasics/LogicalOp.html">Logical operators</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Syntax</h1>
-<p class="subtitle lead">Syntax</p>
+<h1 class="title">Logical operators</h1>
 </div>
 
+<div>
+  <div class="description">
+    Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -220,8 +277,237 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<hr>
+<p><strong>Comparison operators</strong> are used to compare two values. When you run a comparison, R evaluates the statement and returns a <strong>Logical</strong> value: either <code>TRUE</code> or <code>FALSE</code>.</p>
+<blockquote class="blockquote">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 30%">
+<col style="width: 13%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operator</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">Plain English</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>==</code></td>
+<td style="text-align: center;"><strong>Equal to</strong></td>
+<td style="text-align: left;"><code>x == y</code></td>
+<td style="text-align: left;">Is x exactly equal to y?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>!=</code></td>
+<td style="text-align: center;"><strong>Not equal to</strong></td>
+<td style="text-align: left;"><code>x != y</code></td>
+<td style="text-align: left;">Is x different from y?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&gt;</code></td>
+<td style="text-align: center;"><strong>Greater than</strong></td>
+<td style="text-align: left;"><code>x &gt; y</code></td>
+<td style="text-align: left;">Is x strictly larger than y?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;</code></td>
+<td style="text-align: center;"><strong>Less than</strong></td>
+<td style="text-align: left;"><code>x &lt; y</code></td>
+<td style="text-align: left;">Is x strictly smaller than y?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&gt;=</code></td>
+<td style="text-align: center;"><strong>Greater or equal</strong></td>
+<td style="text-align: left;"><code>x &gt;= y</code></td>
+<td style="text-align: left;">Is x at least y or larger?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;=</code></td>
+<td style="text-align: center;"><strong>Less or equal</strong></td>
+<td style="text-align: left;"><code>x &lt;= y</code></td>
+<td style="text-align: left;">Is x at most y or smaller?</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<p><strong>Logical operators</strong> allow you to combine multiple comparison statements into a single test. This is essential for complex data filtering.</p>
+<blockquote class="blockquote">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: left;"><strong>Element-wise Logical AND operator.</strong> Returns TRUE if both elements are TRUE.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>|</code></td>
+<td style="text-align: left;"><strong>Element-wise Logical OR operator.</strong> Returns TRUE if one of the statements is TRUE.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>!</code></td>
+<td style="text-align: left;"><strong>Logical NOT.</strong> Returns FALSE if statement is TRUE; Reverses the result (TRUE becomes FALSE).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>%in%</code></td>
+<td style="text-align: left;"><strong>Contains/Membership.</strong> Checks if a value belongs to a set.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/LogicalOperators.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+<section id="comparison-operators" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-operators">1. Comparison operators</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">1.1 <code>==</code></h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Most Common R Error: <code>=</code> vs <code>==</code></p>
+<p><code>=</code> (or <code>&lt;-</code>) is for Assignment: You are telling R that a variable equals a value.</p>
+<p><code>==</code> is for Comparison: You are asking R if two things are equal.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing numbers</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing text (Case sensitive!)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">"McGill"</span> <span class="sc">==</span> <span class="st">"mcgill"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+</section>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">1.2 <code>!=</code></h3>
+<p>In R, the exclamation mark <code>!</code> stands for <strong>“NOT”</strong>. When combined with the equals sign, <code>!=</code> checks if two values are <strong>different</strong>.</p>
+<ul>
+<li>It returns <code>TRUE</code> if the values are <strong>not</strong> the same.</li>
+<li>It returns <code>FALSE</code> if they <strong>are</strong> the same.</li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is 10 equal to 2? (False)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is 10 different from 2? (True)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">!=</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="logical-operators" class="level2">
+<h2 class="anchored" data-anchor-id="logical-operators">2. Logical operators</h2>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2.1 <code>&amp;</code></h3>
+<p>The “AND” Operator (&amp;): Use this when your condition must meet all criteria simultaneously.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="dv">65</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>bmi <span class="ot">&lt;-</span> <span class="dv">32</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the patient over 60 AND obese (BMI &gt; 30)?</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>age <span class="sc">&gt;</span> <span class="dv">60</span> <span class="sc">&amp;</span> bmi <span class="sc">&gt;</span> <span class="dv">30</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2.2 <code>|</code></h3>
+<p>The “OR” Operator (<code>|</code>): Use this when meeting any one of the criteria is sufficient.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the flower species either 'setosa' OR 'versicolor'?</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>species <span class="ot">&lt;-</span> <span class="st">"setosa"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>species <span class="sc">==</span> <span class="st">"setosa"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"versicolor"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Keyboard Tip:</strong> How to type <code>|</code>?</p>
+<p>Look for the key with the backslash <code>\</code> (usually above the Return/Enter key).</p>
+<ul>
+<li><strong>Mac &amp; Windows:</strong> Press <code>Shift + \</code></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2.3 <code>!</code></h3>
+<p>The “NOT” Operator (!): This exclamation mark is used to exclude specific data points.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>control_group <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the sample NOT in the control group?</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>control_group</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="the-membership-operator-in" class="level3">
+<h3 class="anchored" data-anchor-id="the-membership-operator-in">2.4 The Membership Operator (%in%)</h3>
+<p>The %in% operator (often called “contains”) is extremely useful when you want to check if a value belongs to a large list or group.</p>
+<p>Example: Searching for Genes Imagine you have a list of “Genes of Interest” for your diabetes research. You can check if a specific gene is in that list without writing many OR statements.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>diabetes_genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"INS"</span>, <span class="st">"GCK"</span>, <span class="st">"KCNJ11"</span>, <span class="st">"SLC30A8"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Is 'INS' (Insulin) in our list?</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="st">"INS"</span> <span class="sc">%in%</span> diabetes_genes</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] TRUE</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Is 'SOX2' in our list?</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="st">"SOX2"</span> <span class="sc">%in%</span> diabetes_genes</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] FALSE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -626,7 +912,7 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../RBasics/Syntax.html" class="pagination-link" aria-label="Syntax operators">
+      <a href="../RBasics/SyntaxOp.html" class="pagination-link" aria-label="Syntax operators">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Syntax operators</span>
       </a>          
   </div>
@@ -644,7 +930,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RBasics/LogicalOp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RBasics/LogicalOp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

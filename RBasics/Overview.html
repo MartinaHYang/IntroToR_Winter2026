@@ -166,13 +166,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RBasics/Operators.html" class="sidebar-item-text sidebar-link">
+  <a href="../RBasics/ArithmeticOp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Arithmetic operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RBasics/Syntax.html" class="sidebar-item-text sidebar-link">
+  <a href="../RBasics/SyntaxOp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syntax operators</span></a>
   </div>
 </li>
@@ -201,6 +201,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#learning-objectives" id="toc-learning-objectives" class="nav-link active" data-scroll-target="#learning-objectives">Learning Objectives</a></li>
+  <li><a href="#overview-of-operators-type" id="toc-overview-of-operators-type" class="nav-link" data-scroll-target="#overview-of-operators-type">Overview of Operators Type</a>
+  <ul class="collapse">
+  <li><a href="#arithmetic-operators" id="toc-arithmetic-operators" class="nav-link" data-scroll-target="#arithmetic-operators"><strong>1. Arithmetic Operators</strong></a></li>
+  <li><a href="#assignment-operators" id="toc-assignment-operators" class="nav-link" data-scroll-target="#assignment-operators"><strong>2. Assignment Operators</strong></a></li>
+  <li><a href="#comparison-relational-operators" id="toc-comparison-relational-operators" class="nav-link" data-scroll-target="#comparison-relational-operators"><strong>3. Comparison (Relational) Operators</strong></a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators"><strong>4. Logical Operators</strong></a></li>
+  </ul></li>
+  <li><a href="#miscellaneous-operators" id="toc-miscellaneous-operators" class="nav-link" data-scroll-target="#miscellaneous-operators">5. Miscellaneous Operators</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RBasics/Overview.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -241,6 +249,44 @@ ul.task-list li input[type="checkbox"] {
 <li><strong>Access specific data</strong> using 1-based indexing and subsetting.</li>
 <li><strong>Apply vectorized operations</strong> to perform calculations on entire datasets at once.</li>
 </ul>
+</section>
+<section id="overview-of-operators-type" class="level2">
+<h2 class="anchored" data-anchor-id="overview-of-operators-type">Overview of Operators Type</h2>
+<p>Operators are <strong>symbols or keywords that instruct R to perform specific mathematical, logical, or relational manipulations on data.</strong> The values that these operators act upon are called <strong>operands</strong>.</p>
+<p>For example, in the expression <code>x + 5</code>: * The <code>+</code> is the <strong>Operator</strong>. * <code>x</code> and <code>5</code> are the <strong>Operands</strong>.</p>
+<p><strong>Key Types of Operators in R include:</strong></p>
+<section id="arithmetic-operators" class="level3">
+<h3 class="anchored" data-anchor-id="arithmetic-operators"><strong>1. Arithmetic Operators</strong></h3>
+<p>Used to perform mathematical calculations.</p>
+<p><code>+</code> (Addition), <code>-</code> (Subtraction), <code>*</code> (Multiplication), <code>/</code> (Division).</p>
+<p><code>^</code> (Exponent/Power).</p>
+<p><code>%%</code> (Modulus: returns the remainder of a division).</p>
+<p>…</p>
+</section>
+<section id="assignment-operators" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-operators"><strong>2. Assignment Operators</strong></h3>
+<p>Used to store values inside objects.</p>
+<p><code>&lt;-</code> (The “Left Arrow” assignment operator): This is the standard in R.</p>
+<p><code>=</code> (Equals assignment): Works in many cases but is less common in the R community.</p>
+</section>
+<section id="comparison-relational-operators" class="level3">
+<h3 class="anchored" data-anchor-id="comparison-relational-operators"><strong>3. Comparison (Relational) Operators</strong></h3>
+<p>Used to compare two values. These always return a <strong>Logical</strong> result (<code>TRUE</code> or <code>FALSE</code>).</p>
+<p><code>==</code> (Exactly equal to).</p>
+<p><code>!=</code> (Not equal to).</p>
+<p><code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, <code>&gt;=</code> (Less than, greater than, etc.).</p>
+</section>
+<section id="logical-operators" class="level3">
+<h3 class="anchored" data-anchor-id="logical-operators"><strong>4. Logical Operators</strong></h3>
+<p>Used to combine multiple comparison statements.</p>
+<p><code>&amp;</code> (AND): Returns TRUE if <em>both</em> sides are true.</p>
+<p><code>|</code> (OR): Returns TRUE if <em>at least one</em> side is true.</p>
+<p><code>!</code> (NOT): Reverses the logical state (TRUE becomes FALSE).</p>
+</section>
+</section>
+<section id="miscellaneous-operators" class="level2">
+<h2 class="anchored" data-anchor-id="miscellaneous-operators">5. Miscellaneous Operators</h2>
+<p>Miscellaneous operators are used to manipulate data: The Colon Operator (<code>:</code>); The Membership Operator (<code>%in%</code>); The Dollar Sign Operator (<code>$</code>); The Pipe Operator (<code>|&gt;</code>) and (<code>%&gt;%</code>).</p>
 
 
 </section>

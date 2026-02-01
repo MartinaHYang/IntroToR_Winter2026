@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
 
-<title>Syntax – Intro To R</title>
+<title>Arithmetic Operators – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,8 +65,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../RBasics/LogicalOp.html" rel="next">
-<link href="../RBasics/Operators.html" rel="prev">
+<link href="../RBasics/SyntaxOp.html" rel="next">
+<link href="../RBasics/AtomicClasses.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -82,7 +118,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RBasics/Overview.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures</a></li><li class="breadcrumb-item"><a href="../RBasics/Syntax.html">Syntax operators</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RBasics/Overview.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures</a></li><li class="breadcrumb-item"><a href="../RBasics/ArithmeticOp.html">Arithmetic operators</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -165,13 +201,13 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RBasics/Operators.html" class="sidebar-item-text sidebar-link">
+  <a href="../RBasics/ArithmeticOp.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Arithmetic operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../RBasics/Syntax.html" class="sidebar-item-text sidebar-link active">
+  <a href="../RBasics/SyntaxOp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Syntax operators</span></a>
   </div>
 </li>
@@ -194,18 +230,31 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#basic-arithmetic" id="toc-basic-arithmetic" class="nav-link active" data-scroll-target="#basic-arithmetic">1. Basic Arithmetic</a></li>
+  <li><a href="#what-can-be-used-with-arithmetic-operations" id="toc-what-can-be-used-with-arithmetic-operations" class="nav-link" data-scroll-target="#what-can-be-used-with-arithmetic-operations">2. What can be used with Arithmetic Operations?</a></li>
+  <li><a href="#operator-precedence" id="toc-operator-precedence" class="nav-link" data-scroll-target="#operator-precedence">3. <strong>Operator Precedence</strong></a></li>
+  <li><a href="#vectorized-operators" id="toc-vectorized-operators" class="nav-link" data-scroll-target="#vectorized-operators">4. <strong>Vectorized Operators</strong></a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RBasics/ArithmeticOp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RBasics/Overview.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures</a></li><li class="breadcrumb-item"><a href="../RBasics/Syntax.html">Syntax operators</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../RBasics/Overview.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures</a></li><li class="breadcrumb-item"><a href="../RBasics/ArithmeticOp.html">Arithmetic operators</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Syntax</h1>
-<p class="subtitle lead">Syntax</p>
+<h1 class="title">Arithmetic Operators</h1>
 </div>
 
+<div>
+  <div class="description">
+    Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -220,8 +269,168 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<hr>
+<p>An operator is a symbol or keyword that tells the computer what operation it should perform on values or variables. The arithmetic operators perform mathematical calculations.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/ArithmeticOperators.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+<p>At its most basic level, R is a powerful scientific calculator. It handles standard arithmetic as well as complex matrix operations required for bioinformatics.</p>
+<p>The fundamental operations include <strong>addition</strong>, <strong>subtraction</strong>, <strong>multiplication</strong>, and <strong>division</strong>.</p>
+<p>Beyond these, R handles powers (exponents), modulus (remainder from division), integer division, scalar multiplication, and matrix algebra.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><strong>A Note on Coding Style: To Space or Not to Space?</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In R, spaces around operators are generally ignored by the computer, but they matter a lot for human readability.</p>
+<ol type="1">
+<li><strong>Standard Style (Recommended):</strong> Use a space before and after the symbol: <code>1 + 1</code>. This is the professional standard (often called the <a href="https://style.tidyverse.org/">Tidyverse Style Guide</a>). It makes your code much easier to read.</li>
+<li><strong>Compact Style:</strong> No spaces: <code>1+1</code>. This works perfectly, but can look “cramped” in long equations.</li>
+<li><strong>Inconsistent Style (Avoid):</strong> Using space on only one side, like <code>1+ 1</code> or <code>1 +1</code>.</li>
+</ol>
+<section id="professional-tip" class="level3">
+<h3 class="anchored" data-anchor-id="professional-tip">Professional Tip</h3>
+<p>While R will run your code regardless of the spacing, <strong>consistency is key.</strong> Keeping a clean, spaced-out style helps you (and your PI) catch errors more easily when reviewing your analysis later.</p>
+</section>
+</div>
+</div>
+<section id="basic-arithmetic" class="level2">
+<h2 class="anchored" data-anchor-id="basic-arithmetic">1. Basic Arithmetic</h2>
+<p>Standard operations follow the symbols you are likely already familiar with:</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operation</th>
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Addition</strong></td>
+<td style="text-align: left;"><code>+</code></td>
+<td style="text-align: left;"><code>2 + 100000</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Subtraction</strong></td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: left;"><code>3 - 5</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Multiplication</strong></td>
+<td style="text-align: left;"><code>*</code></td>
+<td style="text-align: left;"><code>71 * 9</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Division</strong></td>
+<td style="text-align: left;"><code>/</code></td>
+<td style="text-align: left;"><code>90 / 19</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Power</strong></td>
+<td style="text-align: left;"><code>^</code></td>
+<td style="text-align: left;"><code>2 ^ 3</code></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Examples in Action</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Addition: Add 2 and 100,000</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">+</span> <span class="dv">100000</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 100002</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Subtraction: Subtract 5 from 3</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dv">3</span> <span class="sc">-</span> <span class="dv">5</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] -2</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Multiplication: Multiply 71 by 9</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="dv">71</span> <span class="sc">*</span> <span class="dv">9</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 639</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Division with Order of Operations</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="dv">90</span> <span class="sc">/</span> ((<span class="dv">3</span> <span class="sc">*</span> <span class="dv">5</span>) <span class="sc">+</span> <span class="dv">4</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 4.736842</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Power: 2 to the power of 3</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="dv">2</span> <span class="sc">^</span> <span class="dv">3</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 8</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="what-can-be-used-with-arithmetic-operations" class="level2">
+<h2 class="anchored" data-anchor-id="what-can-be-used-with-arithmetic-operations">2. What can be used with Arithmetic Operations?</h2>
+<p>In research, you won’t just be typing raw numbers. You will frequently perform calculations using objects (variables) that store your data. You can mix and match numbers and objects freely.</p>
+<p>Example: Number with Object</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="dv">2</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="dv">1</span> <span class="sc">+</span> num</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>Example: Object with Object</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>num1 <span class="ot">&lt;-</span> <span class="dv">2</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>num2 <span class="ot">&lt;-</span> <span class="dv">3</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>num1 <span class="sc">*</span> num2</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Wait, what is <code>&lt;-</code> ?</p>
+<p>In the code above, we used the &lt;- symbol. This is an Assignment Operator. It is used to store data into the object it points to. Think of it as an arrow putting a value into a labeled box.</p>
+<p>We will explore this in depth in the next chapter, but for now, just know that <code>num1 &lt;- 2</code> means the box labeled <code>num1</code> now contains the number 2.</p>
+</div>
+</div>
+</section>
+<section id="operator-precedence" class="level2">
+<h2 class="anchored" data-anchor-id="operator-precedence">3. <strong>Operator Precedence</strong></h2>
+<p>Not all operators are created equal.</p>
+<p>R follows a specific order of operations (similar to high school mathematics, often called PEMDAS). For example, multiplication (<code>*</code>) and division (<code>/</code>) will always be performed before addition (<code>+</code>) and subtraction (<code>-</code>).</p>
+<blockquote class="blockquote">
+<p><strong>Best Practice:</strong> When in doubt, use <strong>parentheses <code>()</code></strong>. They have the highest precedence and ensure R calculates your formula exactly how you intended.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>results1 <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>results2 <span class="ot">&lt;-</span> (<span class="dv">1</span> <span class="sc">+</span> <span class="dv">2</span>) <span class="sc">*</span> <span class="dv">3</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>results1</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 7</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>results2</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 9</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="vectorized-operators" class="level2">
+<h2 class="anchored" data-anchor-id="vectorized-operators">4. <strong>Vectorized Operators</strong></h2>
+<p>Unlike many other programming languages, R is designed specifically for statistics. This means its operators are vectorized.</p>
+<p>If you have a list (vector) of 1,000 patient ages and you want to add 10 to all of them, you don’t need to write a complex loop. R simply applies the operation to every single value in the list simultaneously.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Adding 10 to a vector of three ages</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>ages <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">20</span>, <span class="dv">30</span>, <span class="dv">40</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>ages <span class="sc">+</span> <span class="dv">10</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 30 40 50</code></pre>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -626,13 +835,13 @@ ul.task-list li input[type="checkbox"] {
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../RBasics/Operators.html" class="pagination-link" aria-label="Arithmetic operators">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Arithmetic operators</span>
+      <a href="../RBasics/AtomicClasses.html" class="pagination-link" aria-label="Atomic Classes (Data Types)">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Atomic Classes (Data Types)</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../RBasics/LogicalOp.html" class="pagination-link" aria-label="Logical operators">
-        <span class="nav-page-text">Logical operators</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../RBasics/SyntaxOp.html" class="pagination-link" aria-label="Syntax operators">
+        <span class="nav-page-text">Syntax operators</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -644,7 +853,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RBasics/Syntax.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/RBasics/ArithmeticOp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
