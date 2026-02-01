@@ -28,6 +28,32 @@ Arguments: The information you put inside the parentheses () is called an argume
 Testing Types: The class() function is your go-to tool for identifying the data type of any object or value.
 :::
 
+::: callout-tip
+### **Efficiency Tip: The Quotation Shortcut**
+
+In RStudio, you don't have to manually type quotation marks at the beginning and end of every word or sentence. There is a "surround" shortcut that handles this for you:
+
+1.  **Highlight** the word, number, or sentence you want to wrap in quotes.
+
+2.  **Press the Quote Key:**
+
+    -   On both Mac and Windows, simply hit the **`"`** (Shift + `'`) or **`'`** key.
+
+3.  **Result:** RStudio will automatically place a quotation mark at the start *and* the end of your selection.
+
+### **Wait, where else does this work?**
+
+This shortcut also works for other "pairing" symbols in RStudio:
+
+-   **Parentheses:** Highlight text and press `(` to get `(text)`.
+
+-   **Brackets:** Highlight text and press `[` to get `[text]`.
+
+-   **Braces:** Highlight text and press `{` to get `{text}`.
+
+**Note:** This is a specific feature of the RStudio IDE. While it works in some modern code editors (like VS Code), it generally **will not work** in standard software like Microsoft Word or PowerPoint.
+:::
+
 ### 1.1 Working with Strings and Sentences
 
 R can handle strings of any length, from a single word to a full paragraph.
