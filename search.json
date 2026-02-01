@@ -7,7 +7,7 @@
     "text": "Syntax operators are the specialized symbols and keywords that define how R interprets your code. They handle essential tasks like naming objects, writing notes to yourself, and digging into complex datasets.\nIt includes comment line, assignation, access content, and equal.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Syntax operators"
+      "𝟯 Syntax operators"
     ]
   },
   {
@@ -18,7 +18,7 @@
     "text": "1. Comments (#): Writing Notes to Your Future Self\nComments are used to explain why you wrote a specific line of code. This is vital for reproducibility and collaboration. Anything written after the # symbol is ignored by R during execution.\n\nManual: Type # before your note.\nShortcut (Mac): Cmd + Shift + C\nShortcut (Windows): Ctrl + Shift + C\n\n\n# This is a comment. R will not execute this.\n# \"hello world\"",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Syntax operators"
+      "𝟯 Syntax operators"
     ]
   },
   {
@@ -29,7 +29,7 @@
     "text": "2. Assignment: Creating Objects\nAssignment is the process of storing a value (data) inside a named container (an object).\n\n2.1 The Left-Hand Assignment (&lt;-)\nThe standard way to assign values in R is using the &lt;- operator. Think of it as an arrow pointing from the data to the label.\n\n# The convention is to use left hand assignation \nvar1 &lt;- \"hello world\"\nvar1\n\n[1] \"hello world\"\n\n\n\n\n\n\n\n\nNoteShortcut for &lt;-\n\n\n\nInstead of typing two characters, use these shortcuts to insert the assignment arrow:\n\nMac: Option + - (minus key)\nWindows: Alt + - (minus key)\n\n\n\n\n\n\n\n\n\nNoteA Note on Coding Style: To Space or Not to Space?\n\n\n\nWhile var1&lt;-“hello world” works, it is a little bit “dirty” and hard to read.\nFollowing the Tidyverse Style Guide, you should always put a space before and after the assignment operator: var1 &lt;- \"hello world\"\n\n\n\n\n2.2 Other Assignment Methods\n\n2.2.1 The Equals Sign (=):\nWhile = works for assignment, R users generally avoid it. In R, = is typically reserved for defining arguments inside a function. Using it for general assignment is considered poor style.\n\n# It is also possible to use the '=' sign, but is NOT a good practice\nvar1 = \"hello world\"\nvar1\n\n[1] \"hello world\"\n\n\n\n\n2.2.2 Right-Hand Assignment (-&gt;):\nYou can technically point the arrow the other way: \"data\" -&gt; var1.\nThis is rarely used but can be helpful at the end of a long pipe (|&gt;) if you decide to save the final result into a new variable.\n\n\"hello world\" -&gt; var1\nvar1\n\n[1] \"hello world\"\n\n\n\n\n\n2.3 Printing Variables\nOnce you have stored data in a variable, there are several ways to “call” it back to the console:\n\n2.3.1 Direct Call\nSimply type the name. This is the most common method during interactive analysis.\n\n\"hello world!\"\n\n[1] \"hello world!\"\n\n\n\n\n2.3.2 Using Function print() and cat()\nprint(): Explicitly prints the object. This is often used inside “loops” or complex functions where R might not automatically show the output.\ncat(): Short for “concatenate.” It prints the raw text without the [1] index marker or quotes. It is great for creating clean, human-readable messages.\n\nvar1 &lt;- \"McGill\"\nprint(var1)\n\n[1] \"McGill\"\n\n\n\nvar1 &lt;- \"McGill\"\ncat(var1)\n\nMcGill",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Syntax operators"
+      "𝟯 Syntax operators"
     ]
   },
   {
@@ -40,7 +40,7 @@
     "text": "3. Access Content ($)\nThe $ operator is one of the most powerful symbols in R. It allows you to “reach inside” a complex object (like a Data Frame or a List) and extract a specific column or element by its name.\nExample: The iris Dataset\nThe iris dataset is a built-in collection of measurements for 150 flowers. It includes variables like Sepal.Length, Petal.Length, and Species. To look at only the species column, we use the $ operator.\n\n# Show the first 6 rows of the dataset\nhead(iris)\n\n  Sepal.Length Sepal.Width Petal.Length Petal.Width Species\n1          5.1         3.5          1.4         0.2  setosa\n2          4.9         3.0          1.4         0.2  setosa\n3          4.7         3.2          1.3         0.2  setosa\n4          4.6         3.1          1.5         0.2  setosa\n5          5.0         3.6          1.4         0.2  setosa\n6          5.4         3.9          1.7         0.4  setosa\n\n# Extract only the \"Species\" column\niris$Species\n\n  [1] setosa     setosa     setosa     setosa     setosa     setosa    \n  [7] setosa     setosa     setosa     setosa     setosa     setosa    \n [13] setosa     setosa     setosa     setosa     setosa     setosa    \n [19] setosa     setosa     setosa     setosa     setosa     setosa    \n [25] setosa     setosa     setosa     setosa     setosa     setosa    \n [31] setosa     setosa     setosa     setosa     setosa     setosa    \n [37] setosa     setosa     setosa     setosa     setosa     setosa    \n [43] setosa     setosa     setosa     setosa     setosa     setosa    \n [49] setosa     setosa     versicolor versicolor versicolor versicolor\n [55] versicolor versicolor versicolor versicolor versicolor versicolor\n [61] versicolor versicolor versicolor versicolor versicolor versicolor\n [67] versicolor versicolor versicolor versicolor versicolor versicolor\n [73] versicolor versicolor versicolor versicolor versicolor versicolor\n [79] versicolor versicolor versicolor versicolor versicolor versicolor\n [85] versicolor versicolor versicolor versicolor versicolor versicolor\n [91] versicolor versicolor versicolor versicolor versicolor versicolor\n [97] versicolor versicolor versicolor versicolor virginica  virginica \n[103] virginica  virginica  virginica  virginica  virginica  virginica \n[109] virginica  virginica  virginica  virginica  virginica  virginica \n[115] virginica  virginica  virginica  virginica  virginica  virginica \n[121] virginica  virginica  virginica  virginica  virginica  virginica \n[127] virginica  virginica  virginica  virginica  virginica  virginica \n[133] virginica  virginica  virginica  virginica  virginica  virginica \n[139] virginica  virginica  virginica  virginica  virginica  virginica \n[145] virginica  virginica  virginica  virginica  virginica  virginica \nLevels: setosa versicolor virginica\n\n\n\n\n\n\n\n\nNote\n\n\n\nThe head() Function\nThe head() function is a “quick look” tool. It returns the first few rows of a dataset (default is 6) so you can inspect your data without flooding your console with thousands of lines.\nConversely, tail() shows you the last few rows.\nRemember, you can always type ?head in your Console to see the full documentation.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Syntax operators"
+      "𝟯 Syntax operators"
     ]
   },
   {
@@ -51,7 +51,7 @@
     "text": "4. The Equal Operator (=)\nIn R, the single equals sign (=) has two primary roles, but they are not created equal.\n\n4.1 Assignment (Not Recommended)\nWhile = can be used to assign a value to a variable, R users generally avoid this. In the R community, using = for assignment is considered poor style because it can be confused with mathematical equality or function arguments.\nAlways prefer &lt;- for creating variables.\n\n# It is also possible to use the '=' sign, but is NOT a good practice\nvar1 = \"hello world\"\nvar1\n\n[1] \"hello world\"\n\n\n\n\n4.2 Defining Function Arguments (Recommended)\nThe “correct” and most common use of the = sign in R is to define arguments inside a function. This tells the function exactly how you want it to behave.\nExample: The paste() Function\nThe paste() function joins multiple pieces of text together. It uses an argument called sep to decide what character should go between the pieces.\n\ncal &lt;- 1 + 3\n\n# Using '=' to define the separator argument\npaste(\"The output of 1 + 3\", cal,\n      sep = \" = \")\n\n[1] \"The output of 1 + 3 = 4\"\n\n\n\n\n\n\n\n\nNote\n\n\n\nDeep Dive: ?paste\nIf you look at the help documentation for paste(), you will see the usage and arguments explanations:\nUsage\npaste(…, sep = ” “, collapse = NULL)\nArguments\nsep: a character string to separate the terms.\nBy using sep = ” = “, we are overriding the default space (” “) and telling R to put an equals sign between our text and our result.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Syntax operators"
+      "𝟯 Syntax operators"
     ]
   },
   {
@@ -62,7 +62,7 @@
     "text": "An operator is a symbol or keyword that tells the computer what operation it should perform on values or variables. The arithmetic operators perform mathematical calculations.\nAt its most basic level, R is a powerful scientific calculator. It handles standard arithmetic as well as complex matrix operations required for bioinformatics.\nThe fundamental operations include addition, subtraction, multiplication, and division.\nBeyond these, R handles powers (exponents), modulus (remainder from division), integer division, scalar multiplication, and matrix algebra.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Arithmetic operators"
+      "𝟮 Arithmetic operators"
     ]
   },
   {
@@ -73,7 +73,7 @@
     "text": "1. Basic Arithmetic\nStandard operations follow the symbols you are likely already familiar with:\n\n\n\nOperation\nOperator\nExample\n\n\n\n\nAddition\n+\n2 + 100000\n\n\nSubtraction\n-\n3 - 5\n\n\nMultiplication\n*\n71 * 9\n\n\nDivision\n/\n90 / 19\n\n\nPower\n^\n2 ^ 3\n\n\n\nExamples in Action\n\n# Addition: Add 2 and 100,000\n2 + 100000\n## [1] 100002\n\n# Subtraction: Subtract 5 from 3\n3 - 5\n## [1] -2\n\n# Multiplication: Multiply 71 by 9\n71 * 9\n## [1] 639\n\n# Division with Order of Operations\n90 / ((3 * 5) + 4)\n## [1] 4.736842\n\n# Power: 2 to the power of 3\n2 ^ 3\n## [1] 8",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Arithmetic operators"
+      "𝟮 Arithmetic operators"
     ]
   },
   {
@@ -84,7 +84,7 @@
     "text": "2. What can be used with Arithmetic Operations?\nIn research, you won’t just be typing raw numbers. You will frequently perform calculations using objects (variables) that store your data. You can mix and match numbers and objects freely.\nExample: Number with Object\n\nnum &lt;- 2 \n1 + num\n\n[1] 3\n\n\nExample: Object with Object\n\nnum1 &lt;- 2 \nnum2 &lt;- 3\nnum1 * num2\n\n[1] 6\n\n\n\n\n\n\n\n\nNote\n\n\n\nWait, what is &lt;- ?\nIn the code above, we used the &lt;- symbol. This is an Assignment Operator. It is used to store data into the object it points to. Think of it as an arrow putting a value into a labeled box.\nWe will explore this in depth in the next chapter, but for now, just know that num1 &lt;- 2 means the box labeled num1 now contains the number 2.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Arithmetic operators"
+      "𝟮 Arithmetic operators"
     ]
   },
   {
@@ -95,7 +95,7 @@
     "text": "3. Operator Precedence\nNot all operators are created equal.\nR follows a specific order of operations (similar to high school mathematics, often called PEMDAS). For example, multiplication (*) and division (/) will always be performed before addition (+) and subtraction (-).\n\nBest Practice: When in doubt, use parentheses (). They have the highest precedence and ensure R calculates your formula exactly how you intended.\n\n\nresults1 &lt;- 1 + 2 * 3\nresults2 &lt;- (1 + 2) * 3\n\nresults1\n## [1] 7\nresults2\n## [1] 9",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Arithmetic operators"
+      "𝟮 Arithmetic operators"
     ]
   },
   {
@@ -106,7 +106,128 @@
     "text": "4. Vectorized Operators\nUnlike many other programming languages, R is designed specifically for statistics. This means its operators are vectorized.\nIf you have a list (vector) of 1,000 patient ages and you want to add 10 to all of them, you don’t need to write a complex loop. R simply applies the operation to every single value in the list simultaneously.\n\n# Example: Adding 10 to a vector of three ages\nages &lt;- c(20, 30, 40)\nages + 10\n\n[1] 30 40 50",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Arithmetic operators"
+      "𝟮 Arithmetic operators"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html",
+    "href": "RBasics/Objects.html",
+    "title": "Objects (Data Structures)",
+    "section": "",
+    "text": "In R, Data Structures are the containers used to store and organize values.\nR provides several built-in structures, each designed for a specific purpose. Understanding the difference between them is critical for data analysis.",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#overview-of-data-dimension",
+    "href": "RBasics/Objects.html#overview-of-data-dimension",
+    "title": "Objects (Data Structures)",
+    "section": "1. Overview of data dimension",
+    "text": "1. Overview of data dimension\n\n\n\n1D Structures\n(Vector, Factor, List) \n\n\n\n\n\n2D Structures\n(Matrix, Data Frame)",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#vector",
+    "href": "RBasics/Objects.html#vector",
+    "title": "Objects (Data Structures)",
+    "section": "2. Vector",
+    "text": "2. Vector\nKey points: * The fundamental building block of R. * Can only contain objects of the same class (e.g., all numeric or all character). * Even a single number in R is actually a vector of length 1.\n\n\n2.1 Numeric Vectors\nThere are multiple ways to create numeric vectors.\n\n2.1.1 Method A: c() (Combine)\nThis is the most common method.\n\nx &lt;- c(0.3, 0.1)\nx\n\n[1] 0.3 0.1\n\n\n\n\n\n\n\n\nTip\n\n\n\nCoding Style:\nThe Comma Rule It is not mandatory to put a space after a comma—both c(0.3, 0.1) and c(0.3,0.1) will work perfectly.\nHowever, much like writing in English, your code is significantly easier for others (and your future self) to read if you consistently place a space after every comma. It makes your code look professional and clean.\n\n\n\n\n2.1.2 Method B: vector() or numeric()\nCreates an empty vector of a specific size (defaults to 0).\n\nx &lt;- vector(mode = \"numeric\", length = 10)\nx\n\n [1] 0 0 0 0 0 0 0 0 0 0\n\n\n\nx &lt;- numeric(length = 10)\nx\n\n [1] 0 0 0 0 0 0 0 0 0 0\n\n\n\n\n2.1.3 Method C: seq() and rep()\nSequences (seq and rep) Useful for generating data automatically.\n\n# Sequence from 1 to 10, jumping by 2\nx &lt;- seq(from = 1, to = 10, by = 2)\nx\n\n[1] 1 3 5 7 9\n\n# Repeat the number 2, 10 times\nx &lt;- rep(2, 10)\nx\n\n [1] 2 2 2 2 2 2 2 2 2 2\n\n\n\n\n\n\n\n\nTip\n\n\n\nChecking Vector Length with length()\n\n## Creates an empty vector of length 10\nx &lt;- vector(mode = \"numeric\", length = 10)\nx\n##  [1] 0 0 0 0 0 0 0 0 0 0\nlength(x)\n## [1] 10\n\n# Repeat the number 2, 5 times\ny &lt;- rep(2, 5)\ny\n## [1] 2 2 2 2 2\nlength(y)\n## [1] 5\n\nlength(x) == length(y)\n## [1] FALSE\n\n\n\n\n\n\n2.2 Integer Vectors\nIntegers are whole numbers. You force them by adding L.\nCreating an integer vector using c()\n\nx &lt;- c(1L, 2L, 3L, 4L, 5L)  \nx\n\n[1] 1 2 3 4 5\n\n\nThe Colon Operator (:) The quickest way to make an integer sequence.\n\nx &lt;- 1:10\nx\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\n\n\n\n\n\n\nNote\n\n\n\nNotes:\nYou can read the : symbol as “from… to…”\n\n1:10 means “from 1 to 10.”\n50:100 means “from 50 to 100.”\n\n\n\n\n\n2.3 Logical Vectors\nUsed for True/False conditions.\n\n# You can use TRUE/FALSE or T/F\nx &lt;- c(TRUE, FALSE, T, F)\nx\n\n[1]  TRUE FALSE  TRUE FALSE\n\n\nCreating a logical vector with vector()\n\nx &lt;- vector(mode = \"logical\", length = 5)\nx\n\n[1] FALSE FALSE FALSE FALSE FALSE\n\n\nCreating a logical vector using logical()\n\nx &lt;- logical(length = 10)\nx\n\n [1] FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE FALSE\n\n\n\n\n2.4 Character Vectors\nText strings must be wrapped in quotes.\n\nx &lt;- c(\"a\", \"b\", \"c\")\nx\n## [1] \"a\" \"b\" \"c\"\n\nx &lt;- vector(mode = \"character\", length=10)\nx\n##  [1] \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\" \"\"\n\nx &lt;- character(length = 3)\nx\n## [1] \"\" \"\" \"\"\n\n\n\n\n\n\n\nTip\n\n\n\nUseful String Functions\n\n# Convert to Lowercase\ntolower(c(\"DNA\", \"RNA\"))\n\n[1] \"dna\" \"rna\"\n\n# Convert to UPERCASE\ntoupper(letters)\n\n [1] \"A\" \"B\" \"C\" \"D\" \"E\" \"F\" \"G\" \"H\" \"I\" \"J\" \"K\" \"L\" \"M\" \"N\" \"O\" \"P\" \"Q\" \"R\" \"S\"\n[20] \"T\" \"U\" \"V\" \"W\" \"X\" \"Y\" \"Z\"\n\n# Create labels by pasting text and numbers\n# Note the implicit coercion\npaste(\"Patient\", 1:5, sep = \"_\")\n\n[1] \"Patient_1\" \"Patient_2\" \"Patient_3\" \"Patient_4\" \"Patient_5\"\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nIn R, coercion is the process of forced conversion from one data type to another.\nR is automatically changing the Numeric vector (1:5) into a Character vector so it can be “pasted” together with the Character vector (“Patient”).\n\nThe Rule of Vectors\n\nAs we learned earlier, a vector must contain objects of the same class. You cannot have a single vector that is half-numbers and half-text.\n\nWhat happens in paste()?\n\nWhen you run paste(\"Patient\", 1:5, sep = \"_\"):\n“Patient” is a Character vector.\n1:5 is an Integer/Numeric vector (1, 2, 3…).\nSince you can’t join “text” and “numbers” into a single result without them being the same type, R implicitly (automatically) converts the numbers into text strings (“1”, “2”, “3”).\nWhy is this important?\nIn R, there is a “Hierarchy of Types.” If you mix different types in a vector, R will always coerce them to the “least restrictive” type to ensure no data is lost, following this order:\nLogical → Integer → Numeric → Character\nExample of unexpected coercion:\nIf you accidentally include a single piece of text in your column of gene expression numbers, R will turn the entire column into text.\n\n# Mixing numbers and one \"missing\" string\ndata &lt;- c(1.2, 3.5, \"missing\", 4.8)\n\n# Check the class\nclass(data)\n\n[1] \"character\"\n\n\nBecause of coercion, you can no longer calculate the mean() or sum() of that data because R now sees them all as “character” rather than “numbers.” This is a very common reason why R scripts fail during data cleaning!\n\n# Mixing numbers and one \"missing\" string\ndata &lt;- c(1.2, 3.5, \"missing\", 4.8)\n\nmean(data)\n\nWarning in mean.default(data): argument is not numeric or logical: returning NA\n\n\n[1] NA\n\n\n\n\n\n\n2.5 Vector Attributes (Names)\nYou can give names to specific elements in a vector. This is great for readability.\n\nx &lt;- 1:5\nnames(x) &lt;- c(\"one\", \"two\", \"three\", \"four\", \"five\")\nx\n\n  one   two three  four  five \n    1     2     3     4     5 \n\nx &lt;- logical(length = 4)\nnames(x) &lt;- c(\"F1\", \"F2\", \"F3\", \"F4\")\nx\n\n   F1    F2    F3    F4 \nFALSE FALSE FALSE FALSE",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#factors",
+    "href": "RBasics/Objects.html#factors",
+    "title": "Objects (Data Structures)",
+    "section": "3. Factors",
+    "text": "3. Factors\nKey points:\n\nUsed for Categorical Data (e.g., “Control” vs “Treatment”).\nLevels: The fixed set of possible values.\nCan have implicit order, if needed\nEach element has a label or level\nEssential for statistical modeling (e.g., defining groups for DESeq2).\nSome operations behave differently on factors\n\n\n\n\n\n\nCreating Factors: Notice below that we explicitly define the levels. This sets the “order” of the groups (Control first, Case second).\n\ncols &lt;- factor(x = c(rep(\"red\", 4),\n                   rep(\"blue\", 5),\n                   rep(\"green\", 2)),              \n             levels = c(\"red\", \"blue\", \"green\"))\ncols\n\n [1] red   red   red   red   blue  blue  blue  blue  blue  green green\nLevels: red blue green\n\n\n\nsamples &lt;- c(\"case\", \"control\", \"control\", \"case\") \nsamples_factor &lt;- factor(samples, levels = c(\"control\", \"case\")) \n\nsamples_factor \n\n[1] case    control control case   \nLevels: control case\n\nstr(samples_factor)\n\n Factor w/ 2 levels \"control\",\"case\": 2 1 1 2",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#list",
+    "href": "RBasics/Objects.html#list",
+    "title": "Objects (Data Structures)",
+    "section": "4. List",
+    "text": "4. List\nKey points:\n\nThe “Super Container”.\nCan contain mixed data types (e.g., a vector, a matrix, and a string all in one object).\nThe output of most statistical tests (like t.test) is a list.\n\nCreating a List:\n\nmy_list &lt;- list(\n  project_name = \"Diabetes Study\",\n  patient_count = 50,\n  is_finished = FALSE,\n  group_ids = c(\"A\", \"B\", \"C\")\n)\n\nmy_list\n\n$project_name\n[1] \"Diabetes Study\"\n\n$patient_count\n[1] 50\n\n$is_finished\n[1] FALSE\n\n$group_ids\n[1] \"A\" \"B\" \"C\"\n\n\nAccessing List Elements: Use the double bracket [[ ]] or the dollar sign $.\n\nmy_list$project_name\n\n[1] \"Diabetes Study\"\n\nmy_list[[\"group_ids\"]]\n\n[1] \"A\" \"B\" \"C\"",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#matrix",
+    "href": "RBasics/Objects.html#matrix",
+    "title": "Objects (Data Structures)",
+    "section": "5. Matrix",
+    "text": "5. Matrix\nKey points:\n\n2-Dimensional (Rows and Columns).\nMust contain One Data Type (usually all Numeric).\nUsed heavily in bioinformatics for Gene Expression Tables (Genes × Samples).\n\nCreating a Matrix:\n\n# Create a matrix of numbers 1 through 9, arranged in 3 rows\nm &lt;- matrix(1:9, nrow = 3, ncol = 3)\nm\n\n     [,1] [,2] [,3]\n[1,]    1    4    7\n[2,]    2    5    8\n[3,]    3    6    9\n\n\nAdding Row/Column Names:\n\nm &lt;- matrix(1:9, nrow = 3, ncol = 3)\ncolnames(m) &lt;- c(\"Sample1\", \"Sample2\", \"Sample3\")\nrownames(m) &lt;- c(\"GeneA\", \"GeneB\", \"GeneC\")\nm\n\n      Sample1 Sample2 Sample3\nGeneA       1       4       7\nGeneB       2       5       8\nGeneC       3       6       9",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#array",
+    "href": "RBasics/Objects.html#array",
+    "title": "Objects (Data Structures)",
+    "section": "6. Array",
+    "text": "6. Array\nKey points:\n\nSimilar to a matrix, but can have more than 2 dimensions (3D, 4D, etc.).\nUseful for time-series data or 3D imaging data.\n\n\n# Create a 3D array (2 rows, 2 columns, 2 \"slices\")\na &lt;- array(1:8, dim = c(2, 2, 2))\na\n\n, , 1\n\n     [,1] [,2]\n[1,]    1    3\n[2,]    2    4\n\n, , 2\n\n     [,1] [,2]\n[1,]    5    7\n[2,]    6    8",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#data-frame",
+    "href": "RBasics/Objects.html#data-frame",
+    "title": "Objects (Data Structures)",
+    "section": "7. Data Frame",
+    "text": "7. Data Frame\nKey points:\n\nThe most common data structure for researchers.\n2-Dimensional (like a matrix).\nCan mix data types (e.g., Column 1 is Numeric, Column 2 is Character).\nThink of it like an Excel Spreadsheet.\n\nCreating a Data Frame:\n\ndf &lt;- data.frame(\n  ID = c(\"P001\", \"P002\", \"P003\"),\n  Age = c(25, 34, 28),\n  Treatment = c(\"Placebo\", \"Drug\", \"Placebo\")\n)\ndf\n\n    ID Age Treatment\n1 P001  25   Placebo\n2 P002  34      Drug\n3 P003  28   Placebo",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#null-the-empty-object",
+    "href": "RBasics/Objects.html#null-the-empty-object",
+    "title": "Objects (Data Structures)",
+    "section": "8. NULL (The Empty Object)",
+    "text": "8. NULL (The Empty Object)\nKey points:\n\nNULL represents the absence of an object.\nIt is different from NA (which means “missing value”).\nNULL is often used to remove an element from a list or dataframe.\n\n\nx &lt;- NULL\nis.null(x)\n\n[1] TRUE",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#built-in-functions",
+    "href": "RBasics/Objects.html#built-in-functions",
+    "title": "Objects (Data Structures)",
+    "section": "9. Built-in Functions",
+    "text": "9. Built-in Functions\nR has many functions to inspect and summarize these objects.\n\n9.1 Inspection Functions\nUse these to check what you are working with.\n\nx &lt;- c(1, 2, 3)\n\nis.vector(x)    # Is it a vector?\n## [1] TRUE\nis.na(x)    # Is it empty\n## [1] FALSE FALSE FALSE\nis.null(x)    # Is it NULL\n## [1] FALSE\nis.numeric(x)    # Is it numeric\n## [1] TRUE\nis.logical(x)    # Is it logical\n## [1] FALSE\nis.character(x)    # Is it character\n## [1] FALSE\n\nlength(x)       # How long is it?\n## [1] 3\n\nclass(x)        # What class is it? Atomic class type\n## [1] \"numeric\"\ntypeof(x) # Object type or data structure (matrix, list, array...)\n## [1] \"double\"\nstr(x)          # Structure (Compact display)\n##  num [1:3] 1 2 3\n\n\n\n9.2 Mathematical Summaries\nUse these to calculate statistics on your vectors.\n\nx &lt;- seq(1, 10, 0.3)\n\nmin(x) \n## [1] 1\nmax(x)\n## [1] 10\n\nmean(x)    # Average\n## [1] 5.5\nmedian(x)  # Median\n## [1] 5.5\nsd(x)      # Standard Deviation\n## [1] 2.727636\n\nsummary(x) # Quick summary stats\n##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n##    1.00    3.25    5.50    5.50    7.75   10.00\n\ntable(x)\n## x\n##   1 1.3 1.6 1.9 2.2 2.5 2.8 3.1 3.4 3.7   4 4.3 4.6 4.9 5.2 5.5 5.8 6.1 6.4 6.7 \n##   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1   1 \n##   7 7.3 7.6 7.9 8.2 8.5 8.8 9.1 9.4 9.7  10 \n##   1   1   1   1   1   1   1   1   1   1   1\n\n\n\n9.3 Grouping Data (tapply)\nA powerful function to apply a calculation to groups of data (e.g., “Find the mean measurement for Cases vs. Controls”).\n\n# Mock data: 6 measurements\nmeasurements &lt;- c(10, 12, 11, 20, 22, 21)\n\n# Groups: 3 Controls, 3 Cases\ngroups &lt;- factor(c(\"Control\", \"Control\", \"Control\", \"Case\", \"Case\", \"Case\"))\n\n\n# Calculate the mean for each group\ntapply(measurements, groups, mean)\n\n   Case Control \n     21      11",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
+    ]
+  },
+  {
+    "objectID": "RBasics/Objects.html#vector-operations",
+    "href": "RBasics/Objects.html#vector-operations",
+    "title": "Objects (Data Structures)",
+    "section": "10. Vector Operations",
+    "text": "10. Vector Operations\nR is vectorized, meaning mathematical operations are applied to every element at once.\n\nx &lt;- 1:5\ny &lt;- 6:10\n\n# Multiply every element in x by 2\nx * 2\n## [1]  2  4  6  8 10\n\n# Add x and y (element by element)\nx + y\n## [1]  7  9 11 13 15",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
+      "𝟱 Objects (Data Structures)"
     ]
   },
   {
@@ -441,7 +562,7 @@
     "text": "Comparison operators are used to compare two values. When you run a comparison, R evaluates the statement and returns a Logical value: either TRUE or FALSE.\nLogical operators allow you to combine multiple comparison statements into a single test. This is essential for complex data filtering.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Logical operators"
+      "𝟰 Logical operators"
     ]
   },
   {
@@ -452,7 +573,7 @@
     "text": "1. Comparison operators\n\n1.1 ==\n\n\n\n\n\n\nWarning\n\n\n\nThe Most Common R Error: = vs ==\n= (or &lt;-) is for Assignment: You are telling R that a variable equals a value.\n== is for Comparison: You are asking R if two things are equal.\n\n\n\n# Comparing numbers\n10 == 2\n\n[1] FALSE\n\n# Comparing text (Case sensitive!)\n\"McGill\" == \"mcgill\"\n\n[1] FALSE\n\n\n\n\n1.2 !=\nIn R, the exclamation mark ! stands for “NOT”. When combined with the equals sign, != checks if two values are different.\n\nIt returns TRUE if the values are not the same.\nIt returns FALSE if they are the same.\n\n\n# Is 10 equal to 2? (False)\n10 == 2\n\n[1] FALSE\n\n# Is 10 different from 2? (True)\n10 != 2\n\n[1] TRUE",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Logical operators"
+      "𝟰 Logical operators"
     ]
   },
   {
@@ -463,7 +584,7 @@
     "text": "2. Logical operators\n\n2.1 &\nThe “AND” Operator (&): Use this when your condition must meet all criteria simultaneously.\n\nage &lt;- 65\nbmi &lt;- 32\n\n# Is the patient over 60 AND obese (BMI &gt; 30)?\nage &gt; 60 & bmi &gt; 30\n\n[1] TRUE\n\n\n\n\n2.2 |\nThe “OR” Operator (|): Use this when meeting any one of the criteria is sufficient.\n\n# Is the flower species either 'setosa' OR 'versicolor'?\nspecies &lt;- \"setosa\"\nspecies == \"setosa\" | species == \"versicolor\"\n\n[1] TRUE\n\n\n\n\n\n\n\n\nNote\n\n\n\nKeyboard Tip: How to type |?\nLook for the key with the backslash \\ (usually above the Return/Enter key).\n\nMac & Windows: Press Shift + \\\n\n\n\n\n\n2.3 !\nThe “NOT” Operator (!): This exclamation mark is used to exclude specific data points.\n\n!TRUE\n\n[1] FALSE\n\n\n\ncontrol_group &lt;- FALSE\n# Is the sample NOT in the control group?\n!control_group\n\n[1] TRUE\n\n\n\n\n2.4 The Membership Operator (%in%)\nThe %in% operator (often called “contains”) is extremely useful when you want to check if a value belongs to a large list or group.\nExample: Searching for Genes Imagine you have a list of “Genes of Interest” for your diabetes research. You can check if a specific gene is in that list without writing many OR statements.\n\ndiabetes_genes &lt;- c(\"INS\", \"GCK\", \"KCNJ11\", \"SLC30A8\")\n\n# Is 'INS' (Insulin) in our list?\n\"INS\" %in% diabetes_genes\n## [1] TRUE\n\n# Is 'SOX2' in our list?\n\"SOX2\" %in% diabetes_genes\n## [1] FALSE",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Logical operators"
+      "𝟰 Logical operators"
     ]
   },
   {
@@ -474,7 +595,7 @@
     "text": "Atomic classes are the fundamental data type found in R. All subsequent data structures are used to store entries of different atomic classes.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Atomic Classes (Data Types)"
+      "𝟭 Atomic Classes (Data Types)"
     ]
   },
   {
@@ -485,7 +606,7 @@
     "text": "1. Character\nThe Character class represents text data. This can be a single letter, a word, or an entire sentence. In R, anything wrapped in quotation marks is treated as text.\n\nclass(\"a\")\n\n[1] \"character\"\n\n\n\n\n\n\n\n\nNoteUnderstanding the class() Function\n\n\n\nFunctions: In R, a function typically follows the format function_name().\nArguments: The information you put inside the parentheses () is called an argument. The function takes that argument, processes it, and returns a result.\nTesting Types: The class() function is your go-to tool for identifying the data type of any object or value.\n\n\n\n\n\n\n\n\nTipEfficiency Tip: The Quotation Shortcut\n\n\n\nIn RStudio, you don’t have to manually type quotation marks at the beginning and end of every word or sentence. There is a “surround” shortcut that handles this for you:\n\nHighlight the word, number, or sentence you want to wrap in quotes.\nPress the Quote Key:\n\nOn both Mac and Windows, simply hit the \" (Shift + ') or ' key.\n\nResult: RStudio will automatically place a quotation mark at the start and the end of your selection.\n\n\nWait, where else does this work?\nThis shortcut also works for other “pairing” symbols in RStudio:\n\nParentheses: Highlight text and press ( to get (text).\nBrackets: Highlight text and press [ to get [text].\nBraces: Highlight text and press { to get {text}.\n\nNote: This is a specific feature of the RStudio IDE. While it works in some modern code editors (like VS Code), it generally will not work in standard software like Microsoft Word or PowerPoint.\n\n\n\n\n1.1 Working with Strings and Sentences\nR can handle strings of any length, from a single word to a full paragraph.\n\nclass(\"Hello World!\")\n\n[1] \"character\"\n\n\nYou can even store long blocks of text, such as this land acknowledgement:\n\nclass(\"McGill University is on land which has long served as a site of meeting and exchange amongst Indigenous peoples, including the Haudenosaunee and Anishinabeg nations. We acknowledge and thank the diverse Indigenous peoples whose presence marks this territory on which peoples of the world now gather.\")\n\n[1] \"character\"\n\n\n\n\n\n\n\n\nNoteSingle vs. Double Quotes\n\n\n\nIn R, there is no functional difference between using double quotes (” “) and single quotes (’ ’). However, double quotes are the standard convention in the R community.\nThe Rule for “Nesting” Quotes: If your text contains a quote, you must use the other type of quotation mark on the outside so R knows where the string starts and ends.\n\n\n\n# If the text has single quotes, use double quotes outside\nclass(\"It's a beautiful day in Montreal.\")\n\n[1] \"character\"\n\n# If the text has double quotes, use single quotes outside\nclass('We said, \"R is powerful.\"')\n\n[1] \"character\"\n\n\n\n\n1.2 Numbers as Characters\n\n\n\n\n\n\nNote\n\n\n\nIt is important to remember that if you wrap a number in quotes, R will treat it as text, not as a mathematical value.\nYou cannot perform math (like addition) on a character “1”.\n\n\n\nclass(\"1\")\n\n[1] \"character\"\n\n\n\n\n1.3 Common Error: Variables vs. Literal Text\nOne of the most frequent mistakes for beginners is forgetting the quotation marks. This is where the difference between a Value and a Variable becomes critical.\nIf you try to check the class of a without quotes, you will encounter an error:\n\nclass(a)\n\nError:\n! object 'a' not found\n\n\n\n\n\n\n\n\nNoteWhy did this fail?\n\n\n\nWithout the quotation marks, R doesn’t see the letter “a”. Instead, it looks for an object or variable named a on your workbench (Environment). Since we haven’t created a variable named a yet, R reports: Error: object ‘a’ not found.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Atomic Classes (Data Types)"
+      "𝟭 Atomic Classes (Data Types)"
     ]
   },
   {
@@ -496,7 +617,7 @@
     "text": "2. Numeric\nIn R, any number—with or without decimals—is recognized as the Numeric data type by default.\n\n2.1 Whole Numbers vs. Decimals\nEven if you type a whole number like 1, 234, or 100, R stores them as “Numerics” (specifically Doubles) unless you explicitly tell it otherwise.\n\nclass(123)\n\n[1] \"numeric\"\n\n\n\nclass(2.0)\n\n[1] \"numeric\"\n\n\n\n\n2.2 Mathematical Constants\nR also has built-in objects for common mathematical constants, such as π.\n\npi\n\n[1] 3.141593\n\nclass(pi)\n\n[1] \"numeric\"\n\n\n\n\n\n\n\n\nNoteBuilt-in Constants\n\n\n\nR includes several predefined objects for mathematical and logical use. pi is the most common, but you will also encounter others like Inf (Infinity) and NaN (Not a Number) during your analysis.\n\n\n\n\n2.3 Numeric vs. Character: The Quote Rule\nOne of the most important habits to build is checking whether your number is being read as math or text.\n\n3.14\n\n[1] 3.14\n\n\n\n\"3.14\"\n\n[1] \"3.14\"\n\n\n\n\n\n\n\n\nNoteNotice the Difference?\n\n\n\nWhen you run code, R shows you exactly how it “sees” your input:\n\nInput 3.14: R returns 3.14. It treats this as a value you can add, subtract, or multiply.\nInput “3.14”: R returns “3.14”. Because of the quotation marks, R treats this as a Character string. You cannot perform math on this; to R, this is no different than the word “Apple.”\n\n\n\n\n\n2.4 How Numbers are Stored: “Doubles”\nWhy does R call a whole number “Numeric” instead of an “Integer”?\nBy default, R uses Double-precision floating-point format (often called “Doubles”) to store numbers.\n\nPrecision: Each “Double” is stored using 8 bytes of memory and is accurate up to approximately 16 significant decimal digits.\nFlexibility: Storing numbers with decimals by default allows R to handle complex division and scientific calculations without losing data.\n\n\n\n\n\n\n\nNoteForcing an Integer\n\n\n\nIf you specifically need a whole number to be stored as an Integer (which uses less memory), you must add an L after the number: class(1L) will return \"integer\".\nHowever, for 99% of medical research tasks, the default Numeric setting is exactly what you need.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Atomic Classes (Data Types)"
+      "𝟭 Atomic Classes (Data Types)"
     ]
   },
   {
@@ -507,7 +628,7 @@
     "text": "3. Integer\nIntegers are numbers that do not have a decimal component. While R defaults to “Numeric” (Double) for almost everything, you can explicitly tell R to store a number as an Integer by adding the suffix *L* after the value.\n\nclass(1234L)\n\n[1] \"integer\"\n\n\n\n\n\n\n\n\nNoteWhy the “L”?\n\n\n\nThe “L” stands for Long, a legacy term from older programming languages (like C) used to denote a specific amount of computer memory. In modern R, it simply tells the computer: “Store this as a whole number, not a decimal.”\n\nWhere the Integer data type is necessary\nIn most day-to-day experimental medicine tasks, you won’t need to worry about this.\nHowever, there are specific scenarios where using Integers is critical:\n\nMemory Efficiency in “Big Data”: A “Double” (Numeric) takes up 8 bytes of memory, while an “Integer” takes up only 4 bytes.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Atomic Classes (Data Types)"
+      "𝟭 Atomic Classes (Data Types)"
     ]
   },
   {
@@ -518,7 +639,7 @@
     "text": "4. Complex\nA complex value in R is defined via the pure imaginary value i.\n\nclass(2i)\n\n[1] \"complex\"",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Atomic Classes (Data Types)"
+      "𝟭 Atomic Classes (Data Types)"
     ]
   },
   {
@@ -529,7 +650,7 @@
     "text": "5. Logical\nThe Logical data type represents binary outcomes: TRUE or FALSE.\nFor example, in research, these are the outputs of logical tests (e.g., “Is this patient’s BMI &gt; 30?”).\n\nclass(TRUE)\n\n[1] \"logical\"\n\nclass(FALSE)\n\n[1] \"logical\"\n\n\n\n5.1 The Math of Logic\nOne of the most powerful features of logical values is their underlying numeric value:\n\nTRUE is treated as 1.\nFALSE is treated as 0.\n\nThis allows you to quickly count occurrences in a dataset. For example, if you want to know how many patients in your study are “Males,” you can simply “sum” a logical vector of their sex, and R will give you the total count.\n\n\n5.2 Abbreviations: T and F\nR allows you to use T and F as shorthand for TRUE and FALSE.\n\nclass(T)\n\n[1] \"logical\"\n\nclass(F)\n\n[1] \"logical\"\n\n\n\n\n\n\n\n\nWarningA Note on Best Practices\n\n\n\nWhile using T and F is a common “lazy” shortcut, most professional programmers recommend using the full words TRUE and FALSE.\nWhy?\nBecause in R, T and F are technically variables that can be overwritten (e.g., someone could accidentally set T &lt;- 0), whereas the full words TRUE and FALSE are “reserved” and cannot be changed. For reproducible research, stick to the full words!\n\n\n\n\n5.3 Case Sensitivity and Common Errors\nR is strictly case-sensitive. The logical values must be in all caps.\nIf you use “Sentence case” (e.g., True), R will assume you are looking for a variable with that name and throw an error.\n\nclass(True)\n\nError:\n! object 'True' not found\n\nclass(False)\n\nError:\n! object 'False' not found\n\n\n\n\n\n\n\n\nNoteSummary\n\n\n\nThere are only two ways to correctly define a logical data type:\n\nTRUE / FALSE (Full words, all upper case).\nT / F (Single letters, upper case).\n\n\n\n\n\n5.4 Application: Filtering Data\nIn bioinformatics, you will use logicals constantly to filter your data. For example:\ngene_expression &gt; 10 returns a list of TRUE/FALSE values.\nYou can then use that list to keep only the genes where the result was TRUE.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Atomic Classes (Data Types)"
+      "𝟭 Atomic Classes (Data Types)"
     ]
   },
   {
@@ -540,7 +661,7 @@
     "text": "6. Missing Value\nIn R, missing data is represented by the logical constant NA (Not Available). It acts as a placeholder to indicate that a data entry is simply not there.\nUseful for manipulating data sets where missing entries are common.\n\nNA\n\n[1] NA\n\nclass(NA)\n\n[1] \"logical\"\n\n\n\n\n\n\n\n\nNoteWhy use NA instead of 0?\n\n\n\nIt is a common mistake in research to fill missing entries with 0. However, in a medical context, zero is a value (e.g., zero glucose, zero heart rate), whereas NA is an absence of data (e.g., the patient missed their appointment). Treating an NA as a 0 will incorrectly skew your averages and invalidate your statistical tests.\n\n\n\n6.1 How is this helpful for your research?\n\nAutomated Data Handling\n\nWhen you import an Excel sheet into R, empty cells are automatically converted to NA. Most R functions are designed to handle these gracefully. For example, when calculating the average weight of a group, you can tell R to ignore the missing entries: mean(weights, na.rm = TRUE)\n\nEfficient Quality Control (QC)\n\nInstead of scanning a spreadsheet with thousands of rows by eye, you can use R to:\n\nCount exactly how many entries are missing in a clinical trial.\nIdentify which patients have incomplete gene expression profiles.\nFilter your dataset to remove any rows or columns that contain NA values in just one line of code (e.g., na.omit()).\n\n\nTransparency and Reproducibility\n\nUsing NA keeps your data “honest.” It is a professional standard to keep notes on why data is missing (e.g., “sample contaminated” or “patient withdrew”). By keeping NA in your raw data and handling it with code, you create a clear, reproducible trail of how you arrived at your final results.",
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures",
-      "Atomic Classes (Data Types)"
+      "𝟭 Atomic Classes (Data Types)"
     ]
   }
 ]
