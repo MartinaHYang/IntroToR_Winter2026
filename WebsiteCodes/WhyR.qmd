@@ -214,31 +214,31 @@ If you want to dive deeper, here is a few free online books and materials:
 Below are a few examples of my visualizations created **entirely in R** using `ggplot2` and specialized bioinformatics packages.
 
 ::: {#fig-1 style="text-align: center;"}
-![](images/WhyR_1.png){fig-align="center" width="60%"}
+![](../images/WhyR_1.png){fig-align="center" width="60%"}
 
 Boxplot with Individual Data Points
 :::
 
 ::: {#fig-2 style="text-align: center;"}
-![](images/WhyR_2.png){fig-align="center" width="60%"}
+![](../images/WhyR_2.png){fig-align="center" width="60%"}
 
 A Time-Course Line Plot with an Area Under the Curve (AUC) Boxplot.
 :::
 
 ::: {#fig-3 style="text-align: center;"}
-![](images/WhyR_3.png){fig-align="center" width="60%"}
+![](../images/WhyR_3.png){fig-align="center" width="60%"}
 
 Correlation Plot with Statistical Results
 :::
 
 ::: {#fig-4 style="text-align: center;"}
-![](images/WhyR_4.png){fig-align="center" width="60%"}
+![](../images/WhyR_4.png){fig-align="center" width="60%"}
 
 Heatmap
 :::
 
 ::: {#fig-5 style="text-align: center;"}
-![](images/WhyR_5.png){fig-align="center" width="60%"}
+![](../images/WhyR_5.png){fig-align="center" width="60%"}
 
 Forest Plot
 :::

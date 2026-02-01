@@ -18,13 +18,13 @@ It is common to get these confused, but they are separate entities:
 
     > It is the powerful machine under the hood. It does all the heavy lifting, makes the car move, and handles the energy. But on its own, an engine is just a block of metal on the floor—you can't sit in it or steer it easily.
     >
-    > ![](images/RStudio_1.png){fig-align="center"}
+    > ![](../images/RStudio_1.png){fig-align="center"}
 
 -   **RStudio (The Dashboard):** An **Integrated Development Environment (IDE)**. It is the software interface (developed by **Posit**) that makes writing R code much easier.
 
     > It’s the steering wheel, the seats, the GPS, and the speedometer. It’s the beautiful interface that lets you *interact* with the engine so you can actually drive where you want to go.
     >
-    > ![](images/RStudio_2.png){fig-align="center"}
+    > ![](../images/RStudio_2.png){fig-align="center"}
 
 **Key Takeaway:** Each program must be downloaded separately. You need to install both programs on your computer, but you will only ever "open" RStudio to do your work.
 
@@ -83,7 +83,7 @@ As shown in the figure below, the RStudio interface is divided into four primary
 
 -   **Files, Plots, & Help (Bottom-Right):** Your utility pane for navigating files, viewing graphs, and reading documentation.
 
-![](images/RStudio_2.png){fig-align="center"}
+![](../images/RStudio_2.png){fig-align="center"}
 
 ::: callout-tip
 #### **What to do if a pane is missing**
@@ -113,7 +113,7 @@ A common question from beginners is: *"Why do I only see three windows?"* If the
 
 This is your primary workspace. Think of it as a specialized "Text Editor" for your research files.
 
-![](images/RStudio_3.png){fig-align="center"}
+![](../images/RStudio_3.png){fig-align="center"}
 
 #### **3.2.1 Function Overview**
 
@@ -161,7 +161,7 @@ You cannot open Microsoft Office documents (`.docx`, `.xlsx`) or image files dir
 
 The Console is the "Engine Room." This is where R actually executes your commands and displays the results.
 
-![](images/RStudio_4.png){fig-align="center"}
+![](../images/RStudio_4.png){fig-align="center"}
 
 1.  **Executing Code:** You can type code directly into the Console and hit **`Enter/Return`** to see the result immediately.
 
@@ -187,7 +187,7 @@ The Console is the "Engine Room." This is where R actually executes your command
 
     -   Note that updating **RStudio** (the software) does not automatically update **R** (the language engine).
 
-![](images/RStudio_4.png){fig-align="center"}
+![](../images/RStudio_4.png){fig-align="center"}
 
 4.  **Finding Your Working Directory:** Right next to your R version, you will see a file path starting with `~/`. This is your **Working Directory**—the specific folder on your computer where R is currently "looking" for files.
 
@@ -209,7 +209,7 @@ The Console is the "Engine Room." This is where R actually executes your command
 
 ### **3.4 The Environment & History (Top-Right)**
 
-![](images/RStudio_5.png){fig-align="center"}
+![](../images/RStudio_5.png){fig-align="center"}
 
 -   **Environment:** This tab shows you every "object" (datasets, variables, results) currently stored in R's memory. If a variable isn't listed here, R doesn't know it exists!
 
@@ -219,7 +219,7 @@ The Console is the "Engine Room." This is where R actually executes your command
 
 -   **Key Features & Icons**
 
-    -   ![](images/RStudio_6.png){fig-align="center"}
+    -   ![](../images/RStudio_6.png){fig-align="center"}
 
     -   **Save/Load Workspace (Disk Icons):** These allow you to save your entire Environment as an `.RData` file. This is a huge time-saver for large projects; instead of re-running hours of code to recreate your variables, you can simply "Load" the `.RData` file and pick up exactly where you left off.
 
@@ -231,7 +231,7 @@ The Console is the "Engine Room." This is where R actually executes your command
 
 ### **3.5 Files, Plots, & Help (Bottom-Right)**
 
-![](images/RStudio_7.png){fig-align="center"}
+![](../images/RStudio_7.png){fig-align="center"}
 
 This is your "Utility" pane:
 
@@ -266,7 +266,7 @@ R offers some good resources to help you learn about its functions. For example,
 
 > 2.  Then, help will pop up on the bottom right hand quadrant of RStudio.
 
-![](images/RStudio_8.png){fig-align="center"}
+![](../images/RStudio_8.png){fig-align="center"}
 
 ::: callout-note
 These give documentation about how to use the function, what arguments it takes, and some example code. Example code might be a helpful page to start with.

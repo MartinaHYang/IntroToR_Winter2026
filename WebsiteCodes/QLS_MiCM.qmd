@@ -1,8 +1,8 @@
 ---
 title: "Title"
 subtitle: ""
-description: "Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie."
 ---
 
----
+------------------------------------------------------------------------
 
+![](images/MiCM_Logo_L2.jpg){fig-align="center"}
