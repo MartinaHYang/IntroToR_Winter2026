@@ -11,7 +11,7 @@ In R, **Data Structures** are the containers used to store and organize values.
 R provides several built-in structures, each designed for a specific purpose. Understanding the difference between them is critical for data analysis.
 
 | Data Structure | Dimensions | Contains Same Type? | Use Case |
-|:---|:---|:---|:---|
+|:-----------------|:-----------------|:-----------------|:-----------------|
 | **Vector** | 1D | **Yes** | Simple sequences of numbers or text. |
 | **Factor** | 1D | **No** (Technically Integers) | Categorical data (groups, treatments). |
 | **List** | 1D | **No** | Storing complex, mixed objects together. |
@@ -812,7 +812,7 @@ Before looking at specific structures, remember these three core rules of R:
 ### 11.2 Indexing by Data Structure
 
 | Structure | Dimension | Primary Method | Example | Result |
-|:---|:---|:---|:---|:---|
+|:--------------|:--------------|:--------------|:--------------|:--------------|
 | **Vector** | 1D | `[ x ]` | `v[1:3]` | Returns the first 3 elements. |
 | **Factor** | 1D | `[ x ]` | `f[1]` | Returns the first element + its levels. |
 | **List** | 1D | `[[ x ]]` or `$` | `l[[1]]` | Returns the **content** of the first "drawer." |

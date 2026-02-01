@@ -62,6 +62,6 @@ Used to combine multiple comparison statements.
 
 `!` (NOT): Reverses the logical state (TRUE becomes FALSE).
 
-## 5. Miscellaneous Operators
+### **5. Miscellaneous Operators**
 
 Miscellaneous operators are used to manipulate data: The Colon Operator (`:`); The Membership Operator (`%in%`); The Dollar Sign Operator (`$`); The Pipe Operator (`|>`) and (`%>%`).

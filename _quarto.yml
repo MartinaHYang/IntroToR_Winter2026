@@ -26,32 +26,66 @@ website:
         text: "MiCM Github"     
     style: "docked"
     search: true
-    collapse-level: 1
+    collapse-level: 2
     contents:
       - text: "Welcome🎉"
         href: index.qmd
+      - text: "QLS-MiCM"
+        href: WebsiteCodes/QLS_MiCM.qmd
       - text: "Why R for Data Science?"
-        href: WhyR.qmd
+        href: WebsiteCodes/WhyR.qmd
       - text: "Installing R and RStudio"
-        href: Setup.qmd
+        href: WebsiteCodes/Setup.qmd
       - text: "Get Acquainted with R and RStudio"
-        href: RStudio.qmd
+        href: WebsiteCodes/RStudio.qmd
       - text: "How to Use This Materials"
-        href: MaterialsInstructions.qmd
+        href: WebsiteCodes/MaterialsInstructions.qmd
       - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures"
         contents:
           - text: "Overview"
-            href: RBasics/Overview.qmd
+            href: WebsiteCodes/Overview.qmd
           - text: "𝟭 Atomic Classes (Data Types)"
-            href: RBasics/AtomicClasses.qmd
+            href: WebsiteCodes/01AtomicClasses.qmd
           - text: "𝟮 Arithmetic operators"
-            href: RBasics/ArithmeticOp.qmd
+            href: WebsiteCodes/02ArithmeticOp.qmd
           - text: "𝟯 Syntax operators"
-            href: RBasics/SyntaxOp.qmd
+            href: WebsiteCodes/03SyntaxOp.qmd
           - text: "𝟰 Logical operators"
-            href: RBasics/LogicalOp.qmd
+            href: WebsiteCodes/04LogicalOp.qmd
           - text: "𝟱 Objects (Data Structures)"
-            href: RBasics/Objects.qmd  
+            href: WebsiteCodes/05Objects.qmd  
+      - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control structures and functions"
+        contents:
+          - text: "Overview"
+            href: WebsiteCodes/Overview2.qmd
+          - text: "𝟲 Conditional Statements"
+            href: WebsiteCodes/ConditionalStat.qmd
+          - text: "𝟳 For Loop/While Loop"
+            href: WebsiteCodes/Loop.qmd
+          - text: "𝟴 Create New Functions"
+            href: WebsiteCodes/NewFunctions.qmd
+          - text: "𝟵 Packages"
+            href: WebsiteCodes/Packages.qmd
+      - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data Manipulation"
+        contents:
+          - text: "Overview"
+            href: WebsiteCodes/Overview3.qmd
+          - text: "𝟭𝟬 Reading/Writing Data"
+            href: WebsiteCodes/RWData.qmd
+          - text: "𝟭𝟭 Exploring Data Frames"
+            href: WebsiteCodes/AdvDataFrames.qmd            
+          - text: "𝟭𝟮	Useful Packages for Data Manipulation"
+            href: WebsiteCodes/Packages4Data.qmd
+      - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Generating Visual Outputs"
+        contents:
+          - text: "Overview"
+            href: WebsiteCodes/Overview4.qmd
+          - text: "𝟭𝟯 Graphics"
+            href: WebsiteCodes/Graphics.qmd
+          - text: "𝟭𝟰 Reports with Knitr"
+            href: WebsiteCodes/Knitr.qmd
+      - text: "Concluding Remarks"
+        href: WebsiteCodes/ConcludingRemarks.qmd
 
 
 format:
