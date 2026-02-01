@@ -6,12 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="[Lead Instructor] Martina Yang;">
-<meta name="author" content="[Facilitator] Maria Haddad.">
-<meta name="dcterms.date" content="2026-02-09">
 <meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
 
-<title>Intro to Programming in R – Intro To R</title>
+<title>Syntax Operators – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,24 +59,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./WebsiteCodes/QLS_MiCM.qmd" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../WebsiteCodes/04LogicalOp.html" rel="next">
+<link href="../WebsiteCodes/02ArithmeticOp.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome🎉</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/03SyntaxOp.html">𝟯 Syntax operators</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -134,9 +132,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/MiCM_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/MiCM_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/MiCM_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/MiCM_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://www.mcgill.ca/micm/" title="GLS-MiCM" class="quarto-navigation-tool px-1" aria-label="GLS-MiCM"><i class="bi bi-globe"></i></a>
@@ -152,37 +150,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome🎉</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/QLS_MiCM.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/QLS_MiCM.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">QLS-MiCM</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/WhyR.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/WhyR.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Why R for Data Science?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installing R and RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/RStudio.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/RStudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Get Acquainted with R and RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/MaterialsInstructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/MaterialsInstructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Use This Materials</span></a>
   </div>
 </li>
@@ -197,37 +195,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/01AtomicClasses.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/01AtomicClasses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭 Atomic Classes (Data Types)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/02ArithmeticOp.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/02ArithmeticOp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟮 Arithmetic operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/03SyntaxOp.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/03SyntaxOp.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">𝟯 Syntax operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/04LogicalOp.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/04LogicalOp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟰 Logical operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/05Objects.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/05Objects.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟱 Objects (Data Structures)</span></a>
   </div>
 </li>
@@ -244,31 +242,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Overview2.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Overview2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/ConditionalStat.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/ConditionalStat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟲 Conditional Statements</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Loop.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Loop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟳 For Loop/While Loop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/NewFunctions.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/NewFunctions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟴 Create New Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Packages.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Packages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟵 Packages</span></a>
   </div>
 </li>
@@ -285,25 +283,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Overview3.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Overview3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/RWData.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/RWData.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟬 Reading/Writing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/AdvDataFrames.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/AdvDataFrames.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟭 Exploring Data Frames</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Packages4Data.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Packages4Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟮 Useful Packages for Data Manipulation</span></a>
   </div>
 </li>
@@ -320,19 +318,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Overview4.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Overview4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Graphics.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Graphics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟯 Graphics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Knitr.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Knitr.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟰 Reports with Knitr</span></a>
   </div>
 </li>
@@ -340,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/ConcludingRemarks.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/ConcludingRemarks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Concluding Remarks</span></a>
   </div>
 </li>
@@ -354,30 +352,28 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome 🎉</a></li>
-  <li><a href="#prior-knowledge" id="toc-prior-knowledge" class="nav-link" data-scroll-target="#prior-knowledge">1. Prior knowledge</a></li>
-  <li><a href="#software-requirements" id="toc-software-requirements" class="nav-link" data-scroll-target="#software-requirements">2. Software requirements</a></li>
-  <li><a href="#workshop-outline" id="toc-workshop-outline" class="nav-link" data-scroll-target="#workshop-outline">3. Workshop Outline</a>
+  <li><a href="#comments-writing-notes-to-your-future-self" id="toc-comments-writing-notes-to-your-future-self" class="nav-link active" data-scroll-target="#comments-writing-notes-to-your-future-self">1. Comments (<code>#</code>): Writing Notes to Your Future Self</a></li>
+  <li><a href="#assignment-creating-objects" id="toc-assignment-creating-objects" class="nav-link" data-scroll-target="#assignment-creating-objects">2. Assignment: Creating Objects</a>
   <ul class="collapse">
-  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">3.1 R basics</a></li>
-  <li><a href="#data-types-attributes-and-built-in-functions" id="toc-data-types-attributes-and-built-in-functions" class="nav-link" data-scroll-target="#data-types-attributes-and-built-in-functions">3.2 Data types: attributes and built-in functions</a></li>
-  <li><a href="#basic-data-manipulation" id="toc-basic-data-manipulation" class="nav-link" data-scroll-target="#basic-data-manipulation">3.3 Basic data manipulation</a></li>
-  <li><a href="#advanced-data-manipulation" id="toc-advanced-data-manipulation" class="nav-link" data-scroll-target="#advanced-data-manipulation">3.4 Advanced data manipulation</a></li>
-  <li><a href="#generating-visual-outputs" id="toc-generating-visual-outputs" class="nav-link" data-scroll-target="#generating-visual-outputs">3.5 Generating visual outputs</a></li>
-  <li><a href="#real-life-application-covid-testing-dataset" id="toc-real-life-application-covid-testing-dataset" class="nav-link" data-scroll-target="#real-life-application-covid-testing-dataset">3.6 Real life application: COVID testing dataset</a></li>
-  <li><a href="#software-development-concepts" id="toc-software-development-concepts" class="nav-link" data-scroll-target="#software-development-concepts">3.7 Software development concepts</a></li>
+  <li><a href="#the-left-hand-assignment--" id="toc-the-left-hand-assignment--" class="nav-link" data-scroll-target="#the-left-hand-assignment--">2.1 The Left-Hand Assignment (&lt;-)</a></li>
+  <li><a href="#other-assignment-methods" id="toc-other-assignment-methods" class="nav-link" data-scroll-target="#other-assignment-methods">2.2 Other Assignment Methods</a></li>
+  <li><a href="#printing-variables" id="toc-printing-variables" class="nav-link" data-scroll-target="#printing-variables">2.3 Printing Variables</a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">4. References</a></li>
+  <li><a href="#access-content" id="toc-access-content" class="nav-link" data-scroll-target="#access-content">3. Access Content ($)</a></li>
+  <li><a href="#the-equal-operator" id="toc-the-equal-operator" class="nav-link" data-scroll-target="#the-equal-operator">4. The Equal Operator (=)</a>
+  <ul class="collapse">
+  <li><a href="#assignment-not-recommended" id="toc-assignment-not-recommended" class="nav-link" data-scroll-target="#assignment-not-recommended">4.1 Assignment (Not Recommended)</a></li>
+  <li><a href="#defining-function-arguments-recommended" id="toc-defining-function-arguments-recommended" class="nav-link" data-scroll-target="#defining-function-arguments-recommended">4.2 Defining Function Arguments (Recommended)</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/03SyntaxOp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/03SyntaxOp.html">𝟯 Syntax operators</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Intro to Programming in R</h1>
-<p class="subtitle lead">QLS-MiCM Workshop Winter 2026</p>
+<h1 class="title">Syntax Operators</h1>
 </div>
 
 <div>
@@ -389,20 +385,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p><strong>[Lead Instructor]</strong> Martina Yang; </p>
-             <p><strong>[Facilitator]</strong> Maria Haddad. </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 9, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -412,129 +395,252 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="welcome" class="level2">
-<h2 class="anchored" data-anchor-id="welcome">Welcome 🎉</h2>
-<p>This workshop is beginner-level introduction to programming in R. The course is designed to be taught in one session of 4 hours and is focused on the application of R to the analysis of tabular data from medical datasets.</p>
-</section>
-<section id="prior-knowledge" class="level2">
-<h2 class="anchored" data-anchor-id="prior-knowledge">1. Prior knowledge</h2>
-<ul>
-<li>No previous programming experience is required.</li>
-<li>Please review the following topics if you’re not comfortable with them:
-<ul>
-<li>basic linear algebra (operations with vectors and metrics)</li>
-<li>mathematical operations (exponential, logarithms)</li>
-<li>basic statistics (mean, variance, median, standard deviation)</li>
-<li>logical statements (AND, OR, NOT)</li>
-</ul></li>
-</ul>
-</section>
-<section id="software-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="software-requirements">2. Software requirements</h2>
-<ul>
-<li><a href="https://www.r-project.org">R &gt; 4.0</a></li>
-<li><a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a></li>
-</ul>
-<p>Once you have setup R and RStudio copy the code below to install the packages required for the workshop.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installing necessary packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"data.table"</span>, <span class="st">"datasets"</span>, <span class="st">"devtools"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggplot2"</span>, <span class="st">"plyr"</span>, <span class="st">"medicaldata"</span>, <span class="st">"gapminder"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"stringr"</span>, <span class="st">"tidyr"</span>, <span class="st">"tidyverse"</span>, <span class="st">"viridis"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<hr>
+<p>Syntax operators are the specialized symbols and keywords that define how R interprets your code. They handle essential tasks like naming objects, writing notes to yourself, and digging into complex datasets.</p>
+<p>It includes comment line, assignation, access content, and equal.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/SyntaxOperators.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
 </div>
-<blockquote class="blockquote">
-<p>Don’t panic if you get stuck! You can find step-by-step instructions in Section 2.</p>
-<p>While it helps to be ready before class, we’ve set aside 15 minutes of the workshop to help anyone running into errors.</p>
-</blockquote>
-</section>
-<section id="workshop-outline" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-outline">3. Workshop Outline</h2>
-<section id="r-basics" class="level3">
-<h3 class="anchored" data-anchor-id="r-basics">3.1 R basics</h3>
-<p>In the first module of the workshop, the goals are to (1) familiarize with the language and the logic behind it; (2) Get started with R studio and create your first project; (3) Configure the working directory with a common standard structure; (4) Create your first&nbsp;<code>.R</code>&nbsp;file to write down the live code; (5) Compute arithmetic operations; (6) Use logical operators; (7) Get fluent in R’s console; (8) Learn how to ask for help within R; and (9) get comfortable with installing packages.</p>
-<p><strong>Module content:</strong></p>
+<section id="comments-writing-notes-to-your-future-self" class="level2">
+<h2 class="anchored" data-anchor-id="comments-writing-notes-to-your-future-self">1. Comments (<code>#</code>): Writing Notes to Your Future Self</h2>
+<p>Comments are used to explain <strong>why</strong> you wrote a specific line of code. This is vital for reproducibility and collaboration. Anything written after the <code>#</code> symbol is ignored by R during execution.</p>
 <ul>
-<li>Syntax</li>
-<li>Arithmetic Operations</li>
-<li>Creating variables</li>
-<li>Logical operators</li>
-<li>Seeking help</li>
-<li>Installing packages</li>
-<li>Hands on: basics</li>
+<li><strong>Manual:</strong> Type <code>#</code> before your note.</li>
+<li><strong>Shortcut (Mac):</strong> <code>Cmd + Shift + C</code></li>
+<li><strong>Shortcut (Windows):</strong> <code>Ctrl + Shift + C</code></li>
 </ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># This is a comment. R will not execute this.</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># "hello world"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 </section>
-<section id="data-types-attributes-and-built-in-functions" class="level3">
-<h3 class="anchored" data-anchor-id="data-types-attributes-and-built-in-functions">3.2 Data types: attributes and built-in functions</h3>
-<p>In this section participants will (1) understand the differences between classes, objects and data types in R; (2) create objects of different types, learn about their attributes and apply some built-in functions in R; (3) Subset and index objects; and (4) get comfortable with vectorized operations.</p>
-<p><strong>Module content:</strong></p>
+<section id="assignment-creating-objects" class="level2">
+<h2 class="anchored" data-anchor-id="assignment-creating-objects">2. Assignment: Creating Objects</h2>
+<p>Assignment is the process of storing a value (data) inside a named container (an object).</p>
+<section id="the-left-hand-assignment--" class="level3">
+<h3 class="anchored" data-anchor-id="the-left-hand-assignment--">2.1 The Left-Hand Assignment (&lt;-)</h3>
+<p>The standard way to assign values in R is using the &lt;- operator. Think of it as an arrow pointing from the data to the label.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># The convention is to use left hand assignation </span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> <span class="st">"hello world"</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>var1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hello world"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Shortcut for &lt;-
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Instead of typing two characters, use these shortcuts to insert the assignment arrow:</p>
 <ul>
-<li>Vectors</li>
-<li>Lists</li>
-<li>Factors</li>
-<li>Data frames</li>
-<li>Arrays</li>
-<li>Coercion</li>
-<li>Hands-on: data types</li>
+<li><p>Mac: Option + - (minus key)</p></li>
+<li><p>Windows: Alt + - (minus key)</p></li>
 </ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><strong>A Note on Coding Style: To Space or Not to Space?</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>While var1&lt;-“hello world” works, it is a little bit “dirty” and hard to read.</p>
+<p>Following the Tidyverse Style Guide, you should always put a space before and after the assignment operator: <code>var1 &lt;- "hello world"</code></p>
+</div>
+</div>
 </section>
-<section id="basic-data-manipulation" class="level3">
-<h3 class="anchored" data-anchor-id="basic-data-manipulation">3.3 Basic data manipulation</h3>
-<p>In this module participants will (1) learn how to read/write data to/from files with different formats (.tsv, .csv); (2) become familiar with basic data-frame operations; (3) index and subset data frames using base R; (4) manipulate individual data frame columns; and (5) learn how to join columns and rows of different data frames using base R.</p>
-<p><strong>Module content:</strong></p>
-<ul>
-<li>Reading/writing data</li>
-<li>Exploring data frames</li>
-<li>Hands-on: basic data manipulation</li>
-</ul>
+<section id="other-assignment-methods" class="level3">
+<h3 class="anchored" data-anchor-id="other-assignment-methods">2.2 Other Assignment Methods</h3>
+<section id="the-equals-sign" class="level4">
+<h4 class="anchored" data-anchor-id="the-equals-sign">2.2.1 The Equals Sign (=):</h4>
+<p>While = works for assignment, R users generally avoid it. In R, = is typically reserved for defining arguments inside a function. Using it for general assignment is considered poor style.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It is also possible to use the '=' sign, but is NOT a good practice</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">=</span> <span class="st">"hello world"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>var1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hello world"</code></pre>
+</div>
+</div>
 </section>
-<section id="advanced-data-manipulation" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-data-manipulation">3.4 Advanced data manipulation</h3>
-<p>The fourth module participants will (1) familiarize with the dplyr syntax; (2) create pipes with the operator <code>%&gt;%</code>; (3) perform operations on data frames using <code>dplyr</code> and <code>tidyr</code> functions; and (4) implement functions from external packages by reading their documentation in R</p>
-<p><strong>Module content:</strong></p>
-<ul>
-<li>Handling data frames with dplyr</li>
-<li>Other useful packages</li>
-<li>Hands-on: advanced data manipulation</li>
-</ul>
-</section>
-<section id="generating-visual-outputs" class="level3">
-<h3 class="anchored" data-anchor-id="generating-visual-outputs">3.5 Generating visual outputs</h3>
-<p>This section will show participants how to (1) Create basic plots using base R functions; (2) Understand how to connect data frames with ggplot2; (3) create basic graphs with ggplot2; (4) use factors to customize graphics in ggplot2; (5) use RMarkdown to generate customized reports.</p>
-<p><strong>Module content:</strong></p>
-<ul>
-<li>Figures with base R</li>
-<li>Graphics with <code>ggplot2</code></li>
-</ul>
-</section>
-<section id="real-life-application-covid-testing-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="real-life-application-covid-testing-dataset">3.6 Real life application: COVID testing dataset</h3>
-<p>This hands-on activity will familiarize participants with a real-life use of R in the pharma industry environment and encourage them to apply the knowledge from previous modules to create an analysis pipeline.</p>
-</section>
-<section id="software-development-concepts" class="level3">
-<h3 class="anchored" data-anchor-id="software-development-concepts">3.7 Software development concepts</h3>
-<p>To conclude the workshop, participants will (1) acquire good coding practices; (2) be familiar with code documentation standards; (3) know what to avoid when programming in R; (4) learn how to debug and troubleshoot their own code.</p>
-<p><strong>Module content:</strong></p>
-<ul>
-<li>Good coding practices</li>
-<li>Style guide</li>
-<li>Debugging and troubleshooting</li>
-</ul>
+<section id="right-hand-assignment--" class="level4">
+<h4 class="anchored" data-anchor-id="right-hand-assignment--">2.2.2 Right-Hand Assignment (-&gt;):</h4>
+<p>You can technically point the arrow the other way: <code>"data" -&gt; var1.</code></p>
+<p>This is rarely used but can be helpful at the end of a long pipe (|&gt;) if you decide to save the final result into a new variable.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="st">"hello world"</span> <span class="ot">-&gt;</span> var1</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>var1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hello world"</code></pre>
+</div>
+</div>
 </section>
 </section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">4. References</h2>
-<p>The materials for this workshop were based on the following sources:</p>
-<ul>
-<li><a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">Base R Cheat Sheet</a></li>
-<li><a href="https://google.github.io/styleguide/Rguide.html">Google’s R Style Guide</a></li>
-<li><a href="https://bookdown.org/rdpeng/RProgDA/">Mastering Software Development in R</a></li>
-<li><a href="https://r4ds.hadley.nz">Online Book: R for Data Science (2e)</a></li>
-<li><a href="https://r-graphics.org/index.html">Online Book: R Graphics Cookbook, 2nd edition</a></li>
-<li><a href="https://livebook.manning.com/book/r-in-action-second-edition/chapter-1">Online Book: R in Action, Second Edition</a></li>
-<li><a href="https://rstudio-education.github.io/hopr/">Online Book: Hands-On Programming with R</a></li>
-</ul>
-<p><em>Workshop created as part of the McGill Initiative in Computational Medicine</em></p>
+<section id="printing-variables" class="level3">
+<h3 class="anchored" data-anchor-id="printing-variables">2.3 Printing Variables</h3>
+<p>Once you have stored data in a variable, there are several ways to “call” it back to the console:</p>
+<section id="direct-call" class="level4">
+<h4 class="anchored" data-anchor-id="direct-call">2.3.1 Direct Call</h4>
+<p>Simply type the name. This is the most common method during interactive analysis.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="st">"hello world!"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hello world!"</code></pre>
+</div>
+</div>
+</section>
+<section id="using-function-print-and-cat" class="level4">
+<h4 class="anchored" data-anchor-id="using-function-print-and-cat">2.3.2 Using Function print() and cat()</h4>
+<p><strong>print():</strong> Explicitly prints the object. This is often used inside “loops” or complex functions where R might not automatically show the output.</p>
+<p><strong>cat():</strong> Short for “concatenate.” It prints the raw text without the [1] index marker or quotes. It is great for creating clean, human-readable messages.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> <span class="st">"McGill"</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(var1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "McGill"</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">&lt;-</span> <span class="st">"McGill"</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(var1)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>McGill</code></pre>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="access-content" class="level2">
+<h2 class="anchored" data-anchor-id="access-content">3. Access Content ($)</h2>
+<p>The $ operator is one of the most powerful symbols in R. It allows you to “reach inside” a complex object (like a Data Frame or a List) and extract a specific column or element by its name.</p>
+<p><strong>Example: The <code>iris</code> Dataset</strong></p>
+<p>The <code>iris</code> dataset is a built-in collection of measurements for 150 flowers. It includes variables like <code>Sepal.Length</code>, <code>Petal.Length</code>, and <code>Species</code>. To look at <em>only</em> the species column, we use the <code>$</code> operator.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the first 6 rows of the dataset</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(iris)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract only the "Species" column</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">$</span>Species</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  [1] setosa     setosa     setosa     setosa     setosa     setosa    
+  [7] setosa     setosa     setosa     setosa     setosa     setosa    
+ [13] setosa     setosa     setosa     setosa     setosa     setosa    
+ [19] setosa     setosa     setosa     setosa     setosa     setosa    
+ [25] setosa     setosa     setosa     setosa     setosa     setosa    
+ [31] setosa     setosa     setosa     setosa     setosa     setosa    
+ [37] setosa     setosa     setosa     setosa     setosa     setosa    
+ [43] setosa     setosa     setosa     setosa     setosa     setosa    
+ [49] setosa     setosa     versicolor versicolor versicolor versicolor
+ [55] versicolor versicolor versicolor versicolor versicolor versicolor
+ [61] versicolor versicolor versicolor versicolor versicolor versicolor
+ [67] versicolor versicolor versicolor versicolor versicolor versicolor
+ [73] versicolor versicolor versicolor versicolor versicolor versicolor
+ [79] versicolor versicolor versicolor versicolor versicolor versicolor
+ [85] versicolor versicolor versicolor versicolor versicolor versicolor
+ [91] versicolor versicolor versicolor versicolor versicolor versicolor
+ [97] versicolor versicolor versicolor versicolor virginica  virginica 
+[103] virginica  virginica  virginica  virginica  virginica  virginica 
+[109] virginica  virginica  virginica  virginica  virginica  virginica 
+[115] virginica  virginica  virginica  virginica  virginica  virginica 
+[121] virginica  virginica  virginica  virginica  virginica  virginica 
+[127] virginica  virginica  virginica  virginica  virginica  virginica 
+[133] virginica  virginica  virginica  virginica  virginica  virginica 
+[139] virginica  virginica  virginica  virginica  virginica  virginica 
+[145] virginica  virginica  virginica  virginica  virginica  virginica 
+Levels: setosa versicolor virginica</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The head() Function</p>
+<p>The head() function is a “quick look” tool. It returns the first few rows of a dataset (default is 6) so you can inspect your data without flooding your console with thousands of lines.</p>
+<p>Conversely, tail() shows you the last few rows.</p>
+<p>Remember, you can always type ?head in your Console to see the full documentation.</p>
+</div>
+</div>
+</section>
+<section id="the-equal-operator" class="level2">
+<h2 class="anchored" data-anchor-id="the-equal-operator">4. The Equal Operator (=)</h2>
+<p>In R, the single equals sign (=) has two primary roles, but they are not created equal.</p>
+<section id="assignment-not-recommended" class="level3">
+<h3 class="anchored" data-anchor-id="assignment-not-recommended">4.1 Assignment (Not Recommended)</h3>
+<p>While <code>=</code> can be used to assign a value to a variable, R users generally avoid this. In the R community, using <code>=</code> for assignment is considered poor style because it can be confused with mathematical equality or function arguments.</p>
+<p><strong>Always prefer <code>&lt;-</code> for creating variables.</strong></p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># It is also possible to use the '=' sign, but is NOT a good practice</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>var1 <span class="ot">=</span> <span class="st">"hello world"</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>var1</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hello world"</code></pre>
+</div>
+</div>
+</section>
+<section id="defining-function-arguments-recommended" class="level3">
+<h3 class="anchored" data-anchor-id="defining-function-arguments-recommended">4.2 Defining Function Arguments (Recommended)</h3>
+<p>The “correct” and most common use of the = sign in R is to define arguments inside a function. This tells the function exactly how you want it to behave.</p>
+<p>Example: The <code>paste()</code> Function</p>
+<p>The <code>paste()</code> function joins multiple pieces of text together. It uses an argument called <code>sep</code> to decide what character should go between the pieces.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>cal <span class="ot">&lt;-</span> <span class="dv">1</span> <span class="sc">+</span> <span class="dv">3</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Using '=' to define the separator argument</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="fu">paste</span>(<span class="st">"The output of 1 + 3"</span>, cal,</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">sep =</span> <span class="st">" = "</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "The output of 1 + 3 = 4"</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Deep Dive: ?paste</p>
+<p>If you look at the help documentation for paste(), you will see the usage and arguments explanations:</p>
+<p>Usage</p>
+<p>paste(…, sep = ” “, collapse = NULL)</p>
+<p>Arguments</p>
+<p>sep: a character string to separate the terms.</p>
+<p>By using sep = ” = “, we are overriding the default space (” “) and telling R to put an equals sign between our text and our result.</p>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -940,10 +1046,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../WebsiteCodes/02ArithmeticOp.html" class="pagination-link" aria-label="𝟮 Arithmetic operators">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">𝟮 Arithmetic operators</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./WebsiteCodes/QLS_MiCM.qmd" class="pagination-link" aria-label="QLS-MiCM">
-        <span class="nav-page-text">QLS-MiCM</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../WebsiteCodes/04LogicalOp.html" class="pagination-link" aria-label="𝟰 Logical operators">
+        <span class="nav-page-text">𝟰 Logical operators</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -955,7 +1064,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/03SyntaxOp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

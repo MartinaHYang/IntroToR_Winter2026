@@ -1,47 +1,99 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/SyntaxOp.html</loc>
-    <lastmod>2026-02-01T15:05:16.630Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Overview4.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/ArithmeticOp.html</loc>
-    <lastmod>2026-02-01T15:05:16.630Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Overview2.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/Objects.html</loc>
-    <lastmod>2026-02-01T15:05:16.630Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/ConcludingRemarks.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/Setup.html</loc>
-    <lastmod>2026-02-01T15:05:16.631Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Packages.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/MaterialsInstructions.html</loc>
-    <lastmod>2026-02-01T15:05:16.630Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Packages4Data.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WhyR.html</loc>
-    <lastmod>2026-02-01T15:05:16.631Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/MaterialsInstructions.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Loop.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Overview3.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/NewFunctions.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/02ArithmeticOp.html</loc>
+    <lastmod>2026-02-01T16:28:42.912Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Overview.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/03SyntaxOp.html</loc>
+    <lastmod>2026-02-01T16:28:42.912Z</lastmod>
   </url>
   <url>
     <loc>https://martinahyang.github.io/IntroToR_Winter2026/index.html</loc>
-    <lastmod>2026-02-01T15:05:16.666Z</lastmod>
+    <lastmod>2026-02-01T16:28:42.948Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RStudio.html</loc>
-    <lastmod>2026-02-01T15:05:16.631Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/01AtomicClasses.html</loc>
+    <lastmod>2026-02-01T16:28:42.912Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/Overview.html</loc>
-    <lastmod>2026-02-01T15:05:16.630Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/WhyR.html</loc>
+    <lastmod>2026-02-01T16:28:42.914Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/LogicalOp.html</loc>
-    <lastmod>2026-02-01T15:05:16.630Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/04LogicalOp.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
   </url>
   <url>
-    <loc>https://martinahyang.github.io/IntroToR_Winter2026/RBasics/AtomicClasses.html</loc>
-    <lastmod>2026-02-01T15:05:16.630Z</lastmod>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/AdvDataFrames.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/ConditionalStat.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/RWData.html</loc>
+    <lastmod>2026-02-01T16:28:42.914Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Graphics.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/RStudio.html</loc>
+    <lastmod>2026-02-01T16:28:42.914Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Setup.html</loc>
+    <lastmod>2026-02-01T16:28:42.914Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/Knitr.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
+  </url>
+  <url>
+    <loc>https://martinahyang.github.io/IntroToR_Winter2026/WebsiteCodes/05Objects.html</loc>
+    <lastmod>2026-02-01T16:28:42.913Z</lastmod>
   </url>
 </urlset>

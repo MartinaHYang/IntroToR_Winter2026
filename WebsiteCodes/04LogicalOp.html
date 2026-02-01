@@ -6,12 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="[Lead Instructor] Martina Yang;">
-<meta name="author" content="[Facilitator] Maria Haddad.">
-<meta name="dcterms.date" content="2026-02-09">
 <meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
 
-<title>Intro to Programming in R – Intro To R</title>
+<title>Logical operators – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -62,24 +59,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./WebsiteCodes/QLS_MiCM.qmd" rel="next">
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../WebsiteCodes/05Objects.html" rel="next">
+<link href="../WebsiteCodes/03SyntaxOp.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome🎉</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/04LogicalOp.html">𝟰 Logical operators</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -134,9 +132,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
-      <a href="./index.html" class="sidebar-logo-link">
-      <img src="./images/MiCM_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
-      <img src="./images/MiCM_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
+      <a href="../index.html" class="sidebar-logo-link">
+      <img src="../images/MiCM_logo.png" alt="" class="sidebar-logo light-content py-0 d-lg-inline d-none">
+      <img src="../images/MiCM_logo.png" alt="" class="sidebar-logo dark-content py-0 d-lg-inline d-none">
       </a>
       <div class="sidebar-tools-main">
     <a href="https://www.mcgill.ca/micm/" title="GLS-MiCM" class="quarto-navigation-tool px-1" aria-label="GLS-MiCM"><i class="bi bi-globe"></i></a>
@@ -152,37 +150,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome🎉</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/QLS_MiCM.qmd" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/QLS_MiCM.qmd" class="sidebar-item-text sidebar-link">
  <span class="menu-text">QLS-MiCM</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/WhyR.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/WhyR.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Why R for Data Science?</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Setup.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Setup.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Installing R and RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/RStudio.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/RStudio.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Get Acquainted with R and RStudio</span></a>
   </div>
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/MaterialsInstructions.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/MaterialsInstructions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">How to Use This Materials</span></a>
   </div>
 </li>
@@ -197,37 +195,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Overview.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Overview.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/01AtomicClasses.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/01AtomicClasses.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭 Atomic Classes (Data Types)</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/02ArithmeticOp.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/02ArithmeticOp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟮 Arithmetic operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/03SyntaxOp.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/03SyntaxOp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟯 Syntax operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/04LogicalOp.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/04LogicalOp.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">𝟰 Logical operators</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/05Objects.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/05Objects.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟱 Objects (Data Structures)</span></a>
   </div>
 </li>
@@ -244,31 +242,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Overview2.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Overview2.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/ConditionalStat.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/ConditionalStat.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟲 Conditional Statements</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Loop.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Loop.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟳 For Loop/While Loop</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/NewFunctions.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/NewFunctions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟴 Create New Functions</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Packages.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Packages.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟵 Packages</span></a>
   </div>
 </li>
@@ -285,25 +283,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Overview3.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Overview3.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/RWData.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/RWData.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟬 Reading/Writing Data</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/AdvDataFrames.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/AdvDataFrames.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟭 Exploring Data Frames</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Packages4Data.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Packages4Data.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟮 Useful Packages for Data Manipulation</span></a>
   </div>
 </li>
@@ -320,19 +318,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Overview4.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Overview4.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Graphics.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Graphics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟯 Graphics</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/Knitr.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/Knitr.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟭𝟰 Reports with Knitr</span></a>
   </div>
 </li>
@@ -340,7 +338,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./WebsiteCodes/ConcludingRemarks.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/ConcludingRemarks.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Concluding Remarks</span></a>
   </div>
 </li>
@@ -354,30 +352,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome 🎉</a></li>
-  <li><a href="#prior-knowledge" id="toc-prior-knowledge" class="nav-link" data-scroll-target="#prior-knowledge">1. Prior knowledge</a></li>
-  <li><a href="#software-requirements" id="toc-software-requirements" class="nav-link" data-scroll-target="#software-requirements">2. Software requirements</a></li>
-  <li><a href="#workshop-outline" id="toc-workshop-outline" class="nav-link" data-scroll-target="#workshop-outline">3. Workshop Outline</a>
+  <li><a href="#comparison-operators" id="toc-comparison-operators" class="nav-link active" data-scroll-target="#comparison-operators">1. Comparison operators</a>
   <ul class="collapse">
-  <li><a href="#r-basics" id="toc-r-basics" class="nav-link" data-scroll-target="#r-basics">3.1 R basics</a></li>
-  <li><a href="#data-types-attributes-and-built-in-functions" id="toc-data-types-attributes-and-built-in-functions" class="nav-link" data-scroll-target="#data-types-attributes-and-built-in-functions">3.2 Data types: attributes and built-in functions</a></li>
-  <li><a href="#basic-data-manipulation" id="toc-basic-data-manipulation" class="nav-link" data-scroll-target="#basic-data-manipulation">3.3 Basic data manipulation</a></li>
-  <li><a href="#advanced-data-manipulation" id="toc-advanced-data-manipulation" class="nav-link" data-scroll-target="#advanced-data-manipulation">3.4 Advanced data manipulation</a></li>
-  <li><a href="#generating-visual-outputs" id="toc-generating-visual-outputs" class="nav-link" data-scroll-target="#generating-visual-outputs">3.5 Generating visual outputs</a></li>
-  <li><a href="#real-life-application-covid-testing-dataset" id="toc-real-life-application-covid-testing-dataset" class="nav-link" data-scroll-target="#real-life-application-covid-testing-dataset">3.6 Real life application: COVID testing dataset</a></li>
-  <li><a href="#software-development-concepts" id="toc-software-development-concepts" class="nav-link" data-scroll-target="#software-development-concepts">3.7 Software development concepts</a></li>
+  <li><a href="#section" id="toc-section" class="nav-link" data-scroll-target="#section">1.1 <code>==</code></a></li>
+  <li><a href="#section-1" id="toc-section-1" class="nav-link" data-scroll-target="#section-1">1.2 <code>!=</code></a></li>
   </ul></li>
-  <li><a href="#references" id="toc-references" class="nav-link" data-scroll-target="#references">4. References</a></li>
+  <li><a href="#logical-operators" id="toc-logical-operators" class="nav-link" data-scroll-target="#logical-operators">2. Logical operators</a>
+  <ul class="collapse">
+  <li><a href="#section-2" id="toc-section-2" class="nav-link" data-scroll-target="#section-2">2.1 <code>&amp;</code></a></li>
+  <li><a href="#section-3" id="toc-section-3" class="nav-link" data-scroll-target="#section-3">2.2 <code>|</code></a></li>
+  <li><a href="#section-4" id="toc-section-4" class="nav-link" data-scroll-target="#section-4">2.3 <code>!</code></a></li>
+  <li><a href="#the-membership-operator-in" id="toc-the-membership-operator-in" class="nav-link" data-scroll-target="#the-membership-operator-in">2.4 The Membership Operator (%in%)</a></li>
+  </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/04LogicalOp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data types and data structures</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/04LogicalOp.html">𝟰 Logical operators</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Intro to Programming in R</h1>
-<p class="subtitle lead">QLS-MiCM Workshop Winter 2026</p>
+<h1 class="title">Logical operators</h1>
 </div>
 
 <div>
@@ -389,20 +384,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Authors</div>
-    <div class="quarto-title-meta-contents">
-             <p><strong>[Lead Instructor]</strong> Martina Yang; </p>
-             <p><strong>[Facilitator]</strong> Maria Haddad. </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">February 9, 2026</p>
-    </div>
-  </div>
   
     
   </div>
@@ -412,129 +394,236 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="welcome" class="level2">
-<h2 class="anchored" data-anchor-id="welcome">Welcome 🎉</h2>
-<p>This workshop is beginner-level introduction to programming in R. The course is designed to be taught in one session of 4 hours and is focused on the application of R to the analysis of tabular data from medical datasets.</p>
-</section>
-<section id="prior-knowledge" class="level2">
-<h2 class="anchored" data-anchor-id="prior-knowledge">1. Prior knowledge</h2>
-<ul>
-<li>No previous programming experience is required.</li>
-<li>Please review the following topics if you’re not comfortable with them:
-<ul>
-<li>basic linear algebra (operations with vectors and metrics)</li>
-<li>mathematical operations (exponential, logarithms)</li>
-<li>basic statistics (mean, variance, median, standard deviation)</li>
-<li>logical statements (AND, OR, NOT)</li>
-</ul></li>
-</ul>
-</section>
-<section id="software-requirements" class="level2">
-<h2 class="anchored" data-anchor-id="software-requirements">2. Software requirements</h2>
-<ul>
-<li><a href="https://www.r-project.org">R &gt; 4.0</a></li>
-<li><a href="https://www.rstudio.com/products/rstudio/download/">RStudio</a></li>
-</ul>
-<p>Once you have setup R and RStudio copy the code below to install the packages required for the workshop.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Installing necessary packages</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="fu">c</span>(<span class="st">"data.table"</span>, <span class="st">"datasets"</span>, <span class="st">"devtools"</span>, <span class="st">"dplyr"</span>, <span class="st">"ggplot2"</span>, <span class="st">"plyr"</span>, <span class="st">"medicaldata"</span>, <span class="st">"gapminder"</span>, <span class="st">"RColorBrewer"</span>, <span class="st">"rmarkdown"</span>, <span class="st">"stringr"</span>, <span class="st">"tidyr"</span>, <span class="st">"tidyverse"</span>, <span class="st">"viridis"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<hr>
+<p><strong>Comparison operators</strong> are used to compare two values. When you run a comparison, R evaluates the statement and returns a <strong>Logical</strong> value: either <code>TRUE</code> or <code>FALSE</code>.</p>
 <blockquote class="blockquote">
-<p>Don’t panic if you get stuck! You can find step-by-step instructions in Section 2.</p>
-<p>While it helps to be ready before class, we’ve set aside 15 minutes of the workshop to help anyone running into errors.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 30%">
+<col style="width: 13%">
+<col style="width: 42%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operator</th>
+<th style="text-align: center;">Name</th>
+<th style="text-align: left;">Example</th>
+<th style="text-align: left;">Plain English</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>==</code></td>
+<td style="text-align: center;"><strong>Equal to</strong></td>
+<td style="text-align: left;"><code>x == y</code></td>
+<td style="text-align: left;">Is x exactly equal to y?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>!=</code></td>
+<td style="text-align: center;"><strong>Not equal to</strong></td>
+<td style="text-align: left;"><code>x != y</code></td>
+<td style="text-align: left;">Is x different from y?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&gt;</code></td>
+<td style="text-align: center;"><strong>Greater than</strong></td>
+<td style="text-align: left;"><code>x &gt; y</code></td>
+<td style="text-align: left;">Is x strictly larger than y?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;</code></td>
+<td style="text-align: center;"><strong>Less than</strong></td>
+<td style="text-align: left;"><code>x &lt; y</code></td>
+<td style="text-align: left;">Is x strictly smaller than y?</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>&gt;=</code></td>
+<td style="text-align: center;"><strong>Greater or equal</strong></td>
+<td style="text-align: left;"><code>x &gt;= y</code></td>
+<td style="text-align: left;">Is x at least y or larger?</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>&lt;=</code></td>
+<td style="text-align: center;"><strong>Less or equal</strong></td>
+<td style="text-align: left;"><code>x &lt;= y</code></td>
+<td style="text-align: left;">Is x at most y or smaller?</td>
+</tr>
+</tbody>
+</table>
 </blockquote>
+<p><strong>Logical operators</strong> allow you to combine multiple comparison statements into a single test. This is essential for complex data filtering.</p>
+<blockquote class="blockquote">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Operator</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>&amp;</code></td>
+<td style="text-align: left;"><strong>Element-wise Logical AND operator.</strong> Returns TRUE if both elements are TRUE.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>|</code></td>
+<td style="text-align: left;"><strong>Element-wise Logical OR operator.</strong> Returns TRUE if one of the statements is TRUE.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>!</code></td>
+<td style="text-align: left;"><strong>Logical NOT.</strong> Returns FALSE if statement is TRUE; Reverses the result (TRUE becomes FALSE).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>%in%</code></td>
+<td style="text-align: left;"><strong>Contains/Membership.</strong> Checks if a value belongs to a set.</td>
+</tr>
+</tbody>
+</table>
+</blockquote>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/LogicalOperators.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+<section id="comparison-operators" class="level2">
+<h2 class="anchored" data-anchor-id="comparison-operators">1. Comparison operators</h2>
+<section id="section" class="level3">
+<h3 class="anchored" data-anchor-id="section">1.1 <code>==</code></h3>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>The Most Common R Error: <code>=</code> vs <code>==</code></p>
+<p><code>=</code> (or <code>&lt;-</code>) is for Assignment: You are telling R that a variable equals a value.</p>
+<p><code>==</code> is for Comparison: You are asking R if two things are equal.</p>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing numbers</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Comparing text (Case sensitive!)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="st">"McGill"</span> <span class="sc">==</span> <span class="st">"mcgill"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
 </section>
-<section id="workshop-outline" class="level2">
-<h2 class="anchored" data-anchor-id="workshop-outline">3. Workshop Outline</h2>
-<section id="r-basics" class="level3">
-<h3 class="anchored" data-anchor-id="r-basics">3.1 R basics</h3>
-<p>In the first module of the workshop, the goals are to (1) familiarize with the language and the logic behind it; (2) Get started with R studio and create your first project; (3) Configure the working directory with a common standard structure; (4) Create your first&nbsp;<code>.R</code>&nbsp;file to write down the live code; (5) Compute arithmetic operations; (6) Use logical operators; (7) Get fluent in R’s console; (8) Learn how to ask for help within R; and (9) get comfortable with installing packages.</p>
-<p><strong>Module content:</strong></p>
+<section id="section-1" class="level3">
+<h3 class="anchored" data-anchor-id="section-1">1.2 <code>!=</code></h3>
+<p>In R, the exclamation mark <code>!</code> stands for <strong>“NOT”</strong>. When combined with the equals sign, <code>!=</code> checks if two values are <strong>different</strong>.</p>
 <ul>
-<li>Syntax</li>
-<li>Arithmetic Operations</li>
-<li>Creating variables</li>
-<li>Logical operators</li>
-<li>Seeking help</li>
-<li>Installing packages</li>
-<li>Hands on: basics</li>
+<li>It returns <code>TRUE</code> if the values are <strong>not</strong> the same.</li>
+<li>It returns <code>FALSE</code> if they <strong>are</strong> the same.</li>
 </ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is 10 equal to 2? (False)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">==</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is 10 different from 2? (True)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="dv">10</span> <span class="sc">!=</span> <span class="dv">2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
 </section>
-<section id="data-types-attributes-and-built-in-functions" class="level3">
-<h3 class="anchored" data-anchor-id="data-types-attributes-and-built-in-functions">3.2 Data types: attributes and built-in functions</h3>
-<p>In this section participants will (1) understand the differences between classes, objects and data types in R; (2) create objects of different types, learn about their attributes and apply some built-in functions in R; (3) Subset and index objects; and (4) get comfortable with vectorized operations.</p>
-<p><strong>Module content:</strong></p>
+</section>
+<section id="logical-operators" class="level2">
+<h2 class="anchored" data-anchor-id="logical-operators">2. Logical operators</h2>
+<section id="section-2" class="level3">
+<h3 class="anchored" data-anchor-id="section-2">2.1 <code>&amp;</code></h3>
+<p>The “AND” Operator (&amp;): Use this when your condition must meet all criteria simultaneously.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>age <span class="ot">&lt;-</span> <span class="dv">65</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>bmi <span class="ot">&lt;-</span> <span class="dv">32</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the patient over 60 AND obese (BMI &gt; 30)?</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>age <span class="sc">&gt;</span> <span class="dv">60</span> <span class="sc">&amp;</span> bmi <span class="sc">&gt;</span> <span class="dv">30</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+</section>
+<section id="section-3" class="level3">
+<h3 class="anchored" data-anchor-id="section-3">2.2 <code>|</code></h3>
+<p>The “OR” Operator (<code>|</code>): Use this when meeting any one of the criteria is sufficient.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the flower species either 'setosa' OR 'versicolor'?</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>species <span class="ot">&lt;-</span> <span class="st">"setosa"</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>species <span class="sc">==</span> <span class="st">"setosa"</span> <span class="sc">|</span> species <span class="sc">==</span> <span class="st">"versicolor"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Keyboard Tip:</strong> How to type <code>|</code>?</p>
+<p>Look for the key with the backslash <code>\</code> (usually above the Return/Enter key).</p>
 <ul>
-<li>Vectors</li>
-<li>Lists</li>
-<li>Factors</li>
-<li>Data frames</li>
-<li>Arrays</li>
-<li>Coercion</li>
-<li>Hands-on: data types</li>
+<li><strong>Mac &amp; Windows:</strong> Press <code>Shift + \</code></li>
 </ul>
+</div>
+</div>
 </section>
-<section id="basic-data-manipulation" class="level3">
-<h3 class="anchored" data-anchor-id="basic-data-manipulation">3.3 Basic data manipulation</h3>
-<p>In this module participants will (1) learn how to read/write data to/from files with different formats (.tsv, .csv); (2) become familiar with basic data-frame operations; (3) index and subset data frames using base R; (4) manipulate individual data frame columns; and (5) learn how to join columns and rows of different data frames using base R.</p>
-<p><strong>Module content:</strong></p>
-<ul>
-<li>Reading/writing data</li>
-<li>Exploring data frames</li>
-<li>Hands-on: basic data manipulation</li>
-</ul>
+<section id="section-4" class="level3">
+<h3 class="anchored" data-anchor-id="section-4">2.3 <code>!</code></h3>
+<p>The “NOT” Operator (!): This exclamation mark is used to exclude specific data points.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span><span class="cn">TRUE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>control_group <span class="ot">&lt;-</span> <span class="cn">FALSE</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Is the sample NOT in the control group?</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>control_group</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] TRUE</code></pre>
+</div>
+</div>
 </section>
-<section id="advanced-data-manipulation" class="level3">
-<h3 class="anchored" data-anchor-id="advanced-data-manipulation">3.4 Advanced data manipulation</h3>
-<p>The fourth module participants will (1) familiarize with the dplyr syntax; (2) create pipes with the operator <code>%&gt;%</code>; (3) perform operations on data frames using <code>dplyr</code> and <code>tidyr</code> functions; and (4) implement functions from external packages by reading their documentation in R</p>
-<p><strong>Module content:</strong></p>
-<ul>
-<li>Handling data frames with dplyr</li>
-<li>Other useful packages</li>
-<li>Hands-on: advanced data manipulation</li>
-</ul>
-</section>
-<section id="generating-visual-outputs" class="level3">
-<h3 class="anchored" data-anchor-id="generating-visual-outputs">3.5 Generating visual outputs</h3>
-<p>This section will show participants how to (1) Create basic plots using base R functions; (2) Understand how to connect data frames with ggplot2; (3) create basic graphs with ggplot2; (4) use factors to customize graphics in ggplot2; (5) use RMarkdown to generate customized reports.</p>
-<p><strong>Module content:</strong></p>
-<ul>
-<li>Figures with base R</li>
-<li>Graphics with <code>ggplot2</code></li>
-</ul>
-</section>
-<section id="real-life-application-covid-testing-dataset" class="level3">
-<h3 class="anchored" data-anchor-id="real-life-application-covid-testing-dataset">3.6 Real life application: COVID testing dataset</h3>
-<p>This hands-on activity will familiarize participants with a real-life use of R in the pharma industry environment and encourage them to apply the knowledge from previous modules to create an analysis pipeline.</p>
-</section>
-<section id="software-development-concepts" class="level3">
-<h3 class="anchored" data-anchor-id="software-development-concepts">3.7 Software development concepts</h3>
-<p>To conclude the workshop, participants will (1) acquire good coding practices; (2) be familiar with code documentation standards; (3) know what to avoid when programming in R; (4) learn how to debug and troubleshoot their own code.</p>
-<p><strong>Module content:</strong></p>
-<ul>
-<li>Good coding practices</li>
-<li>Style guide</li>
-<li>Debugging and troubleshooting</li>
-</ul>
-</section>
-</section>
-<section id="references" class="level2">
-<h2 class="anchored" data-anchor-id="references">4. References</h2>
-<p>The materials for this workshop were based on the following sources:</p>
-<ul>
-<li><a href="https://iqss.github.io/dss-workshops/R/Rintro/base-r-cheat-sheet.pdf">Base R Cheat Sheet</a></li>
-<li><a href="https://google.github.io/styleguide/Rguide.html">Google’s R Style Guide</a></li>
-<li><a href="https://bookdown.org/rdpeng/RProgDA/">Mastering Software Development in R</a></li>
-<li><a href="https://r4ds.hadley.nz">Online Book: R for Data Science (2e)</a></li>
-<li><a href="https://r-graphics.org/index.html">Online Book: R Graphics Cookbook, 2nd edition</a></li>
-<li><a href="https://livebook.manning.com/book/r-in-action-second-edition/chapter-1">Online Book: R in Action, Second Edition</a></li>
-<li><a href="https://rstudio-education.github.io/hopr/">Online Book: Hands-On Programming with R</a></li>
-</ul>
-<p><em>Workshop created as part of the McGill Initiative in Computational Medicine</em></p>
+<section id="the-membership-operator-in" class="level3">
+<h3 class="anchored" data-anchor-id="the-membership-operator-in">2.4 The Membership Operator (%in%)</h3>
+<p>The %in% operator (often called “contains”) is extremely useful when you want to check if a value belongs to a large list or group.</p>
+<p>Example: Searching for Genes Imagine you have a list of “Genes of Interest” for your diabetes research. You can check if a specific gene is in that list without writing many OR statements.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>diabetes_genes <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"INS"</span>, <span class="st">"GCK"</span>, <span class="st">"KCNJ11"</span>, <span class="st">"SLC30A8"</span>)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Is 'INS' (Insulin) in our list?</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="st">"INS"</span> <span class="sc">%in%</span> diabetes_genes</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] TRUE</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Is 'SOX2' in our list?</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="st">"SOX2"</span> <span class="sc">%in%</span> diabetes_genes</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] FALSE</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -940,10 +1029,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="../WebsiteCodes/03SyntaxOp.html" class="pagination-link" aria-label="𝟯 Syntax operators">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">𝟯 Syntax operators</span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./WebsiteCodes/QLS_MiCM.qmd" class="pagination-link" aria-label="QLS-MiCM">
-        <span class="nav-page-text">QLS-MiCM</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../WebsiteCodes/05Objects.html" class="pagination-link" aria-label="𝟱 Objects (Data Structures)">
+        <span class="nav-page-text">𝟱 Objects (Data Structures)</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -955,7 +1047,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/04LogicalOp.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
