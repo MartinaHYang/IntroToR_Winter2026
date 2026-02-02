@@ -10,15 +10,13 @@ description: "Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xi
 
 ### 1.1 Individually Adding Columns
 
-You can add a new column by simply assigning values to a name that doesn't exist yet using the `$` operator or bracket `[ , ]` notation.
+You can add a new column by simply assigning values to a name that doesn't exist yet using the `$` operator or bracket `[ , ]` notation.
 
 ::: callout-important
-**Crucial Rule:** The new column **must** have the exact same number of rows as the existing data frame.
+**Crucial Rule:** The new column **must** have the exact same number of rows as the existing data frame.
 :::
 
 ```{r}
-#| eval: false
-
 # Dataset Preparation
 
 if (!require("gapminder", quietly = TRUE))
@@ -29,7 +27,6 @@ aust <- gapminder[gapminder$country == "Australia",]
 ```
 
 ```{r}
-#| collapse: true
 # Method A: Using the $ operator
 # Adding a random column for "mean_children"
 mean_children <- sample(1:10, nrow(aust), replace = TRUE)
@@ -51,7 +48,7 @@ head(aust)
 
 ### 1.2 Combining Data Frames by Columns (`cbind`)
 
-If you have a whole table of new data, you can "staple" it to the side of your original data using `cbind()` (column bind).
+If you have a whole table of new data, you can "staple" it to the side of your original data using `cbind()` (column bind).
 
 ```{r}
 # Create a separate data frame with two new variables
@@ -71,7 +68,7 @@ head(aust)
 Adding rows is slightly more complex because a row usually contains mixed data types (text, numbers, etc.).
 
 ::: callout-note
-**Why use a `list` for a new row?** A data frame is a list of vectors. A single row crosses those vectors, so it must be able to hold different types of data at once. A `list` is the perfect container for this.
+**Why use a `list` for a new row?** A data frame is a list of vectors. A single row crosses those vectors, so it must be able to hold different types of data at once. A `list` is the perfect container for this.
 :::
 
 ```{r}
@@ -99,7 +96,7 @@ tail(aust)
 
 ### 2.1 Removing Columns and Rows
 
-We use **negative indexing** to drop data.
+We use **negative indexing** to drop data.
 
 ```{r}
 #| collapse: true
@@ -160,7 +157,7 @@ dim(aust_clean)
 
 ### 3.2 Editing Specific Elements
 
-If you find a typo in your data, you can target a single "cell" using `[row, col]`.
+If you find a typo in your data, you can target a single "cell" using `[row, col]`.
 
 ```{r}
 #| eval: false
