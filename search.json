@@ -64,7 +64,7 @@
     "href": "WebsiteCodes/RStudio.html#hands-on-activity-use-help-in-rstudio",
     "title": "Get Acquainted with R and RStudio",
     "section": "4. [HANDS-ON ACTIVITY] Use Help in RStudio",
-    "text": "4. [HANDS-ON ACTIVITY] Use Help in RStudio\n\n\n\n\n\n\nNote\n\n\n\nR offers some good resources to help you learn about its functions. For example, if you put a question mark before a function name, on the lower right quadrant of RStudio some help will pop up.\n\n\n\n\nType ?sqrt in your script.\n\n\n\n?sqrt\n\n\n\nThen, help will pop up on the bottom right hand quadrant of RStudio.\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThese give documentation about how to use the function, what arguments it takes, and some example code. Example code might be a helpful page to start with.\n\n\n\n\nType ??read_excel.\n\n\n\n??read_excel\n\nNo vignettes or demos or help files found with alias or concept or\ntitle matching 'read_excel' using regular expression matching.\n\n\n\n\n\n\n\n\nNote\n\n\n\nYou can also precede a function name with two question marks ?? to search all of your installed packages for it.\nThis is useful if you know there’s some sort of R function but you don’t remember what package it’s in. So if you get some code with the function read-excel in it but you forgot to load the readxl package, you can search for it using this double question mark and it’ll tell you which one’s to load.",
+    "text": "4. [HANDS-ON ACTIVITY] Use Help in RStudio\n\n\n\n\n\n\nNote\n\n\n\nR offers some good resources to help you learn about its functions. For example, if you put a question mark before a function name, on the lower right quadrant of RStudio some help will pop up.\n\n\n\n\nType ?sqrt in your script.\n\n\n\n?sqrt\n\n\n\nThen, help will pop up on the bottom right hand quadrant of RStudio.\n\n\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\n\nThese give documentation about how to use the function, what arguments it takes, and some example code. Example code might be a helpful page to start with.\n\n\n\n\nType ??read_excel.\n\n\n\n??read_excel\n\n\n\n\n\n\n\nNote\n\n\n\nYou can also precede a function name with two question marks ?? to search all of your installed packages for it.\nThis is useful if you know there’s some sort of R function but you don’t remember what package it’s in. So if you get some code with the function read-excel in it but you forgot to load the readxl package, you can search for it using this double question mark and it’ll tell you which one’s to load.",
     "crumbs": [
       "Get Acquainted with R and RStudio"
     ]
@@ -533,6 +533,50 @@
     "crumbs": [
       "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data Types and Data Structures",
       "𝟮 Arithmetic operators"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/10RWData.html#the-working-directory",
+    "href": "WebsiteCodes/10RWData.html#the-working-directory",
+    "title": "Reading/Writing Data",
+    "section": "0. The Working Directory",
+    "text": "0. The Working Directory\nThe Working Directory is the specific folder on your computer where R is currently “looking” for files. Think of it as R’s “home base.”\n\ngetwd(): Run this in the console to see your current “home base” address.\nsetwd(\"path/to/folder\"): Use this to change where R is looking.\n\n\nWarning: Using setwd() is generally discouraged in shared projects because the path on your computer won’t exist on your colleague’s computer.\n\n\n\n\n\n\n\nTip\n\n\n\nFinding Your Working Directory from the console panel:\nRight next to your R version, you will see a file path starting with ~/.\nThis is your Working Directory—the specific folder on your computer where R is currently “looking” for files.\n\n\n\n\n\n\n\n\nAbsolute vs. Relative Paths\nUnderstanding how R finds files is essential to avoiding the common \"File not found\" error.\n\n\n\n\n\n\n\n\nType\nDescription\nExample\n\n\nAbsolute Path\nThe full “GPS address” from the root drive.\nC:/Users/Name/Project/data/counts.csv\n\n\nRelative Path\nA shorthand address starting from your current folder.\ndata/counts.csv\n\n\n\n\n\n\n\n\n\nTip\n\n\n\nBest Practice: Keep your data and your R script in the same folder (or a sub-folder) and use Relative Paths. This makes your project “portable”—it will work for anyone you share it with!",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data Manipulation",
+      "𝟭𝟬 Reading/Writing Data"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/10RWData.html#reading-data-tables",
+    "href": "WebsiteCodes/10RWData.html#reading-data-tables",
+    "title": "Reading/Writing Data",
+    "section": "1. Reading Data Tables",
+    "text": "1. Reading Data Tables\n\n1.1 From .csv (Comma Separated Values)\n\n1.1.1 Base R\nThese functions come pre-installed with R. They are reliable and don’t require any extra libraries, but can be slow with very large genomic datasets.\n\nread.csv() Specifically designed for CSV files. It automatically assumes that your data is separated by commas (,).\nread.table() (The “Parent” Function) This is the most flexible tool in your kit. While read.csv() is “locked” to commas, read.table() lets you specify any separator. This is essential for tab-separated genomic files.\n\n\ndataset &lt;- read.csv(\"data/my_data.csv\")\n\n\n# Reading a Tab-Separated file (.tsv or .txt)\ndataset &lt;- read.table(\"data/my_data.txt\", \n                      header = TRUE,      # Does the first row have column names?\n                      sep = \"\\t\",         # What separates the data? (\\t = tab)\n                      stringsAsFactors = FALSE) # Keep text as text, not categories\n\n\n\n\n\n\n\nNoteKey Arguments for read.table:\n\n\n\n\nheader = TRUE: Tells R that the first line contains the names of the columns.\nsep: The character that separates your values. Common ones are \",\" (comma), \"\\t\" (tab), and \"\" (white space).\ndec: The character used for decimal points (useful if you are working with European data that uses a comma as a decimal).\n\n\n\n\n\n1.1.2 readr (Tidyverse)\nPart of the Tidyverse, read_csv() is faster and better at “guessing” your data types correctly.\n\nlibrary(readr)\ndataset &lt;- read_csv(\"data/my_data.csv\")\n\n\n\n\n1.2 From .xlsx (Excel)\nR cannot read Excel files natively. You need the readxl package.\n\nlibrary(readxl)\ndataset &lt;- read_excel(\"data/my_data.xlsx\", sheet = 1)",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data Manipulation",
+      "𝟭𝟬 Reading/Writing Data"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/10RWData.html#writing-data-tables",
+    "href": "WebsiteCodes/10RWData.html#writing-data-tables",
+    "title": "Reading/Writing Data",
+    "section": "2. Writing Data Tables",
+    "text": "2. Writing Data Tables\nAfter cleaning your data, you often need to export it for a publication or to share with a collaborator.\n\n2.1 write.csv()\nThe standard way to save a table as a CSV.\n\n# Save the Africa subset of the gapminder data\nwrite.csv(africa, file = \"data/gapminder_africa.csv\", row.names = FALSE)\n\n\n\n2.2 write.table() (For .tsv and custom formats)\nUse this if you need a Tab-Separated Value (.tsv) file, which is very common in bioinformatics.\n\n# Saving as a TSV (using sep = \"\\t\")\nwrite.table(aust, file = \"data/gapminder_australia.tsv\", sep = \"\\t\", quote = FALSE, row.names = FALSE)\n\n\n\n2.3 Metadata and Versioning\nCrucial Tip: When exporting data, always include a date or version number in the filename (e.g., results_v1_2026-02-01.csv). This prevents you from accidentally overwriting your old work and helps you track which version of the data was used for which figure.",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data Manipulation",
+      "𝟭𝟬 Reading/Writing Data"
+    ]
+  },
+  {
+    "objectID": "WebsiteCodes/10RWData.html#r-specific-formats-.rds-and-.rdata",
+    "href": "WebsiteCodes/10RWData.html#r-specific-formats-.rds-and-.rdata",
+    "title": "Reading/Writing Data",
+    "section": "3. R-Specific Formats (.RDS and .RData)",
+    "text": "3. R-Specific Formats (.RDS and .RData)\nSometimes you want to save an object exactly as it is in R (e.g., a complex statistical model or a large list).\n\n3.1 .RDS (Save one object)\nBest for saving a single dataframe or list. You can give it a new name when you load it back in.\n\nsaveRDS(africa, file = \"data/africa.RDS\")\nafrica_reloaded &lt;- readRDS(\"data/africa.RDS\")\n\n\n\n3.2 .RData (Save multiple objects)\nUsed to save your entire “Environment.” When you load it, the variables appear with their original names.\n\nsave(africa, americas, file = \"data/continents.RData\")\nload(\"data/continents.RData\", verbose = TRUE)\n\n\n\n3.3 Summary: RDS vs. RData vs. RProject\n\n\n\n\n\n\n\n\nFormat\nPurpose\nBest Use Case\n\n\n.RDS\nSaves one object.\nSaving a clean dataset to use in another script.\n\n\n.RData\nSaves multiple objects.\nSaving your whole workspace before lunch.\n\n\n.Rproj\nSaves settings/context.\nKeeping your file paths and open tabs organized.",
+    "crumbs": [
+      "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data Manipulation",
+      "𝟭𝟬 Reading/Writing Data"
     ]
   },
   {

@@ -8,7 +8,7 @@
 
 <meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
 
-<title>Title – Intro To R</title>
+<title>Reading/Writing Data – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -312,15 +347,41 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#the-working-directory" id="toc-the-working-directory" class="nav-link active" data-scroll-target="#the-working-directory">0. The Working Directory</a>
+  <ul class="collapse">
+  <li><a href="#absolute-vs.-relative-paths" id="toc-absolute-vs.-relative-paths" class="nav-link" data-scroll-target="#absolute-vs.-relative-paths">Absolute vs.&nbsp;Relative Paths</a></li>
+  </ul></li>
+  <li><a href="#reading-data-tables" id="toc-reading-data-tables" class="nav-link" data-scroll-target="#reading-data-tables">1. Reading Data Tables</a>
+  <ul class="collapse">
+  <li><a href="#from-.csv-comma-separated-values" id="toc-from-.csv-comma-separated-values" class="nav-link" data-scroll-target="#from-.csv-comma-separated-values">1.1 From .csv (Comma Separated Values)</a></li>
+  <li><a href="#from-.xlsx-excel" id="toc-from-.xlsx-excel" class="nav-link" data-scroll-target="#from-.xlsx-excel">1.2 From .xlsx (Excel)</a></li>
+  </ul></li>
+  <li><a href="#writing-data-tables" id="toc-writing-data-tables" class="nav-link" data-scroll-target="#writing-data-tables">2. Writing Data Tables</a>
+  <ul class="collapse">
+  <li><a href="#write.csv" id="toc-write.csv" class="nav-link" data-scroll-target="#write.csv">2.1 <code>write.csv()</code></a></li>
+  <li><a href="#write.table-for-.tsv-and-custom-formats" id="toc-write.table-for-.tsv-and-custom-formats" class="nav-link" data-scroll-target="#write.table-for-.tsv-and-custom-formats">2.2 <code>write.table()</code> (For .tsv and custom formats)</a></li>
+  <li><a href="#metadata-and-versioning" id="toc-metadata-and-versioning" class="nav-link" data-scroll-target="#metadata-and-versioning">2.3 Metadata and Versioning</a></li>
+  </ul></li>
+  <li><a href="#r-specific-formats-.rds-and-.rdata" id="toc-r-specific-formats-.rds-and-.rdata" class="nav-link" data-scroll-target="#r-specific-formats-.rds-and-.rdata">3. R-Specific Formats (.RDS and .RData)</a>
+  <ul class="collapse">
+  <li><a href="#rds-save-one-object" id="toc-rds-save-one-object" class="nav-link" data-scroll-target="#rds-save-one-object">3.1 .RDS (Save one object)</a></li>
+  <li><a href="#rdata-save-multiple-objects" id="toc-rdata-save-multiple-objects" class="nav-link" data-scroll-target="#rdata-save-multiple-objects">3.2 .RData (Save multiple objects)</a></li>
+  <li><a href="#summary-rds-vs.-rdata-vs.-rproject" id="toc-summary-rds-vs.-rdata-vs.-rproject" class="nav-link" data-scroll-target="#summary-rds-vs.-rdata-vs.-rproject">3.3 Summary: RDS vs.&nbsp;RData vs.&nbsp;RProject</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/10RWData.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview3.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data Manipulation</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/10RWData.html">𝟭𝟬 Reading/Writing Data</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Title</h1>
+<h1 class="title">Reading/Writing Data</h1>
 </div>
 
 <div>
@@ -343,8 +404,213 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
+<section id="the-working-directory" class="level2">
+<h2 class="anchored" data-anchor-id="the-working-directory">0. The Working Directory</h2>
+<p>The <strong>Working Directory</strong> is the specific folder on your computer where R is currently “looking” for files. Think of it as R’s “home base.”</p>
+<ul>
+<li><p><strong><code>getwd()</code></strong>: Run this in the console to see your current “home base” address.</p></li>
+<li><p><strong><code>setwd("path/to/folder")</code></strong>: Use this to change where R is looking.</p></li>
+</ul>
+<blockquote class="blockquote">
+<p><strong>Warning:</strong> Using <code>setwd()</code> is generally discouraged in shared projects because the path on your computer won’t exist on your colleague’s computer.</p>
+</blockquote>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Finding Your Working Directory from the console panel:</strong></p>
+<p>Right next to your R version, you will see a file path starting with <code>~/</code>.</p>
+<p>This is your <strong>Working Directory</strong>—the specific folder on your computer where R is currently “looking” for files.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/RStudio_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="absolute-vs.-relative-paths" class="level3">
+<h3 class="anchored" data-anchor-id="absolute-vs.-relative-paths">Absolute vs.&nbsp;Relative Paths</h3>
+<p>Understanding how R finds files is essential to avoiding the common <code>"File not found"</code> error.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Type</strong></td>
+<td><strong>Description</strong></td>
+<td><strong>Example</strong></td>
+</tr>
+<tr class="even">
+<td><strong>Absolute Path</strong></td>
+<td>The full “GPS address” from the root drive.</td>
+<td><em>C:/Users/Name/Project/data/counts.csv</em></td>
+</tr>
+<tr class="odd">
+<td><strong>Relative Path</strong></td>
+<td>A shorthand address starting from your <strong>current</strong> folder.</td>
+<td><em>data/counts.csv</em></td>
+</tr>
+</tbody>
+</table>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Best Practice:</strong> Keep your data and your R script in the same folder (or a sub-folder) and use <strong>Relative Paths</strong>. This makes your project “portable”—it will work for anyone you share it with!</p>
+</div>
+</div>
+</section>
+</section>
+<section id="reading-data-tables" class="level2">
+<h2 class="anchored" data-anchor-id="reading-data-tables">1. Reading Data Tables</h2>
+<section id="from-.csv-comma-separated-values" class="level3">
+<h3 class="anchored" data-anchor-id="from-.csv-comma-separated-values">1.1 From .csv (Comma Separated Values)</h3>
+<section id="base-r" class="level4">
+<h4 class="anchored" data-anchor-id="base-r"><strong>1.1.1 Base R</strong></h4>
+<p>These functions come pre-installed with R. They are reliable and don’t require any extra libraries, but can be slow with very large genomic datasets.</p>
+<blockquote class="blockquote">
+<p><strong><code>read.csv()</code></strong> Specifically designed for CSV files. It automatically assumes that your data is separated by commas (<code>,</code>).</p>
+<p><strong><code>read.table()</code> (The “Parent” Function)</strong> This is the most flexible tool in your kit. While <code>read.csv()</code> is “locked” to commas, <code>read.table()</code> lets you specify <strong>any</strong> separator. This is essential for tab-separated genomic files.</p>
+</blockquote>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/my_data.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading a Tab-Separated file (.tsv or .txt)</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/my_data.txt"</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">header =</span> <span class="cn">TRUE</span>,      <span class="co"># Does the first row have column names?</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,         <span class="co"># What separates the data? (\t = tab)</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="co"># Keep text as text, not categories</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span><strong>Key Arguments for <code>read.table</code>:</strong>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong><code>header = TRUE</code></strong>: Tells R that the first line contains the names of the columns.</p></li>
+<li><p><strong><code>sep</code></strong>: The character that separates your values. Common ones are <code>","</code> (comma), <code>"\t"</code> (tab), and <code>""</code> (white space).</p></li>
+<li><p><strong><code>dec</code></strong>: The character used for decimal points (useful if you are working with European data that uses a comma as a decimal).</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="readr-tidyverse" class="level4">
+<h4 class="anchored" data-anchor-id="readr-tidyverse"><strong>1.1.2 <code>readr</code> (Tidyverse)</strong></h4>
+<p>Part of the Tidyverse, <code>read_csv()</code> is faster and better at “guessing” your data types correctly.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/my_data.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="from-.xlsx-excel" class="level3">
+<h3 class="anchored" data-anchor-id="from-.xlsx-excel">1.2 From .xlsx (Excel)</h3>
+<p>R cannot read Excel files natively. You need the <code>readxl</code> package.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/my_data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="writing-data-tables" class="level2">
+<h2 class="anchored" data-anchor-id="writing-data-tables">2. Writing Data Tables</h2>
+<p>After cleaning your data, you often need to export it for a publication or to share with a collaborator.</p>
+<section id="write.csv" class="level3">
+<h3 class="anchored" data-anchor-id="write.csv">2.1 <code>write.csv()</code></h3>
+<p>The standard way to save a table as a CSV.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the Africa subset of the gapminder data</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(africa, <span class="at">file =</span> <span class="st">"data/gapminder_africa.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="write.table-for-.tsv-and-custom-formats" class="level3">
+<h3 class="anchored" data-anchor-id="write.table-for-.tsv-and-custom-formats">2.2 <code>write.table()</code> (For .tsv and custom formats)</h3>
+<p>Use this if you need a <strong>Tab-Separated Value (.tsv)</strong> file, which is very common in bioinformatics.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Saving as a TSV (using sep = "\t")</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(aust, <span class="at">file =</span> <span class="st">"data/gapminder_australia.tsv"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="metadata-and-versioning" class="level3">
+<h3 class="anchored" data-anchor-id="metadata-and-versioning">2.3 Metadata and Versioning</h3>
+<p><strong>Crucial Tip:</strong> When exporting data, always include a date or version number in the filename (e.g., <code>results_v1_2026-02-01.csv</code>). This prevents you from accidentally overwriting your old work and helps you track which version of the data was used for which figure.</p>
+</section>
+</section>
+<section id="r-specific-formats-.rds-and-.rdata" class="level2">
+<h2 class="anchored" data-anchor-id="r-specific-formats-.rds-and-.rdata">3. R-Specific Formats (.RDS and .RData)</h2>
+<p>Sometimes you want to save an object exactly as it is in R (e.g., a complex statistical model or a large list).</p>
+<section id="rds-save-one-object" class="level3">
+<h3 class="anchored" data-anchor-id="rds-save-one-object">3.1 .RDS (Save one object)</h3>
+<p>Best for saving a single dataframe or list. You can give it a new name when you load it back in.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(africa, <span class="at">file =</span> <span class="st">"data/africa.RDS"</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>africa_reloaded <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/africa.RDS"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="rdata-save-multiple-objects" class="level3">
+<h3 class="anchored" data-anchor-id="rdata-save-multiple-objects">3.2 .RData (Save multiple objects)</h3>
+<p>Used to save your entire “Environment.” When you load it, the variables appear with their original names.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(africa, americas, <span class="at">file =</span> <span class="st">"data/continents.RData"</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/continents.RData"</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="summary-rds-vs.-rdata-vs.-rproject" class="level3">
+<h3 class="anchored" data-anchor-id="summary-rds-vs.-rdata-vs.-rproject">3.3 Summary: RDS vs.&nbsp;RData vs.&nbsp;RProject</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Format</strong></td>
+<td><strong>Purpose</strong></td>
+<td><strong>Best Use Case</strong></td>
+</tr>
+<tr class="even">
+<td><strong>.RDS</strong></td>
+<td>Saves <strong>one</strong> object.</td>
+<td>Saving a clean dataset to use in another script.</td>
+</tr>
+<tr class="odd">
+<td><strong>.RData</strong></td>
+<td>Saves <strong>multiple</strong> objects.</td>
+<td>Saving your whole workspace before lunch.</td>
+</tr>
+<tr class="even">
+<td><strong>.Rproj</strong></td>
+<td>Saves <strong>settings/context</strong>.</td>
+<td>Keeping your file paths and open tabs organized.</td>
+</tr>
+</tbody>
+</table>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -767,7 +1033,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/10RWData.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/edit/main/WebsiteCodes/10RWData.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR_Winter2026/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
