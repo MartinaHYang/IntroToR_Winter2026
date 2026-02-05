@@ -10,7 +10,7 @@ Syntax operators are the specialized symbols and keywords that define how R inte
 
 It includes comment line, assignation, access content, and equal.
 
-![](../images/SyntaxOperators.png){fig-align="center"}
+![](../images/SyntaxOperators.png){fig-align="center" width="60%"}
 
 ## 1. Comments (`#`): Writing Notes to Your Future Self
 
@@ -24,6 +24,39 @@ Comments are used to explain **why** you wrote a specific line of code. This is 
 # This is a comment. R will not execute this.
 # "hello world"
 ```
+
+::: callout-note
+The shortcut is "smart." If you **highlight ten lines of code and** **hit the shortcut**, it will comment out all ten lines at once. Hit it again to "**uncomment**" them.
+:::
+
+::: callout-note
+It doesn't matter how many `#` symbols you use.
+
+R simply looks for the *first* one on a line and ignores everything to the right of it. You are free to use multiple hashtags to create visual hierarchy in your script:
+
+```{r}
+#-----------------------------------------------------------
+## MAIN SECTION: DATA CLEANING
+#-----------------------------------------------------------
+
+### Step 1: Remove outliers
+# The following line filters out p-values above 0.05
+```
+:::
+
+::: callout-tip
+**Best Practices for Commenting**
+
+1.  **Don't explain "What":** R (and yourself) knows *what* the code is doing.
+
+    -   *Bad:* `# Adding 1 to x`
+
+2.  **Explain "Why":** Explain the scientific logic.
+
+    -   *Good:* `# Adjusting for batch effect`
+
+3.  **Use them as "Bookmarks":** Use long lines of hashtags to separate your "Loading Data" section from your "Plotting" section.
+:::
 
 ## 2. Assignment: Creating Objects
 
@@ -40,7 +73,7 @@ var1
 ```
 
 ::: callout-note
-### Shortcut for \<-
+**Shortcut for \<-**
 
 Instead of typing two characters, use these shortcuts to insert the assignment arrow:
 
@@ -50,7 +83,7 @@ Instead of typing two characters, use these shortcuts to insert the assignment a
 :::
 
 ::: callout-note
-### **A Note on Coding Style: To Space or Not to Space?**
+**A Note on Coding Style: To Space or Not to Space?**
 
 While var1\<-"hello world" works, it is a little bit "dirty" and hard to read.
 
@@ -59,7 +92,7 @@ Following the Tidyverse Style Guide, you should always put a space before and af
 
 ### 2.2 Other Assignment Methods
 
-#### 2.2.1 The Equals Sign (=):
+#### **2.2.1 The Equals Sign (=):**
 
 While = works for assignment, R users generally avoid it. In R, = is typically reserved for defining arguments inside a function. Using it for general assignment is considered poor style.
 
@@ -69,7 +102,7 @@ var1 = "hello world"
 var1
 ```
 
-#### 2.2.2 Right-Hand Assignment (-\>):
+#### **2.2.2 Right-Hand Assignment (-\>):**
 
 You can technically point the arrow the other way: `"data" -> var1.`
 
@@ -84,7 +117,7 @@ var1
 
 Once you have stored data in a variable, there are several ways to "call" it back to the console:
 
-#### 2.3.1 Direct Call
+#### **2.3.1 Direct Call**
 
 Simply type the name. This is the most common method during interactive analysis.
 
@@ -92,7 +125,7 @@ Simply type the name. This is the most common method during interactive analysis
 "hello world!"
 ```
 
-#### 2.3.2 Using Function print() and cat()
+#### **2.3.2 Using Function print() and cat()**
 
 **print():** Explicitly prints the object. This is often used inside "loops" or complex functions where R might not automatically show the output.
 
@@ -138,7 +171,7 @@ Remember, you can always type ?head in your Console to see the full documentatio
 
 In R, the single equals sign (=) has two primary roles, but they are not created equal.
 
-### 4.1 Assignment (Not Recommended)
+### **4.1 Assignment (Not Recommended)**
 
 While `=` can be used to assign a value to a variable, R users generally avoid this. In the R community, using `=` for assignment is considered poor style because it can be confused with mathematical equality or function arguments.
 
@@ -150,11 +183,11 @@ var1 = "hello world"
 var1
 ```
 
-### 4.2 Defining Function Arguments (Recommended)
+### **4.2 Defining Function Arguments (Recommended)**
 
 The "correct" and most common use of the = sign in R is to define arguments inside a function. This tells the function exactly how you want it to behave.
 
-Example: The `paste()` Function
+**Example:** The `paste()` Function
 
 The `paste()` function joins multiple pieces of text together. It uses an argument called `sep` to decide what character should go between the pieces.
 
@@ -167,17 +200,17 @@ paste("The output of 1 + 3", cal,
 ```
 
 ::: callout-note
-Deep Dive: ?paste
+**Deep Dive: ?paste**
 
 If you look at the help documentation for paste(), you will see the usage and arguments explanations:
 
-Usage
+**Usage**
 
 paste(..., sep = " ", collapse = NULL)
 
-Arguments
+**Arguments**
 
-sep: a character string to separate the terms.
+**sep:** a character string to separate the terms.
 
 By using sep = " = ", we are overriding the default space (" ") and telling R to put an equals sign between our text and our result.
 :::

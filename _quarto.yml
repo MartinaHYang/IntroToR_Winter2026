@@ -1,15 +1,18 @@
 project: 
   type: website
+  render:
+    - "*.qmd"           # Render all standard Quarto files
+    - "!Exercises/"     # Do NOT render anything in the Exercises folder
   
 website: 
   page-navigation: true
   title: "Intro To R" 
-  site-url: "https://martinahyang.github.io/IntroToR_Winter2026/" 
-  repo-url: https://github.com/MartinaHYang/IntroToR_Winter2026
+  site-url: "https://martinahyang.github.io/IntroToR/" 
+  repo-url: https://github.com/MartinaHYang/IntroToR
   repo-actions: [edit, issue]
   
   page-footer:
-    left: "&copy; CC-By Martina, 2026. All rights reserved."
+    left: "&copy; CC-By McGill QLS-MiCM, 2026. All rights reserved."
     right: "This page is built with [Quarto](https://quarto.org/)."
     center: "Workshop created as part of the McGill Initiative in Computational Medicine."
     
@@ -53,7 +56,11 @@ website:
           - text: "𝟰 Logical operators"
             href: WebsiteCodes/04LogicalOp.qmd
           - text: "𝟱 Objects (Data Structures)"
-            href: WebsiteCodes/05Objects.qmd  
+            href: WebsiteCodes/05Objects.qmd
+      - text: "🎃ＥＸＥＲＣＩＳＥ＃１"
+        href: WebsiteCodes/Exercise1.qmd
+      - text: "👍ＳＯＬＵＴＩＯＮＳ＃１"
+        href: WebsiteCodes/Solutions1.qmd
       - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions"
         contents:
           - text: "Overview"
@@ -76,15 +83,27 @@ website:
             href: WebsiteCodes/11AdvDataFrames.qmd            
           - text: "𝟭𝟮	Useful Packages for Data Manipulation"
             href: WebsiteCodes/12Packages4Data.qmd
+      - text: "🎃ＥＸＥＲＣＩＳＥ＃２"
+        href: WebsiteCodes/Exercise2.qmd
+      - text: "👍ＳＯＬＵＴＩＯＮＳ＃２"
+        href: WebsiteCodes/Solutions2.qmd
+      - text: "🎃ＥＸＥＲＣＩＳＥ＃３"
+        href: WebsiteCodes/Exercise3.qmd
+      - text: "👍ＳＯＬＵＴＩＯＮＳ＃３"
+        href: WebsiteCodes/Solutions3.qmd
       - section: "𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Generating Visual Outputs"
         contents:
           - text: "Overview"
             href: WebsiteCodes/Overview4.qmd
           - text: "𝟭𝟯 Graphics"
             href: WebsiteCodes/13Graphics.qmd
-          - text: "𝟭𝟰 Reports with Knitr"
-            href: WebsiteCodes/14Knitr.qmd
-      - text: "Concluding Remarks"
+          - text: "𝟭𝟰 Software Development Concepts"
+            href: WebsiteCodes/14Software.qmd
+      - text: "🎃ＥＸＥＲＣＩＳＥ＃４"
+        href: WebsiteCodes/Exercise4.qmd
+      - text: "👍ＳＯＬＵＴＩＯＮＳ＃４"
+        href: WebsiteCodes/Solutions4.qmd
+      - text: "Concluding Remarks🎉"
         href: WebsiteCodes/ConcludingRemarks.qmd
 
 
