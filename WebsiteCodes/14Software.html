@@ -8,7 +8,7 @@
 
 <meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
 
-<title>Customize Your Own Functions – Intro To R</title>
+<title>Software Development Concepts – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -65,8 +65,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../WebsiteCodes/09Packages.html" rel="next">
-<link href="../WebsiteCodes/07Loop.html" rel="prev">
+<link href="../WebsiteCodes/Exercise4.html" rel="next">
+<link href="../WebsiteCodes/13Graphics.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
@@ -118,7 +118,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview2.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/08NewFunctions.html">𝟴 Create New Functions</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview4.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Generating Visual Outputs</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/14Software.html">𝟭𝟰 Software Development Concepts</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -272,7 +272,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../WebsiteCodes/08NewFunctions.html" class="sidebar-item-text sidebar-link active">
+  <a href="../WebsiteCodes/08NewFunctions.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">𝟴 Create New Functions</span></a>
   </div>
 </li>
@@ -366,7 +366,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../WebsiteCodes/14Software.html" class="sidebar-item-text sidebar-link">
+  <a href="../WebsiteCodes/14Software.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">𝟭𝟰 Software Development Concepts</span></a>
   </div>
 </li>
@@ -400,19 +400,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#customize-your-own-functions" id="toc-customize-your-own-functions" class="nav-link active" data-scroll-target="#customize-your-own-functions">1. Customize Your Own Functions</a>
+  <li><a href="#good-coding-practices" id="toc-good-coding-practices" class="nav-link active" data-scroll-target="#good-coding-practices">1. Good Coding Practices</a>
   <ul class="collapse">
-  <li><a href="#the-anatomy-of-a-function" id="toc-the-anatomy-of-a-function" class="nav-link" data-scroll-target="#the-anatomy-of-a-function">The Anatomy of a Function</a></li>
+  <li><a href="#script-structure" id="toc-script-structure" class="nav-link" data-scroll-target="#script-structure">1.1 Script Structure</a></li>
+  <li><a href="#writing-robust-functions" id="toc-writing-robust-functions" class="nav-link" data-scroll-target="#writing-robust-functions">1.2 Writing Robust Functions</a></li>
+  <li><a href="#documentation-and-testing" id="toc-documentation-and-testing" class="nav-link" data-scroll-target="#documentation-and-testing">1.3 Documentation and Testing</a></li>
+  <li><a href="#external-packages-namespacing" id="toc-external-packages-namespacing" class="nav-link" data-scroll-target="#external-packages-namespacing">1.4 External Packages &amp; Namespacing</a></li>
   </ul></li>
+  <li><a href="#debugging-and-troubleshooting" id="toc-debugging-and-troubleshooting" class="nav-link" data-scroll-target="#debugging-and-troubleshooting">2. Debugging and Troubleshooting</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR/edit/main/WebsiteCodes/08NewFunctions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR/edit/main/WebsiteCodes/14Software.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview2.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Control Structures and Functions</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/08NewFunctions.html">𝟴 Create New Functions</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview4.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Generating Visual Outputs</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/14Software.html">𝟭𝟰 Software Development Concepts</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Customize Your Own Functions</h1>
+<h1 class="title">Software Development Concepts</h1>
 </div>
 
 <div>
@@ -435,55 +439,141 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <hr>
-<section id="customize-your-own-functions" class="level2">
-<h2 class="anchored" data-anchor-id="customize-your-own-functions">1. Customize Your Own Functions</h2>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/Functions.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="500"></p>
-</figure>
-</div>
-<p>Writing functions is the best way to keep your code <strong>DRY</strong> (Don’t Repeat Yourself). If you find yourself copy-pasting code three times, it’s time to write a function.</p>
-<section id="the-anatomy-of-a-function" class="level3">
-<h3 class="anchored" data-anchor-id="the-anatomy-of-a-function">The Anatomy of a Function</h3>
-<p>A function has three parts:</p>
-<ol type="1">
-<li><p><strong>Input (Arguments):</strong> What the function needs to work (e.g., a vector of numbers).</p></li>
-<li><p><strong>Body:</strong> The actual code/math being performed.</p></li>
-<li><p><strong>Output (Return):</strong> What the function gives back to you.</p></li>
-</ol>
+<section id="good-coding-practices" class="level2">
+<h2 class="anchored" data-anchor-id="good-coding-practices">1. Good Coding Practices</h2>
+<section id="script-structure" class="level3">
+<h3 class="anchored" data-anchor-id="script-structure">1.1 Script Structure</h3>
+<p>A script should read like a story. Organize it so a colleague (or “Future You”) can understand the setup before the action.</p>
+<ul>
+<li><p><strong>Sectioning:</strong> Use comments (e.g., <code>#### SECTION NAME ####</code>) to create a map of your script.</p>
+<ul>
+<li><strong>Folding:</strong>&nbsp;You can click the small triangle icon next to the line numbers to “fold” (hide) a big chunk of code once you are finished with it. This keeps your workspace tidy.</li>
+<li><strong>Navigation:</strong>&nbsp;In RStudio, you can click the&nbsp;<strong>Outline</strong>&nbsp;icon (top right of the script window) to see a table of contents. Click any section name to jump straight to that code.</li>
+<li><strong>The Shortcut:</strong>&nbsp;Use&nbsp;<code>Cmd + Shift + R</code>&nbsp;(Mac) or&nbsp;<code>Ctrl + Shift + R</code>&nbsp;(Windows) to instantly insert a new section header.</li>
+</ul></li>
+<li><p><strong>The “Head” of the Script:</strong></p>
+<p>Always load your libraries and set your environment variables (like&nbsp;<code>set.seed()</code>) at the very top. This acts as a&nbsp;<strong>“Required Hardware”</strong>&nbsp;list for R. If someone else tries to run your code, they will know immediately which packages they need to install.</p></li>
+<li><p><strong>Function Management:</strong></p>
+<p>Keep your main analysis clean. If you have many custom functions:</p>
+<ul>
+<li><p><strong>The “Functions” Section:</strong>&nbsp;Put them in a dedicated section right below your library imports.</p></li>
+<li><p><strong>The External File:</strong>&nbsp;For very long scripts, save your functions in a separate file (e.g.,&nbsp;<code>utils.R</code>) and bring them in using&nbsp;<code>source("utils.R")</code>.</p></li>
+</ul></li>
+</ul>
+<section id="anatomy-of-a-professional-script" class="level4">
+<h4 class="anchored" data-anchor-id="anatomy-of-a-professional-script"><strong>Anatomy of a Professional Script</strong></h4>
+<p>Here is a template demonstrating a clean, professional structure:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Example: Creating a manual version of the 'mean' function</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>new_mean <span class="ot">&lt;-</span> <span class="cf">function</span>(values) {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The 'Body'</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> <span class="fu">sum</span>(values) <span class="sc">/</span> <span class="fu">length</span>(values)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># The 'Return' (Output)</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Test it out</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">new_mean</span>(x)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 3</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 0. Setup -----------------------------------------------------------------</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="do">## Data Explanation:</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># This script analyzes the progranulin (GRN) expression in scRNA-seq data.</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Last updated: Feb 2026 by [Your Name] [Finsihed Data Pre-processing]</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Load Libraries</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co"># Global Settings</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">228</span>) <span class="co"># Ensures reproducibility for random samplings</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Customized Functions</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>CalculateFoldChange <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) { <span class="fu">return</span>(<span class="fu">log2</span>(x<span class="sc">/</span>y)) }</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Load Data -------------------------------------------------------------</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="co"># raw_counts &lt;- read.csv("data/counts.csv")</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Pre-processing --------------------------------------------------------</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Statistical Analysis --------------------------------------------------</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+</section>
+<section id="writing-robust-functions" class="level3">
+<h3 class="anchored" data-anchor-id="writing-robust-functions">1.2 Writing Robust Functions</h3>
+<p>In bioinformatics, naming and documentation are vital to avoid mixing up your genomic variables.</p>
+<section id="naming-conventions-pascalcase" class="level4">
+<h4 class="anchored" data-anchor-id="naming-conventions-pascalcase"><strong>Naming Conventions (PascalCase)</strong></h4>
+<p>Use <strong>PascalCase</strong> (Capitalizing each word) for functions to distinguish them from standard R variables.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good: Stands out as a custom tool</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>CalculateFoldChange <span class="ot">&lt;-</span> <span class="cf">function</span>(ctrl, exp) { ... }</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad: Looks like a generic variable</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>foldchange <span class="ot">&lt;-</span> <span class="cf">function</span>(ctrl, exp) { ... }</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<div class="callout callout-style-default callout-note callout-titled">
+</section>
+<section id="explicit-returns" class="level4">
+<h4 class="anchored" data-anchor-id="explicit-returns"><strong>Explicit Returns</strong></h4>
+<p>While R automatically returns the last line, being explicit makes your code safer and easier to debug.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good: Explicitly states what is being handed back</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>AddValues <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="internal-documentation" class="level4">
+<h4 class="anchored" data-anchor-id="internal-documentation"><strong>Internal Documentation</strong></h4>
+<p>Always include a “Receipt” at the top of your function explaining what it needs and what it gives back.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>AddValues <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Description: Adds two numeric values for gene expression normalization</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Input: x (numeric), y (numeric)</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Output: numeric sum</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x <span class="sc">+</span> y)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="documentation-and-testing" class="level3">
+<h3 class="anchored" data-anchor-id="documentation-and-testing">1.3 Documentation and Testing</h3>
+<p>As your McGill research projects grow into potential publications, you may want to use professional tools:</p>
+<ul>
+<li><p><strong><code>roxygen2</code></strong>: Allows you to write “Help Files” (like the ones you see when typing <code>?sum</code>) directly in your script.</p></li>
+<li><p><strong><code>testthat</code></strong>: A framework for “Unit Testing.” It automatically checks if your functions still work correctly after you make changes to your code.</p></li>
+</ul>
+</section>
+<section id="external-packages-namespacing" class="level3">
+<h3 class="anchored" data-anchor-id="external-packages-namespacing">1.4 External Packages &amp; Namespacing</h3>
+<p>Loading a library is like opening a whole toolbox. If you only need one hammer, don’t bring the whole box.</p>
+<ul>
+<li><p><strong>The “Rule of Two”:</strong> If you only use 1 or 2 functions from a package, don’t use <code>library()</code>. Use the <strong>Namespace</strong>instead.</p></li>
+<li><p><strong>Namespacing:</strong> This prevents “Function Masking” (when two packages have a function with the same name).</p></li>
+</ul>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Good: Explicit and avoids conflicts</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>purrr<span class="sc">::</span><span class="fu">map</span>()</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Bad: Might conflict with 'map' from the 'maps' package</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">map</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+</section>
+<section id="debugging-and-troubleshooting" class="level2">
+<h2 class="anchored" data-anchor-id="debugging-and-troubleshooting">2. Debugging and Troubleshooting</h2>
+<p>Every bioinformatician gets errors. The difference between a beginner and a pro is how they react to them.</p>
+<ol type="1">
+<li><p><strong>The “Minimal Reproducible Example” (Reprex):</strong> Try to recreate the error using a tiny, fake dataset (like <code>df &lt;- data.frame(a=1:5)</code>). If the error disappears, the problem is with your <em>data</em>. If the error stays, the problem is with your <em>logic</em>.</p></li>
+<li><p><strong>The “Google” Rule:</strong> Copy the <strong>last line</strong> of the error message.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Note</span><strong>Pro-Tip: When to use <code>return()</code></strong>
+Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In R, the function will automatically return the <strong>very last line</strong> of code executed inside the braces. However, using the explicit <code>return()</code> function is a “Best Practice” because it makes it much clearer to other researchers exactly what your function is providing.</p>
+<p>If the error involves a specific package, include the package name in your search (e.g., <code>"Error in .External2() unable to start data viewer ggplot2"</code>).</p>
 </div>
-</div>
+</div></li>
+<li><p><strong>Check the “State”:</strong> Use <code>sessionInfo()</code> to see if your package versions are causing the conflict.</p></li>
+</ol>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -889,13 +979,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../WebsiteCodes/07Loop.html" class="pagination-link" aria-label="𝟳 For Loop/While Loop">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">𝟳 For Loop/While Loop</span>
+      <a href="../WebsiteCodes/13Graphics.html" class="pagination-link" aria-label="𝟭𝟯 Graphics">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">𝟭𝟯 Graphics</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../WebsiteCodes/09Packages.html" class="pagination-link" aria-label="𝟵 Packages">
-        <span class="nav-page-text">𝟵 Packages</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../WebsiteCodes/Exercise4.html" class="pagination-link" aria-label="🎃ＥＸＥＲＣＩＳＥ＃４">
+        <span class="nav-page-text">🎃ＥＸＥＲＣＩＳＥ＃４</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -907,7 +997,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR/edit/main/WebsiteCodes/08NewFunctions.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR/edit/main/WebsiteCodes/14Software.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
