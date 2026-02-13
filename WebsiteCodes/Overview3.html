@@ -8,7 +8,7 @@
 
 <meta name="description" content="Materials adapted from Adrien Osakwe, Larisa M. Soto and Xiaoqi Xie.">
 
-<title>Title – Intro To R</title>
+<title>Overview: Basic and Advanced Data Manipulation – Intro To R</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -42,7 +42,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7087e1fe497f498abc06882b41efe3b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -360,15 +360,22 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#basic-data-manipulation" id="toc-basic-data-manipulation" class="nav-link active" data-scroll-target="#basic-data-manipulation">Basic Data Manipulation</a></li>
+  <li><a href="#advanced-data-manipulation" id="toc-advanced-data-manipulation" class="nav-link" data-scroll-target="#advanced-data-manipulation">Advanced Data Manipulation</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR/edit/main/WebsiteCodes/Overview3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview3.html">𝐑 𝐁𝐀𝐒𝐈𝐂𝐒: Data Manipulation</a></li><li class="breadcrumb-item"><a href="../WebsiteCodes/Overview3.html">Overview</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Title</h1>
+<h1 class="title">Overview: Basic and Advanced Data Manipulation</h1>
 </div>
 
 <div>
@@ -391,8 +398,30 @@ ul.task-list li input[type="checkbox"] {
 
 
 <hr>
+<section id="basic-data-manipulation" class="level2">
+<h2 class="anchored" data-anchor-id="basic-data-manipulation">Basic Data Manipulation</h2>
+<p>By the end of this module, you will be able to:</p>
+<ul>
+<li><p><strong>Import and Export Data:</strong> Read from and write to common file formats (e.g., <code>.csv</code>, <code>.tsv</code>, and <code>.txt</code>) using functions like <code>read.csv()</code> and <code>write.table()</code>.</p></li>
+<li><p><strong>Navigate Data Frames:</strong> Utilize foundational functions (<code>dim()</code>, <code>str()</code>, <code>head()</code>) to assess the dimensions and structure of any dataset.</p></li>
+<li><p><strong>Master Base R Subsetting:</strong> Pinpoint specific data using the coordinate system <code>[row, column]</code>, the <code>$</code> operator, and logical indexing with <code>which()</code>.</p></li>
+<li><p><strong>Modify Columns:</strong> Add, rename, or transform individual columns using standard assignment logic.</p></li>
+<li><p><strong>Merge Datasets:</strong> Combine tables horizontally and vertically using <code>cbind()</code> and <code>rbind()</code>.</p></li>
+</ul>
+</section>
+<section id="advanced-data-manipulation" class="level2">
+<h2 class="anchored" data-anchor-id="advanced-data-manipulation">Advanced Data Manipulation</h2>
+<p>By the end of this module, you will be able to:</p>
+<ul>
+<li><p><strong>Apply the <code>dplyr</code> Grammar:</strong> Efficiently manipulate data using core “verbs” such as <code>filter()</code>, <code>select()</code>, <code>mutate()</code>, <code>arrange()</code>, and <code>summarize()</code>.</p></li>
+<li><p><strong>Construct Pipelines:</strong> Use the pipe operator (<code>%&gt;%</code>) to chain multiple operations into a single, readable workflow.</p></li>
+<li><p><strong>Perform Grouped Analyses:</strong> Use <code>group_by()</code> in combination with <code>summarize()</code> to calculate statistics (like mean or standard deviation) across different experimental cohorts.</p></li>
+<li><p><strong>Reshape Data:</strong> Convert between “wide” and “long” formats using <code>tidyr</code> functions (<code>pivot_longer</code>, <code>pivot_wider</code>) to prepare data for visualization.</p></li>
+<li><p><strong>Integrate External Packages:</strong> Install and load specialized libraries to extend R’s data manipulation capabilities.</p></li>
+</ul>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -815,7 +844,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
 <p>Workshop created as part of the McGill Initiative in Computational Medicine.</p>
-<div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR/edit/main/WebsiteCodes/Overview3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+<div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/MartinaHYang/IntroToR/edit/main/WebsiteCodes/Overview3.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This page is built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

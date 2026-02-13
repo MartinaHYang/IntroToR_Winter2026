@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7087e1fe497f498abc06882b41efe3b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -403,7 +403,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#adding-columns-and-rows" id="toc-adding-columns-and-rows" class="nav-link active" data-scroll-target="#adding-columns-and-rows">1. Adding Columns and Rows</a>
   <ul class="collapse">
   <li><a href="#individually-adding-columns" id="toc-individually-adding-columns" class="nav-link" data-scroll-target="#individually-adding-columns">1.1 Individually Adding Columns</a></li>
-  <li><a href="#combining-data-frames-by-columns-cbind" id="toc-combining-data-frames-by-columns-cbind" class="nav-link" data-scroll-target="#combining-data-frames-by-columns-cbind">1.2 Combining Data Frames by Columns (<code>cbind</code>)</a></li>
+  <li><a href="#combining-data-frames-by-columns" id="toc-combining-data-frames-by-columns" class="nav-link" data-scroll-target="#combining-data-frames-by-columns">1.2 Combining Data Frames by Columns</a></li>
   <li><a href="#adding-rows-rbind" id="toc-adding-rows-rbind" class="nav-link" data-scroll-target="#adding-rows-rbind">1.3 Adding Rows (<code>rbind</code>)</a></li>
   </ul></li>
   <li><a href="#removing-and-filtering-data" id="toc-removing-and-filtering-data" class="nav-link" data-scroll-target="#removing-and-filtering-data">2. Removing and Filtering Data</a>
@@ -413,8 +413,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#cleaning-your-data" id="toc-cleaning-your-data" class="nav-link" data-scroll-target="#cleaning-your-data">3. Cleaning Your Data</a>
   <ul class="collapse">
-  <li><a href="#handling-duplicates-and-empty-rows" id="toc-handling-duplicates-and-empty-rows" class="nav-link" data-scroll-target="#handling-duplicates-and-empty-rows">3.1 Handling Duplicates and Empty Rows</a></li>
-  <li><a href="#editing-specific-elements" id="toc-editing-specific-elements" class="nav-link" data-scroll-target="#editing-specific-elements">3.2 Editing Specific Elements</a></li>
+  <li><a href="#handling-duplicates" id="toc-handling-duplicates" class="nav-link" data-scroll-target="#handling-duplicates">3.1 Handling Duplicates</a></li>
+  <li><a href="#handling-missing-values-na" id="toc-handling-missing-values-na" class="nav-link" data-scroll-target="#handling-missing-values-na">3.2 Handling Missing Values (<code>NA</code>)</a></li>
+  <li><a href="#editing-specific-elements" id="toc-editing-specific-elements" class="nav-link" data-scroll-target="#editing-specific-elements">3.3 Editing Specific Elements</a></li>
   </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/MartinaHYang/IntroToR/edit/main/WebsiteCodes/11AdvDataFrames.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/MartinaHYang/IntroToR/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
@@ -449,6 +450,27 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <hr>
 <section id="adding-columns-and-rows" class="level2">
 <h2 class="anchored" data-anchor-id="adding-columns-and-rows">1. Adding Columns and Rows</h2>
+<p>We will still use the gapminder dataset as demo dataste.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset Preparation</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"gapminder"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"gapminder"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aust)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 6</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="do">##   country   continent  year lifeExp      pop gdpPercap</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Australia Oceania    1952    69.1  8691212    10040.</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Australia Oceania    1957    70.3  9712569    10950.</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 Australia Oceania    1962    70.9 10794968    12217.</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 Australia Oceania    1967    71.1 11872264    14526.</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Australia Oceania    1972    71.9 13177000    16789.</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 Australia Oceania    1977    73.5 14074100    18334.</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12  6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
 <section id="individually-adding-columns" class="level3">
 <h3 class="anchored" data-anchor-id="individually-adding-columns">1.1 Individually Adding Columns</h3>
 <p>You can add a new column by simply assigning values to a name that doesn’t exist yet using the <code>$</code> operator or bracket <code>[ , ]</code> notation.</p>
@@ -465,88 +487,230 @@ Important
 <p><strong>Crucial Rule:</strong> The new column <strong>must</strong> have the exact same number of rows as the existing data frame.</p>
 </div>
 </div>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Dataset Preparation</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"gapminder"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"gapminder"</span>)</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</div>
+<section id="method-a-using-the-operator" class="level4">
+<h4 class="anchored" data-anchor-id="method-a-using-the-operator"><strong>Method A: Using the $ operator</strong></h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method A: Using the $ operator</span></span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a random column for "mean_children"</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>mean_children <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">nrow</span>(aust), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>aust<span class="sc">$</span>mean_children <span class="ot">&lt;-</span> mean_children</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a calculated column (GDP = population * GDP per capita)</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>aust<span class="sc">$</span>GDP <span class="ot">&lt;-</span> aust<span class="sc">$</span>pop <span class="sc">*</span> aust<span class="sc">$</span>gdpPercap</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aust)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co"># the same as: aust$mean_children &lt;- sample(1:10, nrow(aust), replace = TRUE)</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding a calculated column (GDP = population * GDP per capita)</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>aust<span class="sc">$</span>GDP <span class="ot">&lt;-</span> aust<span class="sc">$</span>pop <span class="sc">*</span> aust<span class="sc">$</span>gdpPercap</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aust)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 8
   country   continent  year lifeExp      pop gdpPercap mean_children         GDP
   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;         &lt;int&gt;       &lt;dbl&gt;
-1 Australia Oceania    1952    69.1  8691212    10040.             4     8.73e10
-2 Australia Oceania    1957    70.3  9712569    10950.             5     1.06e11
+1 Australia Oceania    1952    69.1  8691212    10040.             9     8.73e10
+2 Australia Oceania    1957    70.3  9712569    10950.             8     1.06e11
 3 Australia Oceania    1962    70.9 10794968    12217.             6     1.32e11
-4 Australia Oceania    1967    71.1 11872264    14526.             5     1.72e11
-5 Australia Oceania    1972    71.9 13177000    16789.             5     2.21e11
-6 Australia Oceania    1977    73.5 14074100    18334.             7     2.58e11</code></pre>
+4 Australia Oceania    1967    71.1 11872264    14526.            10     1.72e11
+5 Australia Oceania    1972    71.9 13177000    16789.             7     2.21e11
+6 Australia Oceania    1977    73.5 14074100    18334.             5     2.58e11</code></pre>
 </div>
 </div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Understanding <code>sample()</code>:</strong></p>
+<ul>
+<li><p><code>1:10</code>: The range of numbers to choose from.</p></li>
+<li><p><code>nrow(aust)</code>: Tells R exactly how many numbers to generate (12 in this case).</p></li>
+<li><p><code>replace = TRUE</code>: Allows the same number to be picked more than once.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="method-b-using-bracket-notation" class="level4">
+<h4 class="anchored" data-anchor-id="method-b-using-bracket-notation"><strong>Method B: Using bracket notation</strong></h4>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Method B: Using bracket notation</span></span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>mean_bikes <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">nrow</span>(aust), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>aust[, <span class="st">"mean_bikes"</span>] <span class="ot">&lt;-</span> mean_bikes</span>
 <span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aust)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(aust)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 9
-  country   continent  year lifeExp      pop gdpPercap mean_children         GDP
-  &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;         &lt;int&gt;       &lt;dbl&gt;
-1 Australia Oceania    1952    69.1  8691212    10040.             4     8.73e10
-2 Australia Oceania    1957    70.3  9712569    10950.             5     1.06e11
-3 Australia Oceania    1962    70.9 10794968    12217.             6     1.32e11
-4 Australia Oceania    1967    71.1 11872264    14526.             5     1.72e11
-5 Australia Oceania    1972    71.9 13177000    16789.             5     2.21e11
-6 Australia Oceania    1977    73.5 14074100    18334.             7     2.58e11
-# ℹ 1 more variable: mean_bikes &lt;int&gt;</code></pre>
+<pre><code>tibble [12 × 9] (S3: tbl_df/tbl/data.frame)
+ $ country      : Factor w/ 142 levels "Afghanistan",..: 6 6 6 6 6 6 6 6 6 6 ...
+ $ continent    : Factor w/ 5 levels "Africa","Americas",..: 5 5 5 5 5 5 5 5 5 5 ...
+ $ year         : int [1:12] 1952 1957 1962 1967 1972 1977 1982 1987 1992 1997 ...
+ $ lifeExp      : num [1:12] 69.1 70.3 70.9 71.1 71.9 ...
+ $ pop          : int [1:12] 8691212 9712569 10794968 11872264 13177000 14074100 15184200 16257249 17481977 18565243 ...
+ $ gdpPercap    : num [1:12] 10040 10950 12217 14526 16789 ...
+ $ mean_children: int [1:12] 9 8 6 10 7 5 1 6 8 9 ...
+ $ GDP          : num [1:12] 8.73e+10 1.06e+11 1.32e+11 1.72e+11 2.21e+11 ...
+ $ mean_bikes   : int [1:12] 3 3 4 2 4 1 4 4 3 3 ...</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>What happens if the lengths don’t match?</strong></p>
+<p>If you try to “force” a vector into a table that is a different height, R will protect the integrity of your data and throw an error.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mean_bikes <span class="ot">&lt;-</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="dv">5</span>, <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>aust[, <span class="st">"mean_bikes"</span>] <span class="ot">&lt;-</span> mean_bikes</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-error">
+<pre><code>Error in `[&lt;-`:
+! Assigned data `mean_bikes` must be compatible with existing data.
+✖ Existing data has 12 rows.
+✖ Assigned data has 5 rows.
+ℹ Only vectors of size 1 are recycled.
+Caused by error in `vectbl_recycle_rhs_rows()`:
+! Can't recycle input of size 5 to size 12.</code></pre>
+</div>
+</div>
+<p><strong>Why did this fail?</strong> R uses a concept called <strong>Recycling</strong>.</p>
+<ol type="1">
+<li><p><strong>If you provide 1 value:</strong> R repeats it for every row (this is allowed).</p></li>
+<li><p><strong>If you provide 12 values:</strong> It’s a perfect fit (this is allowed).</p></li>
+<li><p><strong>If you provide 5 values:</strong> R doesn’t know what to do with the remaining 7 rows, so it stops the code to prevent errors in your analysis.</p></li>
+</ol>
+<p><strong>Best Practice: Use <code>nrow()</code></strong></p>
+<p>Always use <code>nrow(your_dataframe)</code> instead of typing a specific number (like 12). If you later filter your data or add more patients, your code will automatically adjust the length of your new columns!</p>
 </div>
 </div>
 </section>
-<section id="combining-data-frames-by-columns-cbind" class="level3">
-<h3 class="anchored" data-anchor-id="combining-data-frames-by-columns-cbind">1.2 Combining Data Frames by Columns (<code>cbind</code>)</h3>
-<p>If you have a whole table of new data, you can “staple” it to the side of your original data using <code>cbind()</code> (column bind).</p>
+</section>
+<section id="combining-data-frames-by-columns" class="level3">
+<h3 class="anchored" data-anchor-id="combining-data-frames-by-columns">1.2 Combining Data Frames by Columns</h3>
+<section id="method-a-using-the-cbind" class="level4">
+<h4 class="anchored" data-anchor-id="method-a-using-the-cbind"><strong>Method A: Using the</strong> <code>cbind()</code></h4>
+<p>If you have a whole table of new data, you can “staple” it to the side of your original data using <code>cbind()</code> (column bind). Unlike adding columns one by one, <code>cbind()</code> allows you to merge two entire data frames into one.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a separate data frame with two new variables</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>df_new <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean_children =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">nrow</span>(aust), <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean_bikes =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">nrow</span>(aust), <span class="at">replace =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine them</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> <span class="fu">cbind</span>(aust, df_new)</span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aust)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>, ]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a separate data frame with two new variables</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">mean_children =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="fu">nrow</span>(aust), <span class="at">replace =</span> <span class="cn">TRUE</span>),</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">mean_bikes =</span> <span class="fu">sample</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>, <span class="fu">nrow</span>(aust), <span class="at">replace =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   mean_children mean_bikes</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 1            10          1</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="do">## 2             4          3</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 3             1          3</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 4             7          3</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 5            10          1</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 6             4          2</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> <span class="fu">cbind</span>(aust,df)</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(aust)</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="do">##     country continent year lifeExp      pop gdpPercap mean_children mean_bikes</span></span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Australia   Oceania 1952   69.12  8691212  10039.60            10          1</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Australia   Oceania 1957   70.33  9712569  10949.65             4          3</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 Australia   Oceania 1962   70.93 10794968  12217.23             1          3</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 Australia   Oceania 1967   71.10 11872264  14526.12             7          3</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Australia   Oceania 1972   71.93 13177000  16788.63            10          1</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 Australia   Oceania 1977   73.49 14074100  18334.20             4          2</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>⚠️ A Critical Warning: The Row Order</strong></p>
+<p>While <code>cbind()</code> is powerful, it is also “blind.”</p>
+<p>It assumes that <strong>Row 1</strong> of your first table belongs with <strong>Row 1</strong> of your second table.</p>
+<p>In medical research, this is very dangerous if your tables aren’t sorted perfectly. If your first table has patients in the order <code>P001, P002, P003</code> and your second table has them as <code>P003, P001, P002</code>, <code>cbind()</code> will mismatch the data!</p>
+<p><strong>Best Practice: Use <code>merge()</code> or <code>left_join()</code></strong></p>
+<p>If you aren’t 100% sure the rows are in the same order, don’t use <code>cbind()</code>. Instead, use <strong><code>merge()</code></strong> (Base R) or <strong><code>left_join()</code></strong>(dplyr). These functions look at an <strong>ID column</strong> (like a patient ID) and automatically align the rows for you.</p>
+</div>
+</div>
+</section>
+<section id="method-b-using-the-merge" class="level4">
+<h4 class="anchored" data-anchor-id="method-b-using-the-merge"><strong>Method B: Using the</strong> <code>merge()</code></h4>
+<p>To avoid mismatching data, we use <strong><code>merge()</code></strong>. This function looks at a specific <strong>Key Column</strong> (like <code>Patient_ID</code> or <code>country</code>) and aligns the rows automatically, even if they are in a different order.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Prepare a subset of data</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>countries <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Taiwan"</span>, <span class="st">"Canada"</span>), ]</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Create a secondary table with a "Key Column" (country)</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: This table could be in any order!</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>df_info <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">country =</span> <span class="fu">c</span>(<span class="st">"Canada"</span>, <span class="st">"Taiwan"</span>),</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">avg_coffee_price =</span> <span class="fu">c</span>(<span class="fl">4.50</span>, <span class="fl">3.20</span>)</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Merge based on the "country" column</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># R will find where "Taiwan" is in both tables and match them up</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>countries_merged <span class="ot">&lt;-</span> <span class="fu">merge</span>(countries, df_info, <span class="at">by =</span> <span class="st">"country"</span>)</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(countries_merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>    country continent year lifeExp      pop gdpPercap mean_children
-1 Australia   Oceania 1952   69.12  8691212  10039.60             4
-2 Australia   Oceania 1957   70.33  9712569  10949.65             5
-3 Australia   Oceania 1962   70.93 10794968  12217.23             6
-4 Australia   Oceania 1967   71.10 11872264  14526.12             5
-5 Australia   Oceania 1972   71.93 13177000  16788.63             5
-6 Australia   Oceania 1977   73.49 14074100  18334.20             7
-           GDP mean_bikes mean_children mean_bikes
-1  87256254102          4             4          3
-2 106349227169          1             8          2
-3 131884573002          4             5          3
-4 172457986742          2             6          2
-5 221223770658          4            10          1
-6 258037329175          1             6          2</code></pre>
+<pre><code>  country continent year lifeExp      pop gdpPercap avg_coffee_price
+1  Canada  Americas 1952   68.75 14785584  11367.16              4.5
+2  Canada  Americas 1957   69.96 17010154  12489.95              4.5
+3  Canada  Americas 1962   71.30 18985849  13462.49              4.5
+4  Canada  Americas 1967   72.13 20819767  16076.59              4.5
+5  Canada  Americas 1972   72.88 22284500  18970.57              4.5
+6  Canada  Americas 1977   74.21 23796400  22090.88              4.5</code></pre>
 </div>
 </div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Prepare a subset of data</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>patient_info <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">patientID =</span> <span class="fu">c</span>(<span class="st">"P1"</span>, <span class="st">"P2"</span>, <span class="st">"P3"</span>, <span class="st">"P100"</span>),</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">BW =</span> <span class="fu">c</span>(<span class="dv">50</span>, <span class="dv">62</span>, <span class="dv">73</span>, <span class="dv">85</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Create a secondary table</span></span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>patient_BG <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">patientID =</span> <span class="fu">c</span>(<span class="st">"P1"</span>, <span class="st">"P100"</span>, <span class="st">"P3"</span>, <span class="st">"P2"</span>),</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">BG =</span> <span class="fu">c</span>(<span class="fl">7.1</span>, <span class="fl">8.3</span>, <span class="fl">9.5</span>, <span class="dv">11</span>)</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Merge based on the "country" column</span></span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a><span class="co"># R will find where "Taiwan" is in both tables and match them up</span></span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>data_merged <span class="ot">&lt;-</span> <span class="fu">merge</span>(patient_info, patient_BG, <span class="at">by =</span> <span class="st">"patientID"</span>)</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(data_merged)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  patientID BW   BG
+1        P1 50  7.1
+2      P100 85  8.3
+3        P2 62 11.0
+4        P3 73  9.5</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>💡 Why <code>merge()</code> is better than <code>cbind()</code></strong></p>
+<ul>
+<li><p><strong>Order Doesn’t Matter:</strong> In the example above, <code>df_info</code> lists Canada first, but in the <code>countries</code> dataset, the rows might appear in a different order. <code>merge()</code> finds the match regardless of where the row is located.</p></li>
+<li><p><strong>Flexible Lengths:</strong> Notice that <code>countries</code> has many years of data for each country, but <code>df_info</code> only has one price per country. <code>merge()</code> is smart enough to “broadcast” (repeat) that one coffee price across all the matching years for that country.</p></li>
+<li><p><strong>Pattern Matching:</strong> Instead of “mechanically” pasting columns, <code>merge()</code> looks for a specific pattern (the country name). If a country in your first table isn’t found in your second table, R can be told exactly how to handle that “missing” data.</p></li>
+</ul>
+</div>
+</div>
+</section>
 </section>
 <section id="adding-rows-rbind" class="level3">
 <h3 class="anchored" data-anchor-id="adding-rows-rbind">1.3 Adding Rows (<code>rbind</code>)</h3>
@@ -565,35 +729,32 @@ Note
 </div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new row as a list</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>new_row <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"country"</span> <span class="ot">=</span> <span class="st">"Australia"</span>,</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"continent"</span> <span class="ot">=</span> <span class="st">"Oceania"</span>,</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"year"</span> <span class="ot">=</span> <span class="dv">2022</span>,</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"lifeExp"</span> <span class="ot">=</span> <span class="fu">mean</span>(aust<span class="sc">$</span>lifeExp),</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"pop"</span> <span class="ot">=</span> <span class="fu">mean</span>(aust<span class="sc">$</span>pop),</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"gdpPercap"</span> <span class="ot">=</span> <span class="fu">mean</span>(aust<span class="sc">$</span>gdpPercap)</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Append the row to the bottom</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> <span class="fu">rbind</span>(aust, new_row)</span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(aust)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 6
-  country   continent  year lifeExp       pop gdpPercap
-  &lt;fct&gt;     &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;
-1 Australia Oceania    1987    76.3 16257249     21889.
-2 Australia Oceania    1992    77.6 17481977     23425.
-3 Australia Oceania    1997    78.8 18565243     26998.
-4 Australia Oceania    2002    80.4 19546792     30688.
-5 Australia Oceania    2007    81.2 20434176     34435.
-6 Australia Oceania    2022    74.7 14649312.    19981.</code></pre>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a new row as a list</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>new_row <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">"country"</span> <span class="ot">=</span> <span class="st">"Australia"</span>,</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="st">"continent"</span> <span class="ot">=</span> <span class="st">"Oceania"</span>,</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="st">"year"</span> <span class="ot">=</span> <span class="dv">2022</span>,</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="st">"lifeExp"</span> <span class="ot">=</span> <span class="fu">mean</span>(aust<span class="sc">$</span>lifeExp),</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="st">"pop"</span> <span class="ot">=</span> <span class="fu">mean</span>(aust<span class="sc">$</span>pop),</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="st">"gdpPercap"</span> <span class="ot">=</span> <span class="fu">mean</span>(aust<span class="sc">$</span>gdpPercap)</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Append the row to the bottom</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> <span class="fu">rbind</span>(aust, new_row)</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(aust)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 6</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a><span class="do">##   country   continent  year lifeExp       pop gdpPercap</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt;     &lt;fct&gt;     &lt;dbl&gt;   &lt;dbl&gt;     &lt;dbl&gt;     &lt;dbl&gt;</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Australia Oceania    1987    76.3 16257249     21889.</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Australia Oceania    1992    77.6 17481977     23425.</span></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 Australia Oceania    1997    78.8 18565243     26998.</span></span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 Australia Oceania    2002    80.4 19546792     30688.</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Australia Oceania    2007    81.2 20434176     34435.</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 Australia Oceania    2022    74.7 14649312.    19981.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-</div>
-<hr>
 </section>
 </section>
 <section id="removing-and-filtering-data" class="level2">
@@ -601,71 +762,241 @@ Note
 <section id="removing-columns-and-rows" class="level3">
 <h3 class="anchored" data-anchor-id="removing-columns-and-rows">2.1 Removing Columns and Rows</h3>
 <p>We use <strong>negative indexing</strong> to drop data.</p>
+<section id="method-a-removing-by-index-position" class="level4">
+<h4 class="anchored" data-anchor-id="method-a-removing-by-index-position"><strong>Method A: Removing by Index (Position)</strong></h4>
+<p>If you know exactly where a column is located, you can drop it using its number.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the LAST column using its index</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> aust[, <span class="sc">-</span><span class="fu">ncol</span>(aust)]</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust)</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12  5</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove a column by NAME</span></span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep everything where the name is NOT pop</span></span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> aust[, <span class="fu">colnames</span>(aust) <span class="sc">!=</span> <span class="st">"pop"</span>]</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12  4</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the first 10 rows</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>aust_reduced <span class="ot">&lt;-</span> aust[<span class="sc">-</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), ]</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust)</span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12  4</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12  6</span></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(aust)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "country"   "continent" "year"      "lifeExp"   "pop"       "gdpPercap"</span></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Remove the LAST column dynamically</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a><span class="co"># ncol(aust) finds the last number for you, so you don't have to count!</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> aust[, <span class="sc">-</span><span class="fu">ncol</span>(aust)]</span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(aust)</span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "country"   "continent" "year"      "lifeExp"   "pop"</span></span>
+<span id="cb14-12"><a href="#cb14-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-13"><a href="#cb14-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Remove multiple specific columns (e.g., the 1st and 3rd)</span></span>
+<span id="cb14-14"><a href="#cb14-14" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> aust[, <span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>)]</span>
+<span id="cb14-15"><a href="#cb14-15" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(aust)</span>
+<span id="cb14-16"><a href="#cb14-16" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "continent" "lifeExp"   "pop"</span></span>
+<span id="cb14-17"><a href="#cb14-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-18"><a href="#cb14-18" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust)</span>
+<span id="cb14-19"><a href="#cb14-19" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12  3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
+</section>
+<section id="method-b-removing-by-name-the-safer-way" class="level4">
+<h4 class="anchored" data-anchor-id="method-b-removing-by-name-the-safer-way"><strong>Method B: Removing by Name (The Safer Way)</strong></h4>
+<p>Using numbers like <code>-3</code> is risky because if your dataset changes, the 3rd column might become something else! It is safer to remove columns by their actual <strong>Name</strong>.</p>
+<p>You ask R to keep every column <strong>except</strong> the one using the “Not Equal To” operator (<code>!=</code>).</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep everything where the column name is NOT "pop"</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(aust)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "continent" "lifeExp"   "pop"</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> aust[, <span class="fu">colnames</span>(aust) <span class="sc">!=</span> <span class="st">"pop"</span>]</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(aust)</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "continent" "lifeExp"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="method-c-removing-rows" class="level4">
+<h4 class="anchored" data-anchor-id="method-c-removing-rows"><strong>Method C: Removing Rows</strong></h4>
+<p>The logic for rows is the same: use a negative sign before the row indices.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove the first 10 rows</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Both of these are correct; the first is the most professional standard</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>aust_reduced <span class="ot">&lt;-</span> aust[<span class="sc">-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>), ] </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a><span class="do">## aust_reduced &lt;- aust[-(1:10), ]</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust_reduced)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2 2</code></pre>
+</div>
+</div>
+</section>
 </section>
 <section id="applying-filters-logical-subsetting" class="level3">
 <h3 class="anchored" data-anchor-id="applying-filters-logical-subsetting">2.2 Applying Filters (Logical Subsetting)</h3>
-<p>This is how you “query” your data to find specific samples.</p>
+<p>Filtering (or subsetting) is how you “query” your data to find specific samples or variables. In R, we use <strong>Logical Operators</strong> (like <code>&gt;=</code>, <code>==</code>, or <code>%in%</code>) to tell R exactly what to keep.</p>
+<section id="method-a-filtering-columns-by-name" class="level4">
+<h4 class="anchored" data-anchor-id="method-a-filtering-columns-by-name"><strong>Method A: Filtering Columns by Name</strong></h4>
+<p>If you have a table with 20,000 genes but only want to see two specific ones, you can use the <strong><code>%in%</code></strong> operator.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only rows where Life Expectancy is 70 or higher</span></span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>long_life <span class="ot">&lt;-</span> aust[aust<span class="sc">$</span>lifeExp <span class="sc">&gt;=</span> <span class="dv">70</span>, ]</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(long_life)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 11  6</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only rows where GDP is above average</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>high_gdp <span class="ot">&lt;-</span> aust[aust<span class="sc">$</span>gdpPercap <span class="sc">&gt;=</span> <span class="fu">mean</span>(aust<span class="sc">$</span>gdpPercap), ]</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(high_gdp)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5 6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only the columns "year" and "pop"</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a><span class="co"># which() identifies the position (index) of the names that match our list</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>aust_col <span class="ot">&lt;-</span> aust[ , <span class="fu">which</span>(<span class="fu">colnames</span>(aust) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"pop"</span>))]</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(aust_col)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "year" "pop"</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<hr>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Why use <code>which()</code>?</strong></p>
+<p>You might notice that <code>colnames(aust) %in% c("year", "pop")</code> returns a list of <code>TRUE</code> and <code>FALSE</code>. Wrapping it in <strong><code>which()</code></strong> converts those into actual numbers (the column positions), which is often safer and faster when dealing with very large datasets.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(aust)</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "country"   "continent" "year"      "lifeExp"   "pop"       "gdpPercap"</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(aust) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"pop"</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] FALSE FALSE  TRUE FALSE  TRUE FALSE</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="fu">which</span>(<span class="fu">colnames</span>(aust) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"year"</span>, <span class="st">"pop"</span>))</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3 5</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="method-b-filtering-rows-by-condition" class="level4">
+<h4 class="anchored" data-anchor-id="method-b-filtering-rows-by-condition"><strong>Method B: Filtering Rows by Condition</strong></h4>
+<p>This is where you ask R to find samples that meet a specific clinical or biological threshold.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Filter by a fixed threshold</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only rows where Life Expectancy is 70 or higher</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>long_life <span class="ot">&lt;-</span> aust[aust<span class="sc">$</span>lifeExp <span class="sc">&gt;=</span> <span class="dv">70</span>, ]</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(long_life)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 11  6</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Filter by a calculated threshold</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Keep only rows where GDP is above average</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>high_gdp <span class="ot">&lt;-</span> aust[aust<span class="sc">$</span>gdpPercap <span class="sc">&gt;=</span> <span class="fu">mean</span>(aust<span class="sc">$</span>gdpPercap), ]</span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(high_gdp)</span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 5 6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>💡 Understanding the “Comma” Rule</strong></p>
+<p>The most common mistake for beginners is forgetting the comma inside the brackets: <code>[rows, columns]</code>.</p>
+<ul>
+<li><p><code>aust[aust$lifeExp &gt;= 70 ]</code> → <strong>Error!</strong> R doesn’t know if this is a row or column instruction.</p></li>
+<li><p><code>aust[aust$lifeExp &gt;= 70 , ]</code> → <strong>Success!</strong> The comma tells R: “Filter the <strong>rows</strong> based on this math, but keep <strong>all columns</strong>.”</p></li>
+</ul>
+</div>
+</div>
+</section>
 </section>
 </section>
 <section id="cleaning-your-data" class="level2">
 <h2 class="anchored" data-anchor-id="cleaning-your-data">3. Cleaning Your Data</h2>
-<section id="handling-duplicates-and-empty-rows" class="level3">
-<h3 class="anchored" data-anchor-id="handling-duplicates-and-empty-rows">3.1 Handling Duplicates and Empty Rows</h3>
-<p>Bioinformatics datasets often contain technical replicates or “junk” rows that need to be cleared.</p>
+<p>Raw datasets often contain “noise”—such as duplicate entries from technical replicates or empty rows created during data entry.</p>
+<section id="handling-duplicates" class="level3">
+<h3 class="anchored" data-anchor-id="handling-duplicates">3.1 Handling Duplicates</h3>
+<p>Duplicates can artificially inflate your sample size and skew your statistics. The <code>unique()</code> function scans your data frame and keeps only the first instance of any identical rows.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove duplicate rows</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>aust_unique <span class="ot">&lt;-</span> <span class="fu">unique</span>(aust)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust_unique)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12  6</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove rows that have NA (Missing Values) in a specific column</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co"># First, we identify rows where country is NOT NA</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>aust_clean <span class="ot">&lt;-</span> aust[<span class="sc">!</span><span class="fu">is.na</span>(aust<span class="sc">$</span>country), ]</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust_clean)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12  6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a dataset with duplicates (binding the data to itself)</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>aust_double <span class="ot">&lt;-</span> <span class="fu">rbind</span>(aust, aust)</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust_double) <span class="co"># Should show 24 rows</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 24  6</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Remove duplicate rows</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>aust_unique <span class="ot">&lt;-</span> <span class="fu">unique</span>(aust_double)</span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(aust_unique) <span class="co"># Back to 12 rows!</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 12  6</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
+<section id="handling-missing-values-na" class="level3">
+<h3 class="anchored" data-anchor-id="handling-missing-values-na">3.2 Handling Missing Values (<code>NA</code>)</h3>
+<p>In R, missing data is represented by <strong><code>NA</code></strong> (Not Available). Most statistical functions (like <code>mean()</code> or <code>sd()</code>) will fail or return <code>NA</code> if even one value is missing, so clearing them is essential.</p>
+<section id="a.-identifying-nas-is.na" class="level4">
+<h4 class="anchored" data-anchor-id="a.-identifying-nas-is.na"><strong>A. Identifying <code>NA</code>s: <code>is.na()</code></strong></h4>
+<p>You cannot use <code>== NA</code> to find missing data because <code>NA</code> is not a value; it is a placeholder. Instead, we use the logical function <code>is.na()</code>.</p>
+</section>
+<section id="b.-filtering-out-empty-rows" class="level4">
+<h4 class="anchored" data-anchor-id="b.-filtering-out-empty-rows"><strong>B. Filtering Out Empty Rows</strong></h4>
+<p>We use the “Logical NOT” operator (<code>!</code>) to tell R: “Keep only the rows where the column is <strong>NOT</strong> NA.”</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 1. Let's create an empty row for practice</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="co"># rep(NA, ncol(aust)) creates a row of NAs the same width as our table</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>na_row <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="cn">NA</span>, <span class="fu">ncol</span>(aust))</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> <span class="fu">rbind</span>(aust, na_row)</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(aust) <span class="co"># You will see the last row is all NA</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 6</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="do">##   country   continent  year lifeExp      pop gdpPercap</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Australia Oceania    1987    76.3 16257249    21889.</span></span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Australia Oceania    1992    77.6 17481977    23425.</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 Australia Oceania    1997    78.8 18565243    26998.</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 Australia Oceania    2002    80.4 19546792    30688.</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Australia Oceania    2007    81.2 20434176    34435.</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 &lt;NA&gt;      &lt;NA&gt;         NA    NA         NA       NA</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Remove rows where 'country' is NA</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="co"># We use !is.na() to keep the "Not NA" data</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> aust[<span class="sc">!</span><span class="fu">is.na</span>(aust<span class="sc">$</span>country), ]</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(aust) <span class="co"># The empty row is gone!</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 6 × 6</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a><span class="do">##   country   continent  year lifeExp      pop gdpPercap</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;    &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Australia Oceania    1982    74.7 15184200    19477.</span></span>
+<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 Australia Oceania    1987    76.3 16257249    21889.</span></span>
+<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 Australia Oceania    1992    77.6 17481977    23425.</span></span>
+<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a><span class="do">## 4 Australia Oceania    1997    78.8 18565243    26998.</span></span>
+<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a><span class="do">## 5 Australia Oceania    2002    80.4 19546792    30688.</span></span>
+<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a><span class="do">## 6 Australia Oceania    2007    81.2 20434176    34435.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Remove any row that has even one NA anywhere in it: <code>na.omit</code></strong></p>
+<p>If you want to remove <strong>any</strong> row that has <strong>even one</strong> <code>NA</code> anywhere in it, you can use the “nuclear option”:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>aust_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(aust)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p><strong>Warning:</strong> Be careful with <code>na.omit()</code>. If a patient is missing just one minor piece of information (like a middle name), <code>na.omit()</code> will delete their entire record, including their vital clinical data! <strong>It is usually safer to filter by specific, essential columns using the <code>!is.na()</code> method.</strong></p>
+</div>
+</div>
+</section>
+</section>
 <section id="editing-specific-elements" class="level3">
-<h3 class="anchored" data-anchor-id="editing-specific-elements">3.2 Editing Specific Elements</h3>
+<h3 class="anchored" data-anchor-id="editing-specific-elements">3.3 Editing Specific Elements</h3>
 <p>If you find a typo in your data, you can target a single “cell” using <code>[row, col]</code>.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 1 year to the Life Expectancy of the first row</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>aust[<span class="dv">1</span>, <span class="st">"lifeExp"</span>] <span class="ot">&lt;-</span> aust[<span class="dv">1</span>, <span class="st">"lifeExp"</span>] <span class="sc">+</span> <span class="dv">1</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Add 1 year to the Life Expectancy of the first row</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>aust[<span class="dv">1</span>, <span class="st">"lifeExp"</span>] <span class="ot">&lt;-</span> aust[<span class="dv">1</span>, <span class="st">"lifeExp"</span>] <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>aust[<span class="dv">1</span>, ]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 1 × 6</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a><span class="do">##   country   continent  year lifeExp     pop gdpPercap</span></span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Australia Oceania    1952    70.1 8691212    10040.</span></span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Specify the Life Expectancy of specific cell</span></span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>aust[<span class="dv">1</span>, <span class="st">"lifeExp"</span>] <span class="ot">&lt;-</span> <span class="dv">50</span></span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>aust[<span class="dv">1</span>, ]</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 1 × 6</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a><span class="do">##   country   continent  year lifeExp     pop gdpPercap</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a><span class="do">##   &lt;fct&gt;     &lt;fct&gt;     &lt;int&gt;   &lt;dbl&gt;   &lt;int&gt;     &lt;dbl&gt;</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 Australia Oceania    1952      50 8691212    10040.</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 
 

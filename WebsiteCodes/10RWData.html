@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7087e1fe497f498abc06882b41efe3b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -402,18 +402,23 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#the-working-directory" id="toc-the-working-directory" class="nav-link active" data-scroll-target="#the-working-directory">0. The Working Directory</a>
   <ul class="collapse">
-  <li><a href="#absolute-vs.-relative-paths" id="toc-absolute-vs.-relative-paths" class="nav-link" data-scroll-target="#absolute-vs.-relative-paths">Absolute vs.&nbsp;Relative Paths</a></li>
+  <li><a href="#how-to-find-your-current-home-base" id="toc-how-to-find-your-current-home-base" class="nav-link" data-scroll-target="#how-to-find-your-current-home-base">0.1 How to Find Your Current “Home Base”</a></li>
+  <li><a href="#three-ways-to-change-your-directory" id="toc-three-ways-to-change-your-directory" class="nav-link" data-scroll-target="#three-ways-to-change-your-directory">0.2 Three Ways to Change Your Directory</a></li>
+  <li><a href="#absolute-vs.-relative-paths" id="toc-absolute-vs.-relative-paths" class="nav-link" data-scroll-target="#absolute-vs.-relative-paths">0.3 Absolute vs.&nbsp;Relative Paths</a></li>
   </ul></li>
-  <li><a href="#reading-data-tables" id="toc-reading-data-tables" class="nav-link" data-scroll-target="#reading-data-tables">1. Reading Data Tables</a>
+  <li><a href="#writing-data-tables" id="toc-writing-data-tables" class="nav-link" data-scroll-target="#writing-data-tables">1. Writing Data Tables</a>
   <ul class="collapse">
-  <li><a href="#from-.csv-comma-separated-values" id="toc-from-.csv-comma-separated-values" class="nav-link" data-scroll-target="#from-.csv-comma-separated-values">1.1 From .csv (Comma Separated Values)</a></li>
-  <li><a href="#from-.xlsx-excel" id="toc-from-.xlsx-excel" class="nav-link" data-scroll-target="#from-.xlsx-excel">1.2 From .xlsx (Excel)</a></li>
+  <li><a href="#preparing-the-demo-data" id="toc-preparing-the-demo-data" class="nav-link" data-scroll-target="#preparing-the-demo-data">1.1 Preparing the Demo Data</a></li>
+  <li><a href="#saving-as-csv-with-write.csv" id="toc-saving-as-csv-with-write.csv" class="nav-link" data-scroll-target="#saving-as-csv-with-write.csv">1.2 Saving as CSV with <code>write.csv()</code></a></li>
+  <li><a href="#saving-as-tsv-with-write.table" id="toc-saving-as-tsv-with-write.table" class="nav-link" data-scroll-target="#saving-as-tsv-with-write.table">1.3 Saving as TSV with <code>write.table()</code></a></li>
+  <li><a href="#exporting-to-excel-with-write_xlsx" id="toc-exporting-to-excel-with-write_xlsx" class="nav-link" data-scroll-target="#exporting-to-excel-with-write_xlsx">1.4 Exporting to Excel with <code>write_xlsx()</code></a></li>
+  <li><a href="#metadata-and-versioning" id="toc-metadata-and-versioning" class="nav-link" data-scroll-target="#metadata-and-versioning">1.5 Metadata and Versioning</a></li>
   </ul></li>
-  <li><a href="#writing-data-tables" id="toc-writing-data-tables" class="nav-link" data-scroll-target="#writing-data-tables">2. Writing Data Tables</a>
+  <li><a href="#reading-data-tables" id="toc-reading-data-tables" class="nav-link" data-scroll-target="#reading-data-tables">2. Reading Data Tables</a>
   <ul class="collapse">
-  <li><a href="#write.csv" id="toc-write.csv" class="nav-link" data-scroll-target="#write.csv">2.1 <code>write.csv()</code></a></li>
-  <li><a href="#write.table-for-.tsv-and-custom-formats" id="toc-write.table-for-.tsv-and-custom-formats" class="nav-link" data-scroll-target="#write.table-for-.tsv-and-custom-formats">2.2 <code>write.table()</code> (For .tsv and custom formats)</a></li>
-  <li><a href="#metadata-and-versioning" id="toc-metadata-and-versioning" class="nav-link" data-scroll-target="#metadata-and-versioning">2.3 Metadata and Versioning</a></li>
+  <li><a href="#reading-text-files-.csv-and-.tsv" id="toc-reading-text-files-.csv-and-.tsv" class="nav-link" data-scroll-target="#reading-text-files-.csv-and-.tsv">2.1 Reading Text Files (.csv and .tsv)</a></li>
+  <li><a href="#reading-from-excel-.xlsx" id="toc-reading-from-excel-.xlsx" class="nav-link" data-scroll-target="#reading-from-excel-.xlsx">2.2 Reading from Excel (.xlsx)</a></li>
+  <li><a href="#the-point-and-click-method-interactive" id="toc-the-point-and-click-method-interactive" class="nav-link" data-scroll-target="#the-point-and-click-method-interactive">2.3 The “Point-and-Click” Method (Interactive)</a></li>
   </ul></li>
   <li><a href="#r-specific-formats-.rds-and-.rdata" id="toc-r-specific-formats-.rds-and-.rdata" class="nav-link" data-scroll-target="#r-specific-formats-.rds-and-.rdata">3. R-Specific Formats (.RDS and .RData)</a>
   <ul class="collapse">
@@ -457,11 +462,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>The <strong>Working Directory</strong> is the specific folder on your computer where R is currently “looking” for files. Think of it as R’s “home base.”</p>
 <ul>
 <li><p><strong><code>getwd()</code></strong>: Run this in the console to see your current “home base” address.</p></li>
-<li><p><strong><code>setwd("path/to/folder")</code></strong>: Use this to change where R is looking.</p></li>
+<li><p><strong><code>setwd()</code></strong>: Use this to change where R is looking.</p></li>
 </ul>
-<blockquote class="blockquote">
-<p><strong>Warning:</strong> Using <code>setwd()</code> is generally discouraged in shared projects because the path on your computer won’t exist on your colleague’s computer.</p>
-</blockquote>
+<section id="how-to-find-your-current-home-base" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-find-your-current-home-base">0.1 How to Find Your Current “Home Base”</h3>
+<p>There are two main ways to check where R is looking:</p>
+<ol type="1">
+<li><p><strong>Using Code:</strong> Run <code>getwd()</code> in the console. R will return the full “GPS address” (path) of your current location.</p></li>
+<li><p><strong>Using Your Eyes:</strong> Look at the top of your <strong>Console</strong> panel. Right next to your R version info, you will see a file path (often starting with <code>~/</code>).</p></li>
+</ol>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -475,6 +484,7 @@ Tip
 <p><strong>Finding Your Working Directory from the console panel:</strong></p>
 <p>Right next to your R version, you will see a file path starting with <code>~/</code>.</p>
 <p>This is your <strong>Working Directory</strong>—the specific folder on your computer where R is currently “looking” for files.</p>
+<p>There is a small gray arrow next to the path in the Console. Clicking this will immediately refresh your <strong>Files</strong> pane (bottom-right) to show you exactly what is inside your working directory.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="../images/RStudio_4.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
@@ -482,8 +492,35 @@ Tip
 </div>
 </div>
 </div>
+</section>
+<section id="three-ways-to-change-your-directory" class="level3">
+<h3 class="anchored" data-anchor-id="three-ways-to-change-your-directory">0.2 Three Ways to Change Your Directory</h3>
+<p>If R is looking in the wrong place, you need to move it. You can do this interactively or through code.</p>
+<section id="method-a-the-script-tab-interactive" class="level4">
+<h4 class="anchored" data-anchor-id="method-a-the-script-tab-interactive"><strong>Method A: The Script Tab (Interactive)</strong></h4>
+<p>If you have a script saved in your project folder, right-click the <strong>Script Tab</strong> at the top of your editor and select <strong>“Set Working Directory.”</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/RWData_1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</section>
+<section id="method-b-the-files-pane-interactive" class="level4">
+<h4 class="anchored" data-anchor-id="method-b-the-files-pane-interactive"><strong>Method B: The Files Pane (Interactive)</strong></h4>
+<p>In the <strong>Files</strong> pane (bottom-right), navigate to the folder you want. Click the <strong>“More”</strong> gear icon and select <strong>“Set As Working Directory.”</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="../images/RWData_2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</section>
+<section id="method-c-using-code-setwd" class="level4">
+<h4 class="anchored" data-anchor-id="method-c-using-code-setwd"><strong>Method C: Using Code (<code>setwd()</code>)</strong></h4>
+<p>This is the most direct way, but it requires typing out the path.</p>
+</section>
+</section>
 <section id="absolute-vs.-relative-paths" class="level3">
-<h3 class="anchored" data-anchor-id="absolute-vs.-relative-paths">Absolute vs.&nbsp;Relative Paths</h3>
+<h3 class="anchored" data-anchor-id="absolute-vs.-relative-paths">0.3 Absolute vs.&nbsp;Relative Paths</h3>
 <p>Understanding how R finds files is essential to avoiding the common <code>"File not found"</code> error.</p>
 <table class="caption-top table">
 <colgroup>
@@ -522,28 +559,141 @@ Tip
 <p><strong>Best Practice:</strong> Keep your data and your R script in the same folder (or a sub-folder) and use <strong>Relative Paths</strong>. This makes your project “portable”—it will work for anyone you share it with!</p>
 </div>
 </div>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Warning:</strong> Using <code>setwd()</code> is generally <strong>discouraged in shared projects</strong> because the path on your computer won’t exist on your colleague’s computer.</p>
+<p>Why?</p>
+<p>Because a path like <code>C:/Users/Martina/...</code> does not exist on your colleague’s computer. If you share your script, their R will crash immediately.</p>
+<p><strong>Best Practice:</strong> Use <strong>R Projects (<code>.Rproj</code>)</strong>. When you open an R Project, R automatically sets the working directory to that folder. This allows you to use <strong>Relative Paths</strong>, making your code “portable” so it works for anyone, anywhere.</p>
+</div>
+</div>
+</section>
+</section>
+<section id="writing-data-tables" class="level2">
+<h2 class="anchored" data-anchor-id="writing-data-tables">1. Writing Data Tables</h2>
+<p>After cleaning or filtering your data, you need to save your results to your hard drive.</p>
+<section id="preparing-the-demo-data" class="level3">
+<h3 class="anchored" data-anchor-id="preparing-the-demo-data">1.1 Preparing the Demo Data</h3>
+<p>We will use the <code>gapminder</code> dataset to practice. We will create two subsets: one for Australia and one for the continent of Africa.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"gapminder"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"gapminder"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(gapminder)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(gapminder)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 1704    6</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(gapminder<span class="sc">$</span>lifeExp)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="do">##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. </span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="do">##   23.60   48.20   60.71   59.47   70.85   82.60</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>aust <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>country <span class="sc">==</span> <span class="st">"Australia"</span>,]</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>africa <span class="ot">&lt;-</span> gapminder[gapminder<span class="sc">$</span>continent <span class="sc">==</span> <span class="st">"Africa"</span>,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="saving-as-csv-with-write.csv" class="level3">
+<h3 class="anchored" data-anchor-id="saving-as-csv-with-write.csv">1.2 Saving as CSV with <code>write.csv()</code></h3>
+<p>The Comma-Separated Value (.csv) is the universal language of data tables.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 'data' folder in your current working directory</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"data"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the Africa subset of the gapminder data</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(africa, <span class="at">file =</span> <span class="st">"data/gapminder_africa.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>The “Folder Not Found” Error</strong></p>
+<p>R is a great calculator, but it isn’t a folder manager. If you tell R to save a file in a folder named <code>data/</code> but that folder doesn’t exist yet, R will throw an error: <code>No such file or directory</code>.</p>
+<p>Before saving, you must create the folder manually or use this code:</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a 'data' folder in your current working directory</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">dir.create</span>(<span class="st">"data"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</div>
+</div>
+</section>
+<section id="saving-as-tsv-with-write.table" class="level3">
+<h3 class="anchored" data-anchor-id="saving-as-tsv-with-write.table">1.3 Saving as TSV with <code>write.table()</code></h3>
+<p>In bioinformatics, <strong>Tab-Separated Value (.tsv)</strong> files are often preferred because gene names or clinical notes sometimes contain commas, which can “break” a CSV file.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Saving as a TSV (using sep = "\t")</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(aust, <span class="at">file =</span> <span class="st">"data/gapminder_australia.tsv"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong><code>sep = "\t"</code></strong>: Tells R to use a “Tab” to separate your values. Common ones are <code>","</code> (comma), <code>"\t"</code> (tab), and <code>""</code> (white space).</p></li>
+<li><p><strong><code>quote = FALSE</code></strong>: Prevents R from putting double quotes around every word, making the file much easier to read in a text editor.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="exporting-to-excel-with-write_xlsx" class="level3">
+<h3 class="anchored" data-anchor-id="exporting-to-excel-with-write_xlsx">1.4 Exporting to Excel with <code>write_xlsx()</code></h3>
+<p>Sometimes you need to share results with a collaborator who strictly uses Excel. The <code>writexl</code> package makes this easy.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"writexl"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"writexl"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(writexl)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">write_xlsx</span>(aust, <span class="at">path =</span> <span class="st">"data/gapminder_australia.xlsx"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+</section>
+<section id="metadata-and-versioning" class="level3">
+<h3 class="anchored" data-anchor-id="metadata-and-versioning">1.5 Metadata and Versioning</h3>
+<p>Scientific data is iterative. You will likely generate 10 versions of the same table before your paper is published.</p>
+<ul>
+<li><p><strong>The “Dated” Filename:</strong> Never name a file <code>results_FINAL.csv</code>. Instead, use: <code>results_v1_2026-02-07.csv</code>. When exporting data, always include a date or version number in the filename. This prevents overwriting and tells you exactly when the data was generated.</p></li>
+<li><p><strong>The <code>row.names = FALSE</code> Rule:</strong> By default, R tries to save the row numbers (1, 2, 3…) into your file. This usually creates an annoying, unnamed “Column 1” in Excel. Setting this to <code>FALSE</code> keeps your data clean.</p></li>
+</ul>
 </section>
 </section>
 <section id="reading-data-tables" class="level2">
-<h2 class="anchored" data-anchor-id="reading-data-tables">1. Reading Data Tables</h2>
-<section id="from-.csv-comma-separated-values" class="level3">
-<h3 class="anchored" data-anchor-id="from-.csv-comma-separated-values">1.1 From .csv (Comma Separated Values)</h3>
+<h2 class="anchored" data-anchor-id="reading-data-tables">2. Reading Data Tables</h2>
+<section id="reading-text-files-.csv-and-.tsv" class="level3">
+<h3 class="anchored" data-anchor-id="reading-text-files-.csv-and-.tsv">2.1 Reading Text Files (.csv and .tsv)</h3>
 <section id="base-r" class="level4">
-<h4 class="anchored" data-anchor-id="base-r"><strong>1.1.1 Base R</strong></h4>
+<h4 class="anchored" data-anchor-id="base-r"><strong>2.1.1 Base R</strong></h4>
 <p>These functions come pre-installed with R. They are reliable and don’t require any extra libraries, but can be slow with very large genomic datasets.</p>
 <blockquote class="blockquote">
 <p><strong><code>read.csv()</code></strong> Specifically designed for CSV files. It automatically assumes that your data is separated by commas (<code>,</code>).</p>
 <p><strong><code>read.table()</code> (The “Parent” Function)</strong> This is the most flexible tool in your kit. While <code>read.csv()</code> is “locked” to commas, <code>read.table()</code> lets you specify <strong>any</strong> separator. This is essential for tab-separated genomic files.</p>
 </blockquote>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/my_data.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"data/gapminder_africa.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading a Tab-Separated file (.tsv or .txt)</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/my_data.txt"</span>, </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">header =</span> <span class="cn">TRUE</span>,      <span class="co"># Does the first row have column names?</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,         <span class="co"># What separates the data? (\t = tab)</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="co"># Keep text as text, not categories</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Reading a Tab-Separated file (.tsv or .txt)</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read.table</span>(<span class="st">"data/gapminder_australia.tsv"</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                      <span class="at">header =</span> <span class="cn">TRUE</span>,      <span class="co"># Does the first row have column names?</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                      <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>,         <span class="co"># What separates the data? (\t = tab)</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                      <span class="at">stringsAsFactors =</span> <span class="cn">FALSE</span>) <span class="co"># Keep text as text, not categories</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -564,45 +714,59 @@ Tip
 </div>
 </section>
 <section id="readr-tidyverse" class="level4">
-<h4 class="anchored" data-anchor-id="readr-tidyverse"><strong>1.1.2 <code>readr</code> (Tidyverse)</strong></h4>
+<h4 class="anchored" data-anchor-id="readr-tidyverse"><strong>2.1.2 <code>readr</code> (Tidyverse)</strong></h4>
 <p>Part of the Tidyverse, <code>read_csv()</code> is faster and better at “guessing” your data types correctly.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/my_data.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"readr"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"readr"</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readr)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/gapminder_africa.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 </section>
-<section id="from-.xlsx-excel" class="level3">
-<h3 class="anchored" data-anchor-id="from-.xlsx-excel">1.2 From .xlsx (Excel)</h3>
+<section id="reading-from-excel-.xlsx" class="level3">
+<h3 class="anchored" data-anchor-id="reading-from-excel-.xlsx">2.2 Reading from Excel (.xlsx)</h3>
 <p>R cannot read Excel files natively. You need the <code>readxl</code> package.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/my_data.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">require</span>(<span class="st">"readxl"</span>, <span class="at">quietly =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"readxl"</span>)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>dataset <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"data/gapminder_australia.xlsx"</span>, <span class="at">sheet =</span> <span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
-</section>
-<section id="writing-data-tables" class="level2">
-<h2 class="anchored" data-anchor-id="writing-data-tables">2. Writing Data Tables</h2>
-<p>After cleaning your data, you often need to export it for a publication or to share with a collaborator.</p>
-<section id="write.csv" class="level3">
-<h3 class="anchored" data-anchor-id="write.csv">2.1 <code>write.csv()</code></h3>
-<p>The standard way to save a table as a CSV.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Save the Africa subset of the gapminder data</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.csv</span>(africa, <span class="at">file =</span> <span class="st">"data/gapminder_africa.csv"</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<section id="the-point-and-click-method-interactive" class="level3">
+<h3 class="anchored" data-anchor-id="the-point-and-click-method-interactive">2.3 The “Point-and-Click” Method (Interactive)</h3>
+<p>If you are a beginner or can’t remember the exact path to your file, use the <strong>Import Dataset</strong> button in the <strong>Environment</strong> panel (top-right).</p>
+<ol type="1">
+<li><p>Click <strong>Import Dataset</strong>.</p></li>
+<li><p>Browse your computer and select your file.</p></li>
+<li><p>Look at the “Code Preview” box in the bottom-right of the window. RStudio writes the code for you! You should <strong>copy and paste</strong> that code into your script so that your work is reproducible next time.</p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-</section>
-<section id="write.table-for-.tsv-and-custom-formats" class="level3">
-<h3 class="anchored" data-anchor-id="write.table-for-.tsv-and-custom-formats">2.2 <code>write.table()</code> (For .tsv and custom formats)</h3>
-<p>Use this if you need a <strong>Tab-Separated Value (.tsv)</strong> file, which is very common in bioinformatics.</p>
-<div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Saving as a TSV (using sep = "\t")</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="fu">write.table</span>(aust, <span class="at">file =</span> <span class="st">"data/gapminder_australia.tsv"</span>, <span class="at">sep =</span> <span class="st">"</span><span class="sc">\t</span><span class="st">"</span>, <span class="at">quote =</span> <span class="cn">FALSE</span>, <span class="at">row.names =</span> <span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="callout-title-container flex-fill">
+Note
 </div>
-</section>
-<section id="metadata-and-versioning" class="level3">
-<h3 class="anchored" data-anchor-id="metadata-and-versioning">2.3 Metadata and Versioning</h3>
-<p><strong>Crucial Tip:</strong> When exporting data, always include a date or version number in the filename (e.g., <code>results_v1_2026-02-01.csv</code>). This prevents you from accidentally overwriting your old work and helps you track which version of the data was used for which figure.</p>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Performance Limit:</strong></p>
+<p>Avoid using the interactive importer for massive datasets (like 100MB+ genomic files). The “preview” window will try to load the data to show it to you, which can cause RStudio to freeze.</p>
+</div>
+</div>
+<div class="columns">
+<div class="column" style="width:35%;">
+<p><img src="../images/RWData_3.png" class="border img-fluid"></p>
+</div><div class="column" style="width:5%;">
+
+</div><div class="column" style="width:60%;">
+<p><img src="../images/RWData_4.png" class="border img-fluid"></p>
+</div>
+</div>
 </section>
 </section>
 <section id="r-specific-formats-.rds-and-.rdata" class="level2">
@@ -612,16 +776,18 @@ Tip
 <h3 class="anchored" data-anchor-id="rds-save-one-object">3.1 .RDS (Save one object)</h3>
 <p>Best for saving a single dataframe or list. You can give it a new name when you load it back in.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(africa, <span class="at">file =</span> <span class="st">"data/africa.RDS"</span>)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>africa_reloaded <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/africa.RDS"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">saveRDS</span>(africa, <span class="at">file =</span> <span class="st">"data/africa.RDS"</span>)</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>africa_reloaded <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"data/africa.RDS"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="rdata-save-multiple-objects" class="level3">
 <h3 class="anchored" data-anchor-id="rdata-save-multiple-objects">3.2 .RData (Save multiple objects)</h3>
-<p>Used to save your entire “Environment.” When you load it, the variables appear with their original names.</p>
+<p>Used to save your entire/some part of “Environment.” When you load it, the variables appear with their original names.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(africa, americas, <span class="at">file =</span> <span class="st">"data/continents.RData"</span>)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/continents.RData"</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">save</span>(africa, aust, <span class="at">file =</span> <span class="st">"data/continents.RData"</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="st">"data/continents.RData"</span>, <span class="at">verbose =</span> <span class="cn">TRUE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 </section>
 <section id="summary-rds-vs.-rdata-vs.-rproject" class="level3">

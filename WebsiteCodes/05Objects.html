@@ -77,7 +77,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-c16d2075821f60783b9dd602420178f9.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-7087e1fe497f498abc06882b41efe3b6.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -1442,16 +1442,74 @@ Note
 <span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "data.frame"</span></span>
 <span id="cb76-9"><a href="#cb76-9" aria-hidden="true" tabindex="-1"></a><span class="fu">typeof</span>(df)</span>
 <span id="cb76-10"><a href="#cb76-10" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] "list"</span></span>
-<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
-<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a><span class="do">## 'data.frame':    3 obs. of  3 variables:</span></span>
-<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ ID       : chr  "P001" "P002" "P003"</span></span>
-<span id="cb76-14"><a href="#cb76-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ Age      : num  25 34 28</span></span>
-<span id="cb76-15"><a href="#cb76-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ Treatment: chr  "Placebo" "Drug" "Placebo"</span></span>
-<span id="cb76-16"><a href="#cb76-16" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
-<span id="cb76-17"><a href="#cb76-17" aria-hidden="true" tabindex="-1"></a><span class="do">##     ID Age Treatment</span></span>
-<span id="cb76-18"><a href="#cb76-18" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 P001  25   Placebo</span></span>
-<span id="cb76-19"><a href="#cb76-19" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 P002  34      Drug</span></span>
-<span id="cb76-20"><a href="#cb76-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 P003  28   Placebo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb76-11"><a href="#cb76-11" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span>
+<span id="cb76-12"><a href="#cb76-12" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 3 3</span></span>
+<span id="cb76-13"><a href="#cb76-13" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(df)</span>
+<span id="cb76-14"><a href="#cb76-14" aria-hidden="true" tabindex="-1"></a><span class="do">## 'data.frame':    3 obs. of  3 variables:</span></span>
+<span id="cb76-15"><a href="#cb76-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ ID       : chr  "P001" "P002" "P003"</span></span>
+<span id="cb76-16"><a href="#cb76-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ Age      : num  25 34 28</span></span>
+<span id="cb76-17"><a href="#cb76-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ Treatment: chr  "Placebo" "Drug" "Placebo"</span></span>
+<span id="cb76-18"><a href="#cb76-18" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df)</span>
+<span id="cb76-19"><a href="#cb76-19" aria-hidden="true" tabindex="-1"></a><span class="do">##     ID Age Treatment</span></span>
+<span id="cb76-20"><a href="#cb76-20" aria-hidden="true" tabindex="-1"></a><span class="do">## 1 P001  25   Placebo</span></span>
+<span id="cb76-21"><a href="#cb76-21" aria-hidden="true" tabindex="-1"></a><span class="do">## 2 P002  34      Drug</span></span>
+<span id="cb76-22"><a href="#cb76-22" aria-hidden="true" tabindex="-1"></a><span class="do">## 3 P003  28   Placebo</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<table class="caption-top table">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Function</strong></td>
+<td><strong>What it tells you</strong></td>
+<td><strong>Why it matters</strong></td>
+</tr>
+<tr class="even">
+<td><strong><code>class()</code></strong></td>
+<td>The high-level structure.</td>
+<td>Confirms you have a <code>data.frame</code> and not just a simple list or matrix.</td>
+</tr>
+<tr class="odd">
+<td><code>typeof()</code></td>
+<td>The internal <strong>Storage Type</strong>.</td>
+<td>Reveals how R stores the data in your computer’s memory. For a data frame, this will return <code>"list"</code>, because a data frame is technically a list of equal-length vectors.</td>
+</tr>
+<tr class="even">
+<td><strong><code>dim()</code></strong></td>
+<td>The Dimensions (Rows, then Columns).</td>
+<td><strong>Crucial.</strong> Tells you how many samples (rows) and variables (cols) you have.</td>
+</tr>
+<tr class="odd">
+<td><strong><code>str()</code></strong></td>
+<td>The internal <strong>str</strong>ucture.</td>
+<td>Shows the data type of every column at once (e.g., is Age numeric or text?).</td>
+</tr>
+<tr class="even">
+<td><strong><code>head()</code></strong></td>
+<td>The first 6 rows.</td>
+<td>A “sanity check” to see if the data looks like you expected.</td>
+</tr>
+<tr class="odd">
+<td><strong><code>tail()</code></strong></td>
+<td>The last 6 rows.</td>
+<td>Useful for checking if the file ended correctly or has “junk” at the bottom.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </section>
 <section id="re-naming-columns" class="level3">
