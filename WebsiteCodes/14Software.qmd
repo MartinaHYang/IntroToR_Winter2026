@@ -14,21 +14,21 @@ A script should read like a story. Organize it so a colleague (or "Future You") 
 
 -   **Sectioning:** Use comments (e.g., `#### SECTION NAME ####`) to create a map of your script.
 
-    -   **Folding:** You can click the small triangle icon next to the line numbers to "fold" (hide) a big chunk of code once you are finished with it. This keeps your workspace tidy.
-    -   **Navigation:** In RStudio, you can click the **Outline** icon (top right of the script window) to see a table of contents. Click any section name to jump straight to that code.
-    -   **The Shortcut:** Use `Cmd + Shift + R` (Mac) or `Ctrl + Shift + R` (Windows) to instantly insert a new section header.
+    -   **Folding:** You can click the small triangle icon next to the line numbers to "fold" (hide) a big chunk of code once you are finished with it. This keeps your workspace tidy.
+    -   **Navigation:** In RStudio, you can click the **Outline** icon (top right of the script window) to see a table of contents. Click any section name to jump straight to that code.
+    -   **The Shortcut:** Use `Cmd + Shift + R` (Mac) or `Ctrl + Shift + R` (Windows) to instantly insert a new section header.
 
 -   **The "Head" of the Script:**
 
-    Always load your libraries and set your environment variables (like `set.seed()`) at the very top. This acts as a **"Required Hardware"** list for R. If someone else tries to run your code, they will know immediately which packages they need to install.
+    Always load your libraries and set your environment variables (like `set.seed()`) at the very top. This acts as a **"Required Hardware"** list for R. If someone else tries to run your code, they will know immediately which packages they need to install.
 
 -   **Function Management:**
 
     Keep your main analysis clean. If you have many custom functions:
 
-    -   **The "Functions" Section:** Put them in a dedicated section right below your library imports.
+    -   **The "Functions" Section:** Put them in a dedicated section right below your library imports.
 
-    -   **The External File:** For very long scripts, save your functions in a separate file (e.g., `utils.R`) and bring them in using `source("utils.R")`.
+    -   **The External File:** For very long scripts, save your functions in a separate file (e.g., `utils.R`) and bring them in using `source("utils.R")`.
 
 #### **Anatomy of a Professional Script**
 

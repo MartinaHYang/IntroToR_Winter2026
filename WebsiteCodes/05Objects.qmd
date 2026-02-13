@@ -716,9 +716,22 @@ df <- data.frame(
 
 class(df)
 typeof(df)
+dim(df)
 str(df)
 head(df)
 ```
+
+::: callout-note
+|  |  |  |
+|----|----|----|
+| **Function** | **What it tells you** | **Why it matters** |
+| **`class()`** | The high-level structure. | Confirms you have a `data.frame` and not just a simple list or matrix. |
+| `typeof()` | The internal **Storage Type**. | Reveals how R stores the data in your computer's memory. For a data frame, this will return `"list"`, because a data frame is technically a list of equal-length vectors. |
+| **`dim()`** | The Dimensions (Rows, then Columns). | **Crucial.** Tells you how many samples (rows) and variables (cols) you have. |
+| **`str()`** | The internal **str**ucture. | Shows the data type of every column at once (e.g., is Age numeric or text?). |
+| **`head()`** | The first 6 rows. | A "sanity check" to see if the data looks like you expected. |
+| **`tail()`** | The last 6 rows. | Useful for checking if the file ended correctly or has "junk" at the bottom. |
+:::
 
 ### 7.2 Re-naming columns
 
